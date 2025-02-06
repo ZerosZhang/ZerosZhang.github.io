@@ -319,6 +319,96 @@
   
 /&gt;
 &lt;/p&gt;
+&lt;h2 id=&#34;快速预览-quicklook&#34;&gt;快速预览 QuickLook
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/QL-Win/QuickLook&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/QL-Win/QuickLook&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;跟 &lt;code&gt;MacOS&lt;/code&gt; 一样的按空格预览文件的功能。需要额外下载插件，我下载了DrawIO，Office预览。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/ZQuickLook.png&#34;
+  width=&#34;1393&#34;
+  
+  height=&#34;776&#34;
+  
+  
+  loading=&#34;lazy&#34;
+  
+  
+  class=&#34;gallery-image&#34;
+  data-flex-grow=&#34;179&#34;
+  data-flex-basis=&#34;430px&#34;
+  
+/&gt;
+&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>ZerosTodo 个人助手</title>
+        <link>https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/</link>
+        <pubDate>Fri, 17 Jan 2025 16:39:45 +0800</pubDate>
+        
+        <guid>https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/</guid>
+        <description>&lt;img src="https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/Title.jpg" alt="Featured image of post ZerosTodo 个人助手" /&gt;&lt;h2 id=&#34;碰到的问题&#34;&gt;碰到的问题
+&lt;/h2&gt;&lt;p&gt;在日常的工作中，碰到几个问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;经常忘记个别要做的事情&lt;/li&gt;
+&lt;li&gt;某个事情做完几天后，忘记了当时的情况&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因此就实现了一个软件 &lt;code&gt;ZerosTodo&lt;/code&gt; ，帮助我日常更方便的工作。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/ZerosTodo.png&#34;
+  width=&#34;913&#34;
+  
+  height=&#34;548&#34;
+  
+  
+  loading=&#34;lazy&#34;
+  
+  
+  class=&#34;gallery-image&#34;
+  data-flex-grow=&#34;166&#34;
+  data-flex-basis=&#34;399px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;这个软件目前（2025 年 2 月 6 日）包含两个功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;从 &lt;code&gt;wolai&lt;/code&gt; 的特定页面中获取最近要做的几个事情&lt;/li&gt;
+&lt;li&gt;每隔 5 秒截图屏幕并保存&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对于需求1，为了区别于正常的待办软件，我的软件里并没有待办的概念，而是直接把最近要做的几个事情显示在软件的界面上，并置顶悬浮于所有软件上面。我在屏幕专门留了一个角落给他。&lt;/p&gt;
+&lt;p&gt;对于需求2，我遍历当前所有的屏幕，并对每个屏幕截图，按照日期保存到指定的文件夹中。同时，为了避免硬盘占用太多，额外新增了一个配置项，超过 90 天的文件夹将会被删除。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/ZerosTodoWolai.png&#34;
+  width=&#34;784&#34;
+  
+  height=&#34;411&#34;
+  
+  
+  loading=&#34;lazy&#34;
+  
+  
+  class=&#34;gallery-image&#34;
+  data-flex-grow=&#34;190&#34;
+  data-flex-basis=&#34;457px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/ZerosTodoLog.png&#34;
+  width=&#34;784&#34;
+  
+  height=&#34;411&#34;
+  
+  
+  loading=&#34;lazy&#34;
+  
+  
+  class=&#34;gallery-image&#34;
+  data-flex-grow=&#34;190&#34;
+  data-flex-basis=&#34;457px&#34;
+  
+/&gt;
+&lt;/p&gt;
 </description>
         </item>
         
