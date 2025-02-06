@@ -7,7 +7,82 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Zeros遇见</copyright>
-        <lastBuildDate>Fri, 17 Jan 2025 16:41:10 +0800</lastBuildDate><atom:link href="https://zeroszhang.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 06 Feb 2025 15:44:39 +0800</lastBuildDate><atom:link href="https://zeroszhang.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Microsoft Rewards 自动获取助手</title>
+        <link>https://zeroszhang.github.io/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/</link>
+        <pubDate>Thu, 06 Feb 2025 15:44:39 +0800</pubDate>
+        
+        <guid>https://zeroszhang.github.io/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/</guid>
+        <description>&lt;img src="https://zeroszhang.github.io/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/Title.jpg" alt="Featured image of post Microsoft Rewards 自动获取助手" /&gt;&lt;h2 id=&#34;关于-microsoft-rewards&#34;&gt;关于 Microsoft Rewards
+&lt;/h2&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/ZMicrosoftRewards.png&#34;
+  width=&#34;1567&#34;
+  
+  height=&#34;324&#34;
+  
+  
+  loading=&#34;lazy&#34;
+  
+  
+  class=&#34;gallery-image&#34;
+  data-flex-grow=&#34;483&#34;
+  data-flex-basis=&#34;1160px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Microsoft Rewards&lt;/code&gt; 是微软出品的一款软件，可以通过搜索 &lt;code&gt;Bing&lt;/code&gt; 来获取奖励，奖励的种类有很多，包括现金、积分、礼品等。但是我老是忘记搜索 &lt;code&gt;Bing&lt;/code&gt;，因此就实现了一个软件，帮助我每天自动搜索 &lt;code&gt;Bing&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;我并没有将该功能添加到 &lt;code&gt;ZerosTodo&lt;/code&gt; 中，因为我并不希望该功能影响我正常使用电脑，所以我拿了一个老笔记本安装了 &lt;code&gt;Windows Server 2016&lt;/code&gt;，当作我的服务器。&lt;/p&gt;
+&lt;p&gt;另外，&lt;code&gt;Rewards&lt;/code&gt; 也有手机端的搜索任务，但是手机我是随身带着，所以我并没有实现安卓端的软件，直接使用油猴脚本进行替代。&lt;/p&gt;
+&lt;h2 id=&#34;关于-rewardsautomate&#34;&gt;关于 RewardsAutoMate
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;自动搜索功能&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;该软件用于在 PC 端获取随机的搜索关键词，自动搜索 &lt;code&gt;Bing&lt;/code&gt;，每天搜索 40 次，每隔 8 个小时执行一次任务。如果当天已经完成了任务，则不会继续执行。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/ZAutoSearch.png&#34;
+  width=&#34;855&#34;
+  
+  height=&#34;785&#34;
+  
+  
+  loading=&#34;lazy&#34;
+  
+  
+  class=&#34;gallery-image&#34;
+  data-flex-grow=&#34;108&#34;
+  data-flex-basis=&#34;261px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;热力图功能&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;为了记录每天的搜索情况，该软件会生成如 &lt;code&gt;Github&lt;/code&gt; 的热力图，用于记录每天的搜索情况。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/ZHeatMap.png&#34;
+  width=&#34;1510&#34;
+  
+  height=&#34;635&#34;
+  
+  
+  loading=&#34;lazy&#34;
+  
+  alt=&#34;该图片使用随机数据&#34;
+  
+  
+  class=&#34;gallery-image&#34;
+  data-flex-grow=&#34;237&#34;
+  data-flex-basis=&#34;570px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;自动登录功能&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Rewards 和微软账号相关，所以在打开 EdgeDriver 时，要调用本地的账户信息进行登录。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>软件推荐</title>
         <link>https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</link>
         <pubDate>Fri, 17 Jan 2025 16:41:10 +0800</pubDate>
