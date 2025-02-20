@@ -80,6 +80,8 @@
 &lt;li&gt;自动登录功能&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;code&gt;Rewards&lt;/code&gt; 和微软账号相关，所以在打开 &lt;code&gt;EdgeDriver&lt;/code&gt; 时，要调用本地的账户信息进行登录。&lt;/p&gt;
+&lt;p&gt;项目代码上传到此处：&lt;a class=&#34;link&#34; href=&#34;https://gitee.com/Zeros_Zhang/rewards-auto-mate&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RewardsAutoMate&lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -484,6 +486,8 @@
   
 /&gt;
 &lt;/p&gt;
+&lt;p&gt;项目代码上传到此处：&lt;a class=&#34;link&#34; href=&#34;https://gitee.com/Zeros_Zhang/ZerosTodo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ZerosTodo&lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
