@@ -1486,7 +1486,8 @@
 &lt;/p&gt;
 &lt;h2 id=&#34;更新记录&#34;&gt;更新记录
 &lt;/h2&gt;&lt;p&gt;更新了部分 &lt;code&gt;BaseWPFControl&lt;/code&gt; 中的控件，实现了更多的功能。&lt;/p&gt;
-&lt;p&gt;实际使用了一下ListBox之后发现还是有很多问题，尤其是关于调整属性之后，并且给出了更多的示例&lt;/p&gt;
+&lt;h3 id=&#34;优化listbox&#34;&gt;优化&lt;code&gt;ListBox&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;实际使用了一下&lt;code&gt;ListBox&lt;/code&gt;之后发现还是有很多问题，尤其是关于调整属性之后，并且给出了更多的示例&lt;/p&gt;
 &lt;p&gt;&lt;img
   src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/index.assets/PixPin_2025-03-17_10-07-54.png&#34;
   width=&#34;1196&#34;
@@ -1496,8 +1497,6 @@
   
   loading=&#34;lazy&#34;
   
-  alt=&#34;img&#34;
-  
   
   class=&#34;gallery-image&#34;
   data-flex-grow=&#34;132&#34;
@@ -1505,7 +1504,7 @@
   
 /&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;新增baseclipborder&#34;&gt;新增BaseClipBorder
+&lt;h3 id=&#34;新增baseclipborder&#34;&gt;新增&lt;code&gt;BaseClipBorder&lt;/code&gt;
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;实现了新的控件&lt;code&gt;BaseClipBorder&lt;/code&gt;来解决边框溢出和边框圆角缝隙的问题&lt;/li&gt;
 &lt;li&gt;最终实现如右图所示&lt;/li&gt;
@@ -1518,8 +1517,6 @@
   
   
   loading=&#34;lazy&#34;
-  
-  alt=&#34;img&#34;
   
   
   class=&#34;gallery-image&#34;
@@ -1542,8 +1539,6 @@
   
   loading=&#34;lazy&#34;
   
-  alt=&#34;img&#34;
-  
   
   class=&#34;gallery-image&#34;
   data-flex-grow=&#34;132&#34;
@@ -1551,10 +1546,10 @@
   
 /&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;新增defaultcontrolstyle和defaultwindowstyle&#34;&gt;新增DefaultControlStyle和DefaultWindowStyle
+&lt;h3 id=&#34;新增defaultcontrolstyle和defaultwindowstyle&#34;&gt;新增&lt;code&gt;DefaultControlStyle&lt;/code&gt;和&lt;code&gt;DefaultWindowStyle&lt;/code&gt;
 &lt;/h3&gt;&lt;p&gt;这样设计的原因其实是为了移除掉&lt;code&gt;TextBlock&lt;/code&gt;的&lt;code&gt;FontSize&lt;/code&gt;属性和&lt;code&gt;FontFamily&lt;/code&gt;属性，改为直接从&lt;code&gt;Window&lt;/code&gt;或者&lt;code&gt;UserControl&lt;/code&gt;中继承字体属性。&lt;/p&gt;
 &lt;p&gt;而&lt;code&gt;DefaultControlStyle&lt;/code&gt;中定义了基础的&lt;code&gt;FontSize&lt;/code&gt;和&lt;code&gt;FontFamily&lt;/code&gt;样式，并且任何控件都可以使用。&lt;/p&gt;
-&lt;h3 id=&#34;优化button&#34;&gt;优化Button
+&lt;h3 id=&#34;优化button&#34;&gt;优化&lt;code&gt;Button&lt;/code&gt;
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;删除了关于&lt;code&gt;ButtonShape&lt;/code&gt;属性的内容&lt;/li&gt;
 &lt;li&gt;新增了一些无边框按钮的样式&lt;/li&gt;
@@ -1569,8 +1564,6 @@
   
   loading=&#34;lazy&#34;
   
-  alt=&#34;img&#34;
-  
   
   class=&#34;gallery-image&#34;
   data-flex-grow=&#34;132&#34;
@@ -1578,7 +1571,7 @@
   
 /&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;优化combobox&#34;&gt;优化ComboBox
+&lt;h3 id=&#34;优化combobox&#34;&gt;优化&lt;code&gt;ComboBox&lt;/code&gt;
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;重写了&lt;code&gt;ComboBox&lt;/code&gt;的样式&lt;/li&gt;
 &lt;li&gt;新增&lt;code&gt;ComboBoxItem&lt;/code&gt;的样式&lt;/li&gt;
@@ -1591,8 +1584,6 @@
   
   
   loading=&#34;lazy&#34;
-  
-  alt=&#34;img&#34;
   
   
   class=&#34;gallery-image&#34;
@@ -1609,8 +1600,6 @@
   
   
   loading=&#34;lazy&#34;
-  
-  alt=&#34;img&#34;
   
   
   class=&#34;gallery-image&#34;
@@ -1644,8 +1633,6 @@
   
   loading=&#34;lazy&#34;
   
-  alt=&#34;img&#34;
-  
   
   class=&#34;gallery-image&#34;
   data-flex-grow=&#34;561&#34;
@@ -1654,8 +1641,8 @@
 /&gt;
 &lt;/p&gt;
 &lt;h3 id=&#34;优化datagrid&#34;&gt;优化&lt;code&gt;DataGrid&lt;/code&gt;
-&lt;/h3&gt;&lt;p&gt;在使用DataGrid的时候，我发现有些属性没有效果，或者不尽如人意。&lt;/p&gt;
-&lt;p&gt;所以我就重新整理了一下DataGrid的实现，并且给出了详细的案例。&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;在使用&lt;code&gt;DataGrid&lt;/code&gt;的时候，我发现有些属性没有效果，或者不尽如人意。&lt;/p&gt;
+&lt;p&gt;所以我就重新整理了一下&lt;code&gt;DataGrid&lt;/code&gt;的实现，并且给出了详细的案例。&lt;/p&gt;
 &lt;p&gt;&lt;img
   src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/index.assets/PixPin_2025-03-28_09-40-06.png&#34;
   width=&#34;1196&#34;
@@ -1664,8 +1651,6 @@
   
   
   loading=&#34;lazy&#34;
-  
-  alt=&#34;img&#34;
   
   
   class=&#34;gallery-image&#34;
@@ -1683,8 +1668,6 @@
   
   loading=&#34;lazy&#34;
   
-  alt=&#34;img&#34;
-  
   
   class=&#34;gallery-image&#34;
   data-flex-grow=&#34;132&#34;
@@ -1701,8 +1684,6 @@
   
   loading=&#34;lazy&#34;
   
-  alt=&#34;img&#34;
-  
   
   class=&#34;gallery-image&#34;
   data-flex-grow=&#34;132&#34;
@@ -1710,7 +1691,7 @@
   
 /&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;优化calendar和clock&#34;&gt;优化Calendar和Clock
+&lt;h3 id=&#34;优化calendar和clock&#34;&gt;优化&lt;code&gt;Calendar&lt;/code&gt;和&lt;code&gt;Clock&lt;/code&gt;
 &lt;/h3&gt;&lt;p&gt;&lt;img
   src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/index.assets/PixPin_2025-03-28_13-59-15.png&#34;
   width=&#34;1196&#34;
@@ -1720,8 +1701,6 @@
   
   loading=&#34;lazy&#34;
   
-  alt=&#34;img&#34;
-  
   
   class=&#34;gallery-image&#34;
   data-flex-grow=&#34;132&#34;
@@ -1729,7 +1708,7 @@
   
 /&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;优化flipbox&#34;&gt;优化FlipBox
+&lt;h3 id=&#34;优化flipbox&#34;&gt;优化&lt;code&gt;FlipBox&lt;/code&gt;
 &lt;/h3&gt;&lt;p&gt;&lt;img
   src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/index.assets/PixPin_2025-03-28_13-59-39.png&#34;
   width=&#34;1196&#34;
@@ -1739,8 +1718,6 @@
   
   loading=&#34;lazy&#34;
   
-  alt=&#34;img&#34;
-  
   
   class=&#34;gallery-image&#34;
   data-flex-grow=&#34;132&#34;
@@ -1748,7 +1725,7 @@
   
 /&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;新增dialog显示成window&#34;&gt;新增Dialog显示成Window
+&lt;h3 id=&#34;新增dialog显示成window&#34;&gt;新增&lt;code&gt;Dialog&lt;/code&gt;显示成&lt;code&gt;Window&lt;/code&gt;
 &lt;/h3&gt;&lt;p&gt;可以调用&lt;code&gt;ShowDialogAsWindow&lt;/code&gt;函数，将&lt;code&gt;Dialog&lt;/code&gt;显示成独立的&lt;code&gt;Window&lt;/code&gt;，就算没有&lt;code&gt;DialogContainer&lt;/code&gt;也能显示。使用体验和&lt;code&gt;WPF&lt;/code&gt;原生的&lt;code&gt;ShowDialog&lt;/code&gt;函数类似。&lt;/p&gt;
 &lt;p&gt;&lt;img
   src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/index.assets/PixPin_2025-03-28_14-07-45.png&#34;
@@ -1758,8 +1735,6 @@
   
   
   loading=&#34;lazy&#34;
-  
-  alt=&#34;img&#34;
   
   
   class=&#34;gallery-image&#34;
@@ -1777,8 +1752,6 @@
   
   loading=&#34;lazy&#34;
   
-  alt=&#34;img&#34;
-  
   
   class=&#34;gallery-image&#34;
   data-flex-grow=&#34;132&#34;
@@ -1786,8 +1759,8 @@
   
 /&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;优化listbox&#34;&gt;优化ListBox
-&lt;/h3&gt;&lt;p&gt;和之前的显示一致，只是使用BaseClipBorder简化了内部实现。&lt;/p&gt;
+&lt;h3 id=&#34;优化listbox-1&#34;&gt;优化&lt;code&gt;ListBox&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;和之前的显示一致，只是使用&lt;code&gt;BaseClipBorder&lt;/code&gt;简化了内部实现。&lt;/p&gt;
 &lt;p&gt;&lt;img
   src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/index.assets/PixPin_2025-03-28_14-21-24.png&#34;
   width=&#34;1196&#34;
@@ -1797,8 +1770,6 @@
   
   loading=&#34;lazy&#34;
   
-  alt=&#34;img&#34;
-  
   
   class=&#34;gallery-image&#34;
   data-flex-grow=&#34;132&#34;
@@ -1806,7 +1777,7 @@
   
 /&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;优化listview&#34;&gt;优化ListView
+&lt;h3 id=&#34;优化listview&#34;&gt;优化&lt;code&gt;ListView&lt;/code&gt;
 &lt;/h3&gt;&lt;p&gt;&lt;img
   src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/index.assets/PixPin_2025-03-28_16-19-43.png&#34;
   width=&#34;1196&#34;
@@ -1815,8 +1786,6 @@
   
   
   loading=&#34;lazy&#34;
-  
-  alt=&#34;img&#34;
   
   
   class=&#34;gallery-image&#34;
@@ -1835,8 +1804,6 @@
   
   
   loading=&#34;lazy&#34;
-  
-  alt=&#34;img&#34;
   
   
   class=&#34;gallery-image&#34;
@@ -1859,8 +1826,6 @@
   
   loading=&#34;lazy&#34;
   
-  alt=&#34;img&#34;
-  
   
   class=&#34;gallery-image&#34;
   data-flex-grow=&#34;171&#34;
@@ -1880,8 +1845,6 @@
   
   
   loading=&#34;lazy&#34;
-  
-  alt=&#34;img&#34;
   
   
   class=&#34;gallery-image&#34;

@@ -220,18 +220,19 @@
     </li>
     <li><a href="#更新记录">更新记录</a>
       <ol>
-        <li><a href="#新增baseclipborder">新增BaseClipBorder</a></li>
+        <li><a href="#优化listbox">优化<code>ListBox</code></a></li>
+        <li><a href="#新增baseclipborder">新增<code>BaseClipBorder</code></a></li>
         <li><a href="#优化progressbar">优化ProgressBar</a></li>
-        <li><a href="#新增defaultcontrolstyle和defaultwindowstyle">新增DefaultControlStyle和DefaultWindowStyle</a></li>
-        <li><a href="#优化button">优化Button</a></li>
-        <li><a href="#优化combobox">优化ComboBox</a></li>
+        <li><a href="#新增defaultcontrolstyle和defaultwindowstyle">新增<code>DefaultControlStyle</code>和<code>DefaultWindowStyle</code></a></li>
+        <li><a href="#优化button">优化<code>Button</code></a></li>
+        <li><a href="#优化combobox">优化<code>ComboBox</code></a></li>
         <li><a href="#新增innerseparator属性">新增<code>InnerSeparator</code>属性</a></li>
         <li><a href="#优化datagrid">优化<code>DataGrid</code></a></li>
-        <li><a href="#优化calendar和clock">优化Calendar和Clock</a></li>
-        <li><a href="#优化flipbox">优化FlipBox</a></li>
-        <li><a href="#新增dialog显示成window">新增Dialog显示成Window</a></li>
-        <li><a href="#优化listbox">优化ListBox</a></li>
-        <li><a href="#优化listview">优化ListView</a></li>
+        <li><a href="#优化calendar和clock">优化<code>Calendar</code>和<code>Clock</code></a></li>
+        <li><a href="#优化flipbox">优化<code>FlipBox</code></a></li>
+        <li><a href="#新增dialog显示成window">新增<code>Dialog</code>显示成<code>Window</code></a></li>
+        <li><a href="#优化listbox-1">优化<code>ListBox</code></a></li>
+        <li><a href="#优化listview">优化<code>ListView</code></a></li>
         <li><a href="#优化smoothprogress">优化<code>SmoothProgress</code></a></li>
         <li><a href="#新增simplescrollviewer样式">新增<code>SimpleScrollViewer</code>样式</a></li>
         <li><a href="#优化tabcontrol">优化<code>TabControl</code></a></li>
@@ -1251,7 +1252,8 @@
 </p>
 <h2 id="更新记录">更新记录
 </h2><p>更新了部分 <code>BaseWPFControl</code> 中的控件，实现了更多的功能。</p>
-<p>实际使用了一下ListBox之后发现还是有很多问题，尤其是关于调整属性之后，并且给出了更多的示例</p>
+<h3 id="优化listbox">优化<code>ListBox</code>
+</h3><p>实际使用了一下<code>ListBox</code>之后发现还是有很多问题，尤其是关于调整属性之后，并且给出了更多的示例</p>
 <p><img
   src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/index.assets/PixPin_2025-03-17_10-07-54.png"
   width="1196"
@@ -1261,8 +1263,6 @@
   
   loading="lazy"
   
-  alt="img"
-  
   
   class="gallery-image"
   data-flex-grow="132"
@@ -1270,7 +1270,7 @@
   
 />
 </p>
-<h3 id="新增baseclipborder">新增BaseClipBorder
+<h3 id="新增baseclipborder">新增<code>BaseClipBorder</code>
 </h3><ul>
 <li>实现了新的控件<code>BaseClipBorder</code>来解决边框溢出和边框圆角缝隙的问题</li>
 <li>最终实现如右图所示</li>
@@ -1283,8 +1283,6 @@
   
   
   loading="lazy"
-  
-  alt="img"
   
   
   class="gallery-image"
@@ -1307,8 +1305,6 @@
   
   loading="lazy"
   
-  alt="img"
-  
   
   class="gallery-image"
   data-flex-grow="132"
@@ -1316,10 +1312,10 @@
   
 />
 </p>
-<h3 id="新增defaultcontrolstyle和defaultwindowstyle">新增DefaultControlStyle和DefaultWindowStyle
+<h3 id="新增defaultcontrolstyle和defaultwindowstyle">新增<code>DefaultControlStyle</code>和<code>DefaultWindowStyle</code>
 </h3><p>这样设计的原因其实是为了移除掉<code>TextBlock</code>的<code>FontSize</code>属性和<code>FontFamily</code>属性，改为直接从<code>Window</code>或者<code>UserControl</code>中继承字体属性。</p>
 <p>而<code>DefaultControlStyle</code>中定义了基础的<code>FontSize</code>和<code>FontFamily</code>样式，并且任何控件都可以使用。</p>
-<h3 id="优化button">优化Button
+<h3 id="优化button">优化<code>Button</code>
 </h3><ul>
 <li>删除了关于<code>ButtonShape</code>属性的内容</li>
 <li>新增了一些无边框按钮的样式</li>
@@ -1334,8 +1330,6 @@
   
   loading="lazy"
   
-  alt="img"
-  
   
   class="gallery-image"
   data-flex-grow="132"
@@ -1343,7 +1337,7 @@
   
 />
 </p>
-<h3 id="优化combobox">优化ComboBox
+<h3 id="优化combobox">优化<code>ComboBox</code>
 </h3><ul>
 <li>重写了<code>ComboBox</code>的样式</li>
 <li>新增<code>ComboBoxItem</code>的样式</li>
@@ -1356,8 +1350,6 @@
   
   
   loading="lazy"
-  
-  alt="img"
   
   
   class="gallery-image"
@@ -1374,8 +1366,6 @@
   
   
   loading="lazy"
-  
-  alt="img"
   
   
   class="gallery-image"
@@ -1409,8 +1399,6 @@
   
   loading="lazy"
   
-  alt="img"
-  
   
   class="gallery-image"
   data-flex-grow="561"
@@ -1419,8 +1407,8 @@
 />
 </p>
 <h3 id="优化datagrid">优化<code>DataGrid</code>
-</h3><p>在使用DataGrid的时候，我发现有些属性没有效果，或者不尽如人意。</p>
-<p>所以我就重新整理了一下DataGrid的实现，并且给出了详细的案例。</p>
+</h3><p>在使用<code>DataGrid</code>的时候，我发现有些属性没有效果，或者不尽如人意。</p>
+<p>所以我就重新整理了一下<code>DataGrid</code>的实现，并且给出了详细的案例。</p>
 <p><img
   src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/index.assets/PixPin_2025-03-28_09-40-06.png"
   width="1196"
@@ -1429,8 +1417,6 @@
   
   
   loading="lazy"
-  
-  alt="img"
   
   
   class="gallery-image"
@@ -1448,8 +1434,6 @@
   
   loading="lazy"
   
-  alt="img"
-  
   
   class="gallery-image"
   data-flex-grow="132"
@@ -1466,8 +1450,6 @@
   
   loading="lazy"
   
-  alt="img"
-  
   
   class="gallery-image"
   data-flex-grow="132"
@@ -1475,7 +1457,7 @@
   
 />
 </p>
-<h3 id="优化calendar和clock">优化Calendar和Clock
+<h3 id="优化calendar和clock">优化<code>Calendar</code>和<code>Clock</code>
 </h3><p><img
   src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/index.assets/PixPin_2025-03-28_13-59-15.png"
   width="1196"
@@ -1485,8 +1467,6 @@
   
   loading="lazy"
   
-  alt="img"
-  
   
   class="gallery-image"
   data-flex-grow="132"
@@ -1494,7 +1474,7 @@
   
 />
 </p>
-<h3 id="优化flipbox">优化FlipBox
+<h3 id="优化flipbox">优化<code>FlipBox</code>
 </h3><p><img
   src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/index.assets/PixPin_2025-03-28_13-59-39.png"
   width="1196"
@@ -1504,8 +1484,6 @@
   
   loading="lazy"
   
-  alt="img"
-  
   
   class="gallery-image"
   data-flex-grow="132"
@@ -1513,7 +1491,7 @@
   
 />
 </p>
-<h3 id="新增dialog显示成window">新增Dialog显示成Window
+<h3 id="新增dialog显示成window">新增<code>Dialog</code>显示成<code>Window</code>
 </h3><p>可以调用<code>ShowDialogAsWindow</code>函数，将<code>Dialog</code>显示成独立的<code>Window</code>，就算没有<code>DialogContainer</code>也能显示。使用体验和<code>WPF</code>原生的<code>ShowDialog</code>函数类似。</p>
 <p><img
   src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/index.assets/PixPin_2025-03-28_14-07-45.png"
@@ -1523,8 +1501,6 @@
   
   
   loading="lazy"
-  
-  alt="img"
   
   
   class="gallery-image"
@@ -1542,8 +1518,6 @@
   
   loading="lazy"
   
-  alt="img"
-  
   
   class="gallery-image"
   data-flex-grow="132"
@@ -1551,8 +1525,8 @@
   
 />
 </p>
-<h3 id="优化listbox">优化ListBox
-</h3><p>和之前的显示一致，只是使用BaseClipBorder简化了内部实现。</p>
+<h3 id="优化listbox-1">优化<code>ListBox</code>
+</h3><p>和之前的显示一致，只是使用<code>BaseClipBorder</code>简化了内部实现。</p>
 <p><img
   src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/index.assets/PixPin_2025-03-28_14-21-24.png"
   width="1196"
@@ -1562,8 +1536,6 @@
   
   loading="lazy"
   
-  alt="img"
-  
   
   class="gallery-image"
   data-flex-grow="132"
@@ -1571,7 +1543,7 @@
   
 />
 </p>
-<h3 id="优化listview">优化ListView
+<h3 id="优化listview">优化<code>ListView</code>
 </h3><p><img
   src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/index.assets/PixPin_2025-03-28_16-19-43.png"
   width="1196"
@@ -1580,8 +1552,6 @@
   
   
   loading="lazy"
-  
-  alt="img"
   
   
   class="gallery-image"
@@ -1600,8 +1570,6 @@
   
   
   loading="lazy"
-  
-  alt="img"
   
   
   class="gallery-image"
@@ -1624,8 +1592,6 @@
   
   loading="lazy"
   
-  alt="img"
-  
   
   class="gallery-image"
   data-flex-grow="171"
@@ -1645,8 +1611,6 @@
   
   
   loading="lazy"
-  
-  alt="img"
   
   
   class="gallery-image"
