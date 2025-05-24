@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>软件 on Zeros遇见的作品集合</title>
+        <link>https://zeroszhang.github.io/categories/%E8%BD%AF%E4%BB%B6/</link>
+        <description>Recent content in 软件 on Zeros遇见的作品集合</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Zeros遇见</copyright>
+        <lastBuildDate>Thu, 06 Feb 2025 15:44:39 +0800</lastBuildDate><atom:link href="https://zeroszhang.github.io/categories/%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Microsoft Rewards 自动获取助手</title>
+        <link>https://zeroszhang.github.io/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/</link>
+        <pubDate>Thu, 06 Feb 2025 15:44:39 +0800</pubDate>
+        
+        <guid>https://zeroszhang.github.io/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/</guid>
+        <description>&lt;img src="https://zeroszhang.github.io/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/Title.jpg" alt="Featured image of post Microsoft Rewards 自动获取助手" /&gt;&lt;h2 id=&#34;关于-microsoft-rewards&#34;&gt;关于 Microsoft Rewards
+&lt;/h2&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/assets/ZMicrosoftRewards-1748076929110-5.png&#34;
+  width=&#34;1567&#34;
+  height=&#34;324&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;483&#34;
+    data-flex-basis=&#34;1160px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Microsoft Rewards&lt;/code&gt; 是微软出品的一款软件，可以通过搜索 &lt;code&gt;Bing&lt;/code&gt; 来获取奖励，奖励的种类有很多，包括现金、积分、礼品等。但是我老是忘记搜索 &lt;code&gt;Bing&lt;/code&gt;，因此就实现了一个软件，帮助我每天自动搜索 &lt;code&gt;Bing&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;我并没有将该功能添加到 &lt;code&gt;ZerosTodo&lt;/code&gt; 中，因为我并不希望该功能影响我正常使用电脑，所以我拿了一个老笔记本安装了 &lt;code&gt;Windows Server 2016&lt;/code&gt;，当作我的服务器。&lt;/p&gt;
+&lt;p&gt;另外，&lt;code&gt;Rewards&lt;/code&gt; 也有手机端的搜索任务，但是手机我是随身带着，所以我并没有实现安卓端的软件，直接使用油猴脚本进行替代。&lt;/p&gt;
+&lt;h2 id=&#34;关于-rewardsautomate&#34;&gt;关于 RewardsAutoMate
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;自动搜索功能&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;该软件用于在 PC 端获取随机的搜索关键词，自动搜索 &lt;code&gt;Bing&lt;/code&gt;，每天搜索 40 次，每隔 12 个小时执行一次任务。如果当天已经完成了任务，则不会继续执行。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/assets/ZAutoSearch-1748076929110-6.png&#34;
+  width=&#34;855&#34;
+  height=&#34;785&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;108&#34;
+    data-flex-basis=&#34;261px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;热力图功能&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;为了记录每天的搜索情况，该软件会生成如 &lt;code&gt;Github&lt;/code&gt; 的热力图，用于记录每天的搜索情况。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/assets/ZHeatMap-1748076929110-7.png&#34;
+  width=&#34;1510&#34;
+  height=&#34;635&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;该图片使用随机数据&#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;237&#34;
+    data-flex-basis=&#34;570px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;自动登录功能&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;Rewards&lt;/code&gt; 和微软账号相关，所以在打开 &lt;code&gt;EdgeDriver&lt;/code&gt; 时，要调用本地的账户信息进行登录。&lt;/p&gt;
+&lt;p&gt;项目代码上传到此处：&lt;a class=&#34;link&#34; href=&#34;https://gitee.com/Zeros_Zhang/rewards-auto-mate&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RewardsAutoMate&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;更新记录&#34;&gt;更新记录
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;2025年4月18日 更新：通过 &lt;code&gt;UserAgent&lt;/code&gt; 伪装成移动设备，这样可以在 &lt;code&gt;PC&lt;/code&gt; 端实现移动端的搜索。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>软件推荐</title>
+        <link>https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</link>
+        <pubDate>Fri, 17 Jan 2025 16:41:10 +0800</pubDate>
+        
+        <guid>https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</guid>
+        <description>&lt;img src="https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/Title.jpg" alt="Featured image of post 软件推荐" /&gt;&lt;h2 id=&#34;3d设计软件-freecad&#34;&gt;3D设计软件 FreeCAD
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/FreeCAD/FreeCAD&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/FreeCAD/FreeCAD&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;日常工作需要审核机械设计师在 &lt;code&gt;Solidworks&lt;/code&gt; 中绘制的 3D 图纸，于是就下了这个开源软件。该软件还支持 3D 设计，但是我没有这种需求。&lt;/p&gt;
+&lt;p&gt;让我同事在 &lt;code&gt;Solidworks&lt;/code&gt; 中导出 &lt;code&gt;Step&lt;/code&gt; 文件，再在 &lt;code&gt;FreeCAD&lt;/code&gt; 中打开即可。第一次打开 &lt;code&gt;step&lt;/code&gt; 时要设置文本编码方式，选择 &lt;code&gt;GBK&lt;/code&gt;，否则 &lt;code&gt;step&lt;/code&gt; 文件中的中文会乱码。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/ZFreeCAD-1748076949464-11.png&#34;
+  width=&#34;1921&#34;
+  height=&#34;1033&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;185&#34;
+    data-flex-basis=&#34;446px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;远程桌面-1remote&#34;&gt;远程桌面 1Remote
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/1Remote/1Remote&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/1Remote/1Remote&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;开源软件，该软件可以记录多个远程桌面的配置（IP地址+用户+密码），下次使用双击打开即可。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/Z1Remote-1748076949464-14.png&#34;
+  width=&#34;700&#34;
+  height=&#34;500&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;140&#34;
+    data-flex-basis=&#34;336px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;rss阅读-follow&#34;&gt;RSS阅读 Follow
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/RSSNext/follow&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/RSSNext/follow&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;开源软件，可以使用RSS订阅很多网站，这样每天只要打开 Follow 就可以看到很多网站的更新。另外还有一点好处是可以看到其他用户订阅的内容，这样可以扩展自己的知识面。&lt;/p&gt;
+&lt;p&gt;这个软件的功能是受限的，想解锁需要激活码，我是问别人要的。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/ZFollow-1748076949464-12.png&#34;
+  width=&#34;1922&#34;
+  height=&#34;1034&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;185&#34;
+    data-flex-basis=&#34;446px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;笔记软件-wolai&#34;&gt;笔记软件 Wolai
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.wolai.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.wolai.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;国内仿 Notion 比较好的软件，挺好用，需要按年开会员，否则功能受限。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/ZWolai-1748076949464-13.png&#34;
+  width=&#34;1916&#34;
+  height=&#34;1021&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;187&#34;
+    data-flex-basis=&#34;450px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;输入法中英文提示软件-inputtip&#34;&gt;输入法中英文提示软件 InputTip
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/abgox/InputTip&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/abgox/InputTip&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;写代码的时候需要频繁切换中英文，老是忘记看右下角，有了这个软件之后在输入的地方就会有一个悬浮图标指示大写/中文/英文。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/ZInputTip-1748076949464-16.png&#34;
+  width=&#34;891&#34;
+  height=&#34;521&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;171&#34;
+    data-flex-basis=&#34;410px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;截图软件-pixpin&#34;&gt;截图软件 PixPin
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pixpin.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://pixpin.cn/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;贼好用的截图软件，完全覆盖了 Snipaste 的功能，除此以外可以离线OCR，长截图，录制Gif，功能很多。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/ZPixPin-1748076949464-15.png&#34;
+  width=&#34;657&#34;
+  height=&#34;431&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;152&#34;
+    data-flex-basis=&#34;365px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;文件同步软件-坚果云&#34;&gt;文件同步软件 坚果云
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.jianguoyun.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.jianguoyun.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;可以无感同步文件，在不同的电脑上访问，我用的是免费的 1G 空间，同步一些日常用的文件。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/Z%E5%9D%9A%E6%9E%9C%E4%BA%91-1748076949464-17.png&#34;
+  width=&#34;438&#34;
+  height=&#34;638&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;68&#34;
+    data-flex-basis=&#34;164px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;数据库管理软件-heidi-sql&#34;&gt;数据库管理软件 Heidi SQL
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.heidisql.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.heidisql.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;开源的数据库管理软件，支持很多类型的连接。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/ZHeidiSQL-1748076949464-18.png&#34;
+  width=&#34;686&#34;
+  height=&#34;483&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;142&#34;
+    data-flex-basis=&#34;340px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;视频播放器-potplayer&#34;&gt;视频播放器 PotPlayer
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.potplayercn.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://www.potplayercn.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;贼好用的视频播放器，功能很多，比如倍速播放，看直播源等等。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/ZPotPlayer-1748076949464-20.png&#34;
+  width=&#34;663&#34;
+  height=&#34;260&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;255&#34;
+    data-flex-basis=&#34;612px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;markdown编辑器-typora&#34;&gt;Markdown编辑器 Typora
+&lt;/h2&gt;&lt;p&gt;好用的 Markdown 编辑器，比其他的编辑器都好用，主要是很方便预览。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://typora.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://typora.io/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/ZTypora-1748076949464-19.png&#34;
+  width=&#34;1467&#34;
+  height=&#34;917&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;159&#34;
+    data-flex-basis=&#34;383px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;简易csharp编辑器-linqpad-8&#34;&gt;简易CSharp编辑器 LinqPad 8
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.linqpad.net/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.linqpad.net/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;很方便的 C# 编辑器，使用 BenchMark 特别方便，跟写 Python 一样。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/ZLinqPad-1748076949464-21.png&#34;
+  width=&#34;1343&#34;
+  height=&#34;779&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;172&#34;
+    data-flex-basis=&#34;413px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;多功能编辑器-vscode&#34;&gt;多功能编辑器 VSCode
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://code.visualstudio.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://code.visualstudio.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;支持的文件很多，比如装插件可以看 SQL.db 文件，可以看 Excel 文件，算是高级文本编辑器。&lt;/p&gt;
+&lt;p&gt;还可以使用 Polyglot NoteBook 写 C#，跟 Jupyter NoteBook 类似，但是会有一些限制，而且代码提示没有 LinqPad 8 好用。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/ZVSCode-1748076949464-22.png&#34;
+  width=&#34;1911&#34;
+  height=&#34;1025&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;186&#34;
+    data-flex-basis=&#34;447px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;文本编辑器-sublime-text&#34;&gt;文本编辑器 Sublime Text
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.sublimetext.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.sublimetext.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;轻量化的文本编辑器，颜值很高。需要一点设置才能支持中文。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/ZSublime-1748076949464-24.png&#34;
+  width=&#34;1319&#34;
+  height=&#34;802&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;164&#34;
+    data-flex-basis=&#34;394px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;多功能启动器-utools&#34;&gt;多功能启动器 uTools
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.u.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.u.tools/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;神。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/ZuTools-1748076949464-23.png&#34;
+  width=&#34;883&#34;
+  height=&#34;291&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;303&#34;
+    data-flex-basis=&#34;728px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;右键菜单美化-nilesoft-shell&#34;&gt;右键菜单美化 NileSoft Shell
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://nilesoft.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://nilesoft.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;升级 Windows 11 后右键菜单不是很好用，所以下了这个软件，给右键菜单新增了额外的功能，并且颜值很高。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个软件有个问题，&lt;code&gt;发送到&lt;/code&gt;这个菜单显示空白，我两台电脑都有这个问题，但是我在网上没搜到相同的问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/ZNileSoftShell-1748076949464-25.png&#34;
+  width=&#34;235&#34;
+  height=&#34;354&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;66&#34;
+    data-flex-basis=&#34;159px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;快速预览-quicklook&#34;&gt;快速预览 QuickLook
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/QL-Win/QuickLook&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/QL-Win/QuickLook&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;跟 &lt;code&gt;MacOS&lt;/code&gt; 一样的按空格预览文件的功能。需要额外下载插件，我下载了DrawIO，Office预览。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/ZQuickLook-1748076949464-26.png&#34;
+  width=&#34;1393&#34;
+  height=&#34;776&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;179&#34;
+    data-flex-basis=&#34;430px&#34;
+  
+/&gt;
+&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>ZerosTodo 个人助手</title>
+        <link>https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/</link>
+        <pubDate>Fri, 17 Jan 2025 16:39:45 +0800</pubDate>
+        
+        <guid>https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/</guid>
+        <description>&lt;img src="https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/Title.jpg" alt="Featured image of post ZerosTodo 个人助手" /&gt;&lt;h2 id=&#34;碰到的问题&#34;&gt;碰到的问题
+&lt;/h2&gt;&lt;p&gt;在日常的工作中，碰到几个问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;经常忘记个别要做的事情&lt;/li&gt;
+&lt;li&gt;某个事情做完几天后，忘记了当时的情况&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因此就实现了一个软件 &lt;code&gt;ZerosTodo&lt;/code&gt; ，帮助我日常更方便的工作。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/assets/ZerosTodo-1748076960651-43.png&#34;
+  width=&#34;913&#34;
+  height=&#34;548&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;166&#34;
+    data-flex-basis=&#34;399px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;这个软件目前（2025 年 2 月 6 日）包含两个功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;从 &lt;code&gt;wolai&lt;/code&gt; 的特定页面中获取最近要做的几个事情&lt;/li&gt;
+&lt;li&gt;每隔 5 秒截图屏幕并保存&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对于需求1，为了区别于正常的待办软件，我的软件里并没有待办的概念，而是直接把最近要做的几个事情显示在软件的界面上，并置顶悬浮于所有软件上面。我在屏幕专门留了一个角落给他。&lt;/p&gt;
+&lt;p&gt;对于需求2，我遍历当前所有的屏幕，并对每个屏幕截图，按照日期保存到指定的文件夹中。同时，为了避免硬盘占用太多，额外新增了一个配置项，超过 90 天的文件夹将会被删除。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/assets/ZerosTodoWolai-1748076960651-46.png&#34;
+  width=&#34;784&#34;
+  height=&#34;411&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;190&#34;
+    data-flex-basis=&#34;457px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/assets/ZerosTodoLog-1748076960651-44.png&#34;
+  width=&#34;784&#34;
+  height=&#34;411&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;190&#34;
+    data-flex-basis=&#34;457px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;项目代码上传到此处：&lt;a class=&#34;link&#34; href=&#34;https://gitee.com/Zeros_Zhang/ZerosTodo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ZerosTodo&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;更新记录&#34;&gt;更新记录
+&lt;/h2&gt;&lt;p&gt;2025年3月18日 更新：新增文字朗读的功能，优化 UI 界面。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/assets/PixPin_2025-04-18_17-40-58-1748076960651-45.png&#34;
+  width=&#34;786&#34;
+  height=&#34;443&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;177&#34;
+    data-flex-basis=&#34;425px&#34;
+  
+/&gt;
+&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

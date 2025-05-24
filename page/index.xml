@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pages on Zeros遇见的作品集合</title>
+        <link>https://zeroszhang.github.io/page/</link>
+        <description>Recent content in Pages on Zeros遇见的作品集合</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Zeros遇见</copyright>
+        <lastBuildDate>Fri, 17 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://zeroszhang.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>关于</title>
+        <link>https://zeroszhang.github.io/%E5%85%B3%E4%BA%8E/</link>
+        <pubDate>Fri, 17 Jan 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://zeroszhang.github.io/%E5%85%B3%E4%BA%8E/</guid>
+        <description>&lt;p&gt;该博客用于作品集合的功能演示，并不会提供源码，且无开源打算。&lt;/p&gt;
+&lt;p&gt;有问题可以通过邮件 &lt;code&gt;zeros_zhang@163.com&lt;/code&gt; 与我沟通。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>归档</title>
+        <link>https://zeroszhang.github.io/archives/</link>
+        <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://zeroszhang.github.io/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>搜索</title>
+        <link>https://zeroszhang.github.io/%E6%90%9C%E7%B4%A2/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://zeroszhang.github.io/%E6%90%9C%E7%B4%A2/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

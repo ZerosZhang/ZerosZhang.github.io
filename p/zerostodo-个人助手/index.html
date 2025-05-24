@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="我自己实现的助手软件，帮助我日常更方便的工作">
+<title>ZerosTodo 个人助手</title>
+
+<link rel='canonical' href='https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="ZerosTodo 个人助手">
+<meta property='og:description' content="我自己实现的助手软件，帮助我日常更方便的工作">
+<meta property='og:url' content='https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/'>
+<meta property='og:site_name' content='Zeros遇见的作品集合'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-01-17T16:39:45&#43;08:00'/><meta property='article:modified_time' content='2025-01-17T16:39:45&#43;08:00'/><meta property='og:image' content='https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/Title.jpg' />
+<meta name="twitter:title" content="ZerosTodo 个人助手">
+<meta name="twitter:description" content="我自己实现的助手软件，帮助我日常更方便的工作"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/Title.jpg' />
+    <link rel="shortcut icon" href="/%e5%a4%b4%e5%83%8f.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu2450056213648967934.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">📸</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Zeros遇见的作品集合</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#碰到的问题">碰到的问题</a></li>
+    <li><a href="#更新记录">更新记录</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/">
+                <img src="/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/Title.jpg"
+                        
+                        width="2500" 
+                        height="1667" 
+                        loading="lazy"
+                        alt="Featured image of post ZerosTodo 个人助手" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%BD%AF%E4%BB%B6/" >
+                软件
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/">ZerosTodo 个人助手</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            我自己实现的助手软件，帮助我日常更方便的工作
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025年1月17日</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="碰到的问题">碰到的问题
+</h2><p>在日常的工作中，碰到几个问题：</p>
+<ol>
+<li>经常忘记个别要做的事情</li>
+<li>某个事情做完几天后，忘记了当时的情况</li>
+</ol>
+<p>因此就实现了一个软件 <code>ZerosTodo</code> ，帮助我日常更方便的工作。</p>
+<p><img
+  src="/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/assets/ZerosTodo-1748076960651-43.png"
+  width="913"
+  height="548"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="166"
+    data-flex-basis="399px"
+  
+/>
+</p>
+<p>这个软件目前（2025 年 2 月 6 日）包含两个功能：</p>
+<ol>
+<li>从 <code>wolai</code> 的特定页面中获取最近要做的几个事情</li>
+<li>每隔 5 秒截图屏幕并保存</li>
+</ol>
+<p>对于需求1，为了区别于正常的待办软件，我的软件里并没有待办的概念，而是直接把最近要做的几个事情显示在软件的界面上，并置顶悬浮于所有软件上面。我在屏幕专门留了一个角落给他。</p>
+<p>对于需求2，我遍历当前所有的屏幕，并对每个屏幕截图，按照日期保存到指定的文件夹中。同时，为了避免硬盘占用太多，额外新增了一个配置项，超过 90 天的文件夹将会被删除。</p>
+<p><img
+  src="/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/assets/ZerosTodoWolai-1748076960651-46.png"
+  width="784"
+  height="411"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="190"
+    data-flex-basis="457px"
+  
+/>
+
+<img
+  src="/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/assets/ZerosTodoLog-1748076960651-44.png"
+  width="784"
+  height="411"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="190"
+    data-flex-basis="457px"
+  
+/>
+</p>
+<p>项目代码上传到此处：<a class="link" href="https://gitee.com/Zeros_Zhang/ZerosTodo"  target="_blank" rel="noopener"
+    >ZerosTodo</a></p>
+<h2 id="更新记录">更新记录
+</h2><p>2025年3月18日 更新：新增文字朗读的功能，优化 UI 界面。</p>
+<p><img
+  src="/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/assets/PixPin_2025-04-18_17-40-58-1748076960651-45.png"
+  width="786"
+  height="443"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="177"
+    data-flex-basis="425px"
+  
+/>
+</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/">
+        
+        
+            <div class="article-image">
+                <img src="/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/Title.2cab42b6087383245623940b5182fa61.jpg" 
+                        width="4961" 
+                        height="2754" 
+                        loading="lazy"
+                        alt="Featured image of post Microsoft Rewards 自动获取助手"
+                        
+                        data-hash="md5-LKtCtghzgyRWI5QLUYL6YQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Microsoft Rewards 自动获取助手</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/Title.89b034d6079105049854308af561c78d.jpg" 
+                        width="5246" 
+                        height="3497" 
+                        loading="lazy"
+                        alt="Featured image of post 软件推荐"
+                        
+                        data-hash="md5-ibA01geRBQSYVDCK9WHHjQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">软件推荐</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2025 Zeros遇见
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

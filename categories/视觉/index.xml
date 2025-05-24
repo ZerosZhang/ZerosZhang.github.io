@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>视觉 on Zeros遇见的作品集合</title>
+        <link>https://zeroszhang.github.io/categories/%E8%A7%86%E8%A7%89/</link>
+        <description>Recent content in 视觉 on Zeros遇见的作品集合</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Zeros遇见</copyright>
+        <lastBuildDate>Thu, 20 Feb 2025 15:55:19 +0800</lastBuildDate><atom:link href="https://zeroszhang.github.io/categories/%E8%A7%86%E8%A7%89/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Halcon例程笔记</title>
+        <link>https://zeroszhang.github.io/p/halcon%E4%BE%8B%E7%A8%8B%E7%AC%94%E8%AE%B0/</link>
+        <pubDate>Thu, 20 Feb 2025 15:55:19 +0800</pubDate>
+        
+        <guid>https://zeroszhang.github.io/p/halcon%E4%BE%8B%E7%A8%8B%E7%AC%94%E8%AE%B0/</guid>
+        <description>&lt;img src="https://zeroszhang.github.io/p/halcon%E4%BE%8B%E7%A8%8B%E7%AC%94%E8%AE%B0/Title.jpg" alt="Featured image of post Halcon例程笔记" /&gt;&lt;p&gt;最近发现 Halcon 的官方手册写得很好，于是详细阅读并做笔记。&lt;/p&gt;
+&lt;p&gt;在我的笔记系统中包含以下文档的中文翻译：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Solution Guide I.pdf&lt;/li&gt;
+&lt;li&gt;Solution Guide II-A.pdf&lt;/li&gt;
+&lt;li&gt;Solution Guide II-B.pdf&lt;/li&gt;
+&lt;li&gt;Solution Guide II-C.pdf&lt;/li&gt;
+&lt;li&gt;Solution Guide II-D.pdf&lt;/li&gt;
+&lt;li&gt;Solution Guide III-A.pdf&lt;/li&gt;
+&lt;li&gt;Solution Guide III-B.pdf&lt;/li&gt;
+&lt;li&gt;Solution Guide III-C.pdf&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;文档中的案例都做了详细的笔记：&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/halcon%E4%BE%8B%E7%A8%8B%E7%AC%94%E8%AE%B0/assets/PixPin_2025-02-20_15-54-07-1748076912939-3.png&#34;
+  width=&#34;1458&#34;
+  height=&#34;875&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;166&#34;
+    data-flex-basis=&#34;399px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;部分例程学习后整理上传到此处：&lt;a class=&#34;link&#34; href=&#34;https://gitee.com/Zeros_Zhang/HalconExample&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Halcon 例程&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

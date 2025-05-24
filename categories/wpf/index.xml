@@ -1,0 +1,1220 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>WPF on Zeros遇见的作品集合</title>
+        <link>https://zeroszhang.github.io/categories/wpf/</link>
+        <description>Recent content in WPF on Zeros遇见的作品集合</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Zeros遇见</copyright>
+        <lastBuildDate>Fri, 17 Jan 2025 11:25:07 +0800</lastBuildDate><atom:link href="https://zeroszhang.github.io/categories/wpf/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>WPF控件库 BaseWPFControl</title>
+        <link>https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/</link>
+        <pubDate>Fri, 17 Jan 2025 11:25:07 +0800</pubDate>
+        
+        <guid>https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/</guid>
+        <description>&lt;img src="https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/Title.jpg" alt="Featured image of post WPF控件库 BaseWPFControl" /&gt;&lt;h2 id=&#34;简介&#34;&gt;简介
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;BaseWPFControl&lt;/code&gt; 是一个 &lt;code&gt;dll&lt;/code&gt;，基于 &lt;code&gt;.net 8.0&lt;/code&gt; 和 &lt;code&gt;WPF&lt;/code&gt; 框架实现，用于提供控件样式（包含基础控件和额外控件）。&lt;/p&gt;
+&lt;h2 id=&#34;基础控件&#34;&gt;基础控件
+&lt;/h2&gt;&lt;h3 id=&#34;button&#34;&gt;Button
+&lt;/h3&gt;&lt;p&gt;重写了基础控件 &lt;code&gt;Button&lt;/code&gt; 的样式。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;新增 &lt;code&gt;BaseWPFControl:ButtonProperty.Icon&lt;/code&gt; 附加属性用于提供按钮图标&lt;/li&gt;
+&lt;li&gt;提供圆角&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;纯文字按钮&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;图标&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;na&#34;&gt;BaseWPFControl:ButtonProperty.Icon=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{StaticResource HomePage}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;圆形按钮&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;na&#34;&gt;Style=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{StaticResource CircleButtonStyle}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;带图标的圆形按钮&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;na&#34;&gt;Style=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{StaticResource CircleButtonStyle}&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;na&#34;&gt;BaseWPFControl:ButtonProperty.Icon=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{StaticResource HomePage}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;跑道形按钮&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;na&#34;&gt;Style=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{StaticResource RoundButtonStyle}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;图标&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;na&#34;&gt;Style=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{StaticResource RoundButtonStyle}&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;na&#34;&gt;BaseWPFControl:ButtonProperty.Icon=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{StaticResource HomePage}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/%E6%99%AE%E9%80%9A%E6%8C%89%E9%92%AE-1748076976389-59.png&#34;
+  width=&#34;679&#34;
+  height=&#34;61&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;1113&#34;
+    data-flex-basis=&#34;2671px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;针对不启用和不可点击的按钮，做出了区分，分别对应 &lt;code&gt;IsEnabled&lt;/code&gt; 和 &lt;code&gt;IsHitTestVisible&lt;/code&gt; 属性。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;不启用&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsEnabled=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;False&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;不可点击&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsHitTestVisible=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;False&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/Button%E5%8C%BA%E5%88%86%E4%B8%8D%E5%90%AF%E7%94%A8%E5%92%8C%E4%B8%8D%E5%8F%AF%E7%82%B9%E5%87%BB-1748076976389-60.png&#34;
+  width=&#34;278&#34;
+  height=&#34;51&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;545&#34;
+    data-flex-basis=&#34;1308px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;之所以这样去做目的是为了 &lt;code&gt;GPIO&lt;/code&gt; 的控制，&lt;code&gt;GPI&lt;/code&gt; 不可点击，&lt;code&gt;GPO&lt;/code&gt; 可点击。&lt;/p&gt;
+&lt;p&gt;提供了两种相似的样式 &lt;code&gt;BooleanStateButtonStyle&lt;/code&gt; 和 &lt;code&gt;BooleanToggleButtonStyle&lt;/code&gt;。前者对应于 &lt;code&gt;GPI&lt;/code&gt;，不可点击，仅用于展示 &lt;code&gt;GPI&lt;/code&gt; 状态，后者对应于 &lt;code&gt;GPO&lt;/code&gt;，既可以展示 &lt;code&gt;GPO&lt;/code&gt; 状态，又可以通过点击切换状态。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Style=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{StaticResource BooleanStateButtonStyle}&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;na&#34;&gt;Tag=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding State}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Style=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{StaticResource BooleanToggleButtonStyle}&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;na&#34;&gt;Tag=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding State}&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Command=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding ChangeStateCommand}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ButtonStateToggle%E5%85%B3%E9%97%AD-1748076976389-61.png&#34;
+  width=&#34;119&#34;
+  height=&#34;55&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;216&#34;
+    data-flex-basis=&#34;519px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ButtonStateToggle%E5%BC%80%E5%90%AF-1748076976389-64.png&#34;
+  width=&#34;119&#34;
+  height=&#34;55&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;216&#34;
+    data-flex-basis=&#34;519px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;togglebutton&#34;&gt;ToggleButton
+&lt;/h3&gt;&lt;p&gt;基于 &lt;code&gt;ToggleButton&lt;/code&gt; 重写样式，该控件的本意是用于 &lt;code&gt;GPIO&lt;/code&gt; 的控制&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;ToggleButton&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsChecked=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding State}&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;ToggleButton&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsChecked=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding State}&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsEnabled=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;False&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ToggleButton%E5%85%B3%E9%97%AD-1748076976389-62.png&#34;
+  width=&#34;214&#34;
+  height=&#34;55&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;389&#34;
+    data-flex-basis=&#34;933px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ToggleButton%E5%BC%80%E5%90%AF-1748076976389-63.png&#34;
+  width=&#34;214&#34;
+  height=&#34;55&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;389&#34;
+    data-flex-basis=&#34;933px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最终方案如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;GPI&lt;/code&gt; 使用 &lt;code&gt;Button&lt;/code&gt; 的 &lt;code&gt;BooleanStateButtonStyle&lt;/code&gt; 样式&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GPO&lt;/code&gt; 使用 &lt;code&gt;ToggleButton&lt;/code&gt; 的默认样式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;radiobutton&#34;&gt;RadioButton
+&lt;/h3&gt;&lt;p&gt;重写 RadioButton 的样式，主要优化如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;勾选后样式变化&lt;/li&gt;
+&lt;li&gt;勾选框尺寸跟随字体尺寸变化&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;RadioButton&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;未勾选&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;RadioButton&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;勾选&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsChecked=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;True&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;RadioButton&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;未勾选未启用&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsEnabled=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;False&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsChecked=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;False&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;RadioButton&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;勾选未启用&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsEnabled=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;False&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsChecked=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;True&amp;#34;&lt;/span&gt;  &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;RadioButton&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;大字体&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;FontSize=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;30&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/RadioButton-1748076976389-65.png&#34;
+  width=&#34;592&#34;
+  height=&#34;44&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;1345&#34;
+    data-flex-basis=&#34;3229px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;checkbox&#34;&gt;CheckBox
+&lt;/h3&gt;&lt;p&gt;重写 CheckBox 的样式，主要优化如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;勾选后样式变化&lt;/li&gt;
+&lt;li&gt;勾选框圆角&lt;/li&gt;
+&lt;li&gt;勾选框尺寸跟随字体尺寸变化&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;CheckBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;未勾选&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;CheckBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;勾选&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsChecked=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;True&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;CheckBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;未勾选未启用&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsEnabled=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;False&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsChecked=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;False&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;CheckBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;勾选未启用&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsEnabled=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;False&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsChecked=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;True&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;CheckBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;大字体&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;FontSize=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;30&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/CheckBox-1748076976389-68.png&#34;
+  width=&#34;592&#34;
+  height=&#34;44&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;1345&#34;
+    data-flex-basis=&#34;3229px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;combobox&#34;&gt;ComboBox
+&lt;/h3&gt;&lt;p&gt;重写 ComboBox 样式，主要优化如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;圆角属性&lt;/li&gt;
+&lt;li&gt;提供 ComboBox 绑定枚举值的扩展语法 EnumBindingSource&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;lt;!--示例1：ComboBox绑定枚举值--&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;ComboBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;120&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          &lt;span class=&#34;na&#34;&gt;ItemsSource=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{BaseWPFControl:EnumBindingSource 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;                                        EnumType=BaseTest:EnumDayOfWeek}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          &lt;span class=&#34;na&#34;&gt;SelectedItem=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding SelectedEnumDayOfWeek}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;ComboBox.ItemTemplate&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;DataTemplate&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;lt;TextBlock&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Text=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;                       Converter={StaticResource EnumToDescriptionConverter}, 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;                       Mode=OneWay}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;/DataTemplate&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/ComboBox.ItemTemplate&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;/ComboBox&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;lt;!--示例2：不启用ComboBox--&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;ComboBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;120&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsEnabled=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;False&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;ComboBoxItem&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsSelected=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;True&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;/ComboBox&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;lt;!--示例3：ComboBox绑定字典--&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;lt;!--note：需要设置 DisplayMemberPath 和 SelectedValuePath，--&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;lt;!--note：并只能使用 SelectedValue 进行访问--&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;ComboBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;120&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;ItemsSource=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding DictionaryDayOfWeek}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          &lt;span class=&#34;na&#34;&gt;DisplayMemberPath=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Value&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;SelectedValuePath=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Key&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          &lt;span class=&#34;na&#34;&gt;SelectedValue=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding SelectedDictionaryDayOfWeek}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;lt;!--示例4：ComboBox绑定列表--&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;lt;!--note：使用 SelectedItem 或者 SelectedValue 都可以获得正确结果--&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;lt;!--note: 前提是绑定的值在列表中，也可以通过 SelectedIndex 进行访问--&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;ComboBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;120&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;ItemsSource=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding ListDayOfWeek}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          &lt;span class=&#34;na&#34;&gt;SelectedItem=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding SelectedListDayOfWeek}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ComboBox-1748076976389-66.png&#34;
+  width=&#34;572&#34;
+  height=&#34;262&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;218&#34;
+    data-flex-basis=&#34;523px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;textblock&#34;&gt;TextBlock
+&lt;/h3&gt;&lt;p&gt;重写 &lt;code&gt;TextBlock&lt;/code&gt; 的样式，主要优化如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;中英文使用不同的字体显示，中文使用&lt;code&gt;微软雅黑&lt;/code&gt;，英文使用&lt;code&gt;Consolas&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;TextBlock&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Text=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;显示中文&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;TextBlock&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Text=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Show English&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/TextBlock-1748076976389-69.png&#34;
+  width=&#34;263&#34;
+  height=&#34;38&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;692&#34;
+    data-flex-basis=&#34;1661px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;memoryblock&#34;&gt;MemoryBlock
+&lt;/h3&gt;&lt;p&gt;该控件为自定义控件，主要实现以下功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;获取当前软件已使用内存，以 &lt;code&gt;MB&lt;/code&gt; 为单位&lt;/li&gt;
+&lt;li&gt;可以通过控件的 &lt;code&gt;Interval&lt;/code&gt; 属性设置更新频率，单位为 &lt;code&gt;ms&lt;/code&gt;，默认为 &lt;code&gt;1000 ms&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;可以通过控件的 &lt;code&gt;Header&lt;/code&gt; 属性设置前缀文字&lt;/li&gt;
+&lt;li&gt;可以通过控件的 &lt;code&gt;UsedMemory&lt;/code&gt; 只读属性获取内存&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;BaseWPFControl:MemoryBlock&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/MemoryBlock-1748076976389-67.png&#34;
+  width=&#34;263&#34;
+  height=&#34;38&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;692&#34;
+    data-flex-basis=&#34;1661px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;logblock&#34;&gt;LogBlock
+&lt;/h3&gt;&lt;p&gt;该控件为自定义控件，配合 &lt;code&gt;BaseLogManager&lt;/code&gt; 一起使用，主要实现以下功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;显示日志&lt;/li&gt;
+&lt;li&gt;提供日志详情页&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;BaseWPFControl:LogBlock&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;LogBlock_Test&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;ContentControl&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;400&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding ElementName=LogBlock_Test, Path=LogView}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/LogBlock-1748076976389-70.png&#34;
+  width=&#34;1106&#34;
+  height=&#34;485&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;228&#34;
+    data-flex-basis=&#34;547px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;textbox&#34;&gt;TextBox
+&lt;/h3&gt;&lt;p&gt;重写 &lt;code&gt;TextBox&lt;/code&gt; 的样式，主要实现以下功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;可以通过 &lt;code&gt;TextBoxProperty.Prefix&lt;/code&gt; 属性设置前缀文字&lt;/li&gt;
+&lt;li&gt;可以通过 &lt;code&gt;TextBoxProperty.WaterMask&lt;/code&gt; 属性设置水印文字&lt;/li&gt;
+&lt;li&gt;可以通过 &lt;code&gt;TextBoxProperty.Suffix&lt;/code&gt; 属性设置后缀文字&lt;/li&gt;
+&lt;li&gt;输入时边框高亮显示&lt;/li&gt;
+&lt;li&gt;大文本输入框可以通过滚动条上下滚动&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;TextBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;200&amp;#34;&lt;/span&gt;  &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;na&#34;&gt;BaseWPFControl:TextBoxProperty.Prefix=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;www.&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;na&#34;&gt;BaseWPFControl:TextBoxProperty.Suffix=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;na&#34;&gt;BaseWPFControl:TextBoxProperty.WaterMask=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;输入网址&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;TextBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;160&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Text=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;默认文本框&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;TextBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;100&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;na&#34;&gt;BaseWPFControl:TextBoxProperty.WaterMask=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;绑定Decimal类型&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;na&#34;&gt;Text=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding DecimalNumber, StringFormat=0.#}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;TextBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Style=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{StaticResource BigTextBox}&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;400&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;100&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Text=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding Poetry1}&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/TextBox-1748076976389-75.png&#34;
+  width=&#34;529&#34;
+  height=&#34;57&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;928&#34;
+    data-flex-basis=&#34;2227px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/BitTextBox-1748076976389-71.png&#34;
+  width=&#34;416&#34;
+  height=&#34;116&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;358&#34;
+    data-flex-basis=&#34;860px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;numericbox&#34;&gt;NumericBox
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;NumericBox&lt;/code&gt; 为自定义控件，主要实现以下功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;更方便的绑定数字，并提供限制&lt;/li&gt;
+&lt;li&gt;可以通过 &lt;code&gt;Value&lt;/code&gt; 属性获取/设置值&lt;/li&gt;
+&lt;li&gt;可以通过 &lt;code&gt;TextFormat&lt;/code&gt; 属性设置文本格式&lt;/li&gt;
+&lt;li&gt;可以通过 &lt;code&gt;MinValue&lt;/code&gt; 属性设置最小值&lt;/li&gt;
+&lt;li&gt;可以通过 &lt;code&gt;MaxValue&lt;/code&gt; 属性设置最大值&lt;/li&gt;
+&lt;li&gt;可以通过 &lt;code&gt;Interval&lt;/code&gt; 属性设置点击增减按钮时的变化量&lt;/li&gt;
+&lt;li&gt;可以通过 &lt;code&gt;ValueChanged&lt;/code&gt; 事件获取值改变事件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;BaseWPFControl:NumericBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Value=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding DecimalNumber}&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;TextFormat=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0.#&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                           &lt;span class=&#34;na&#34;&gt;MinValue =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;MaxValue =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;100&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Interval =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                           &lt;span class=&#34;na&#34;&gt;ValueChanged=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;NumericBox_ValueChanged&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;BaseWPFControl:NumericBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Value=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding DecimalNumber}&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;TextFormat=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0.#&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                           &lt;span class=&#34;na&#34;&gt;IsEnabled=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;False&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/NumericBox-1748076976389-72.png&#34;
+  width=&#34;331&#34;
+  height=&#34;53&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;624&#34;
+    data-flex-basis=&#34;1498px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;passwordbox&#34;&gt;PasswordBox
+&lt;/h3&gt;&lt;p&gt;重写 &lt;code&gt;PasswordBox&lt;/code&gt; 样式，主要实现以下功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;可以通过 &lt;code&gt;PasswordBoxProperty.CanShowPassword&lt;/code&gt; 属性设置是否显示密码的功能&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;PasswordBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;200&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Password=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;123456&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;PasswordBox&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;200&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Password=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;123456&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;             &lt;span class=&#34;na&#34;&gt;BaseWPFControl:PasswordBoxProperty.CanShowPassword=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;False&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PasswordBox-1748076976389-73.png&#34;
+  width=&#34;446&#34;
+  height=&#34;55&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;810&#34;
+    data-flex-basis=&#34;1946px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;datepicker--datetimepicker&#34;&gt;DatePicker &amp;amp; DateTimePicker
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;DatePicker&lt;/code&gt; 和 &lt;code&gt;DateTimePicker&lt;/code&gt; 都是自定义控件，主要实现以下功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;选择时间和日期，这两个控件的区别在于一个前者只有日期，后者包含时间&lt;/li&gt;
+&lt;li&gt;可以通过 &lt;code&gt;SelectedDateTime&lt;/code&gt; 获取选中的日期时间&lt;/li&gt;
+&lt;li&gt;可以通过 &lt;code&gt;SelectedDateTimeFormat&lt;/code&gt; 设置日期时间的格式&lt;/li&gt;
+&lt;li&gt;可以通过 &lt;code&gt;SelectedDateTimeChanged&lt;/code&gt; 获取时间改变的事件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;BaseWPFControl:DatePicker&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;BaseWPFControl:DateTimePicker&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/DateTimePicker-1748076976389-74.png&#34;
+  width=&#34;532&#34;
+  height=&#34;317&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;167&#34;
+    data-flex-basis=&#34;402px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;selectfileblock--selectfolderblock&#34;&gt;SelectFileBlock &amp;amp; SelectFolderBlock
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;SelectFileBlock&lt;/code&gt; 和 &lt;code&gt;SelectFolderBlock&lt;/code&gt; 都是自定义控件，主要实现以下功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;点击按钮通过对话框选择文件或者文件夹&lt;/li&gt;
+&lt;li&gt;可以通过 &lt;code&gt;SelectedPath&lt;/code&gt; 属性获取/设置路径&lt;/li&gt;
+&lt;li&gt;可以通过 &lt;code&gt;SelectedPathChanged&lt;/code&gt; 获取选中路径改变的事件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SelectFileBlock&lt;/code&gt; 可以通过 &lt;code&gt;ExtensionFilter&lt;/code&gt; 属性设置文件过滤&lt;/li&gt;
+&lt;li&gt;鼠标移动到文字上方出现 &lt;code&gt;ToolTip&lt;/code&gt; 显示路径的全文&lt;/li&gt;
+&lt;li&gt;鼠标双击文字直接跳转到路径所在的文件夹&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/SelectFileBlock-1748076976389-76.png&#34;
+  width=&#34;533&#34;
+  height=&#34;54&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;987&#34;
+    data-flex-basis=&#34;2368px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;image&#34;&gt;Image
+&lt;/h3&gt;&lt;p&gt;提供一些内置的 &lt;code&gt;SVG&lt;/code&gt;，可以直接通过 &lt;code&gt;Source&lt;/code&gt; 绑定 &lt;code&gt;StaticResource&lt;/code&gt; 值进行设置&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Image&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Source=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{StaticResource DirectoryConfig}&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;50&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/SVGImage-1748076976389-77.png&#34;
+  width=&#34;706&#34;
+  height=&#34;429&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;164&#34;
+    data-flex-basis=&#34;394px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;progressbar--loading&#34;&gt;ProgressBar &amp;amp; Loading
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;重写 &lt;code&gt;ProgressBar&lt;/code&gt; 样式，提供圆角&lt;/li&gt;
+&lt;li&gt;可以通过 &lt;code&gt;ProgressBarProperty.ShowValue&lt;/code&gt; 属性设置进度条显示当前值&lt;/li&gt;
+&lt;li&gt;提供扩展函数 &lt;code&gt;SetAnimateValue&lt;/code&gt; 设置进度条的值，通过该函数设置可以显示动画&lt;/li&gt;
+&lt;li&gt;提供自定义控件圆形进度条 &lt;code&gt;Loading&lt;/code&gt;，仅用于等待功能&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;ProgressBar&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;40&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;400&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;d:Value=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;20&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;ProgressBar&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;40&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;400&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsIndeterminate=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;True&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;BaseWPFControl:Loading&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Diameter=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;150&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;StrokeThickness=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;30&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        &lt;span class=&#34;na&#34;&gt;Content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;加载中，请等待...&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ProgressBar-1748076976389-78.png&#34;
+  width=&#34;454&#34;
+  height=&#34;502&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;90&#34;
+    data-flex-basis=&#34;217px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;clock--calendar&#34;&gt;Clock &amp;amp; Calendar
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;重写 &lt;code&gt;Calender&lt;/code&gt; 样式&lt;/li&gt;
+&lt;li&gt;提供 自定义控件 &lt;code&gt;Clock&lt;/code&gt;，用于选择时间&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;Calendar&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x:Name =&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Calendar&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;BaseWPFControl:Clock&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Height=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding ActualHeight, ElementName=Calender}&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/Calender-1748076976389-79.png&#34;
+  width=&#34;520&#34;
+  height=&#34;354&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;146&#34;
+    data-flex-basis=&#34;352px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;tabcontrol&#34;&gt;TabControl
+&lt;/h3&gt;&lt;p&gt;重写 &lt;code&gt;TabControl&lt;/code&gt; 的样式&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;TabControl&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;TabStripPlacement=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Left&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;TabItem&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Header=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;水调歌头&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;TextBlock&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Text=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding Poetry1}&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;FontSize=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;14&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/TabItem&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;TabItem&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Header=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;如梦令&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;TextBlock&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Text=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding Poetry2}&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;FontSize=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;14&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/TabItem&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;TabItem&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Header=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;破阵子&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;TextBlock&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Text=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{Binding Poetry3}&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;FontSize=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;14&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/TabItem&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;TabItem&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Header=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;未启用&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;IsEnabled=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;False&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;/TabControl&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/TabControl-1748076976389-80.png&#34;
+  width=&#34;1055&#34;
+  height=&#34;227&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;464&#34;
+    data-flex-basis=&#34;1115px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;复杂控件&#34;&gt;复杂控件
+&lt;/h2&gt;&lt;h3 id=&#34;configcontrol&#34;&gt;ConfigControl
+&lt;/h3&gt;&lt;p&gt;提供自定义控件 &lt;code&gt;ConfigControl&lt;/code&gt;，用于方便的实现配置界面&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;BaseWPFControl:ConfigControl&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;ConfigName=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;日期时间&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;BaseWPFControl:DateTimePicker&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;/BaseWPFControl:ConfigControl&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;BaseWPFControl:ConfigControl&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;ConfigName=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;选择文件&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;BaseWPFControl:SelectFileBlock&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Width=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;280&amp;#34;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;/BaseWPFControl:ConfigControl&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ConfigControl-1748076976389-81.png&#34;
+  width=&#34;473&#34;
+  height=&#34;543&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;87&#34;
+    data-flex-basis=&#34;209px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;lisbox&#34;&gt;LisBox
+&lt;/h3&gt;&lt;p&gt;重写 &lt;code&gt;ListBox&lt;/code&gt; 的样式，可以绑定 &lt;code&gt;Enum/List/Dictionary&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ListBox-1748076976389-82.png&#34;
+  width=&#34;401&#34;
+  height=&#34;292&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;137&#34;
+    data-flex-basis=&#34;329px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;listview&#34;&gt;ListView
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;重写 &lt;code&gt;ListView&lt;/code&gt; 的样式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ListView-1748076976389-83.png&#34;
+  width=&#34;405&#34;
+  height=&#34;335&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;120&#34;
+    data-flex-basis=&#34;290px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;datagrid&#34;&gt;DataGrid
+&lt;/h3&gt;&lt;p&gt;重写 &lt;code&gt;DataGrid&lt;/code&gt; 的样式，这里包含两种样式，一种是选择单元格，另一种是鼠标经过选中整行&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/DataGrid-1748076976389-84.png&#34;
+  width=&#34;465&#34;
+  height=&#34;289&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;选中单元格&#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;160&#34;
+    data-flex-basis=&#34;386px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ListViewDataGrid-1748076976389-85.png&#34;
+  width=&#34;465&#34;
+  height=&#34;289&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;无法选中，鼠标经过选中整行&#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;160&#34;
+    data-flex-basis=&#34;386px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;更新记录&#34;&gt;更新记录
+&lt;/h2&gt;&lt;p&gt;更新了部分 &lt;code&gt;BaseWPFControl&lt;/code&gt; 中的控件，实现了更多的功能。&lt;/p&gt;
+&lt;h3 id=&#34;优化listbox&#34;&gt;优化&lt;code&gt;ListBox&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;实际使用了一下&lt;code&gt;ListBox&lt;/code&gt;之后发现还是有很多问题，尤其是关于调整属性之后，并且给出了更多的示例&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-17_10-07-54-1748075157664-1-1748076976389-86.png&#34;
+  width=&#34;1196&#34;
+  height=&#34;905&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;132&#34;
+    data-flex-basis=&#34;317px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;新增baseclipborder&#34;&gt;新增&lt;code&gt;BaseClipBorder&lt;/code&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;实现了新的控件&lt;code&gt;BaseClipBorder&lt;/code&gt;来解决边框溢出和边框圆角缝隙的问题&lt;/li&gt;
+&lt;li&gt;最终实现如右图所示&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-26_20-07-25-1748075157664-4-1748076976389-87.png&#34;
+  width=&#34;2222&#34;
+  height=&#34;421&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;527&#34;
+    data-flex-basis=&#34;1266px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;优化progressbar&#34;&gt;优化ProgressBar
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;在上面&lt;code&gt;BaseClipBorder&lt;/code&gt;的基础上优化了&lt;code&gt;ProgressBar&lt;/code&gt;的实现&lt;/li&gt;
+&lt;li&gt;给出了垂直&lt;code&gt;ProgressBar&lt;/code&gt;例程实现&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-26_20-10-51-1748075157664-3-1748076976389-88.gif&#34;
+  width=&#34;1196&#34;
+  height=&#34;905&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;132&#34;
+    data-flex-basis=&#34;317px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;新增defaultcontrolstyle和defaultwindowstyle&#34;&gt;新增&lt;code&gt;DefaultControlStyle&lt;/code&gt;和&lt;code&gt;DefaultWindowStyle&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;这样设计的原因其实是为了移除掉&lt;code&gt;TextBlock&lt;/code&gt;的&lt;code&gt;FontSize&lt;/code&gt;属性和&lt;code&gt;FontFamily&lt;/code&gt;属性，改为直接从&lt;code&gt;Window&lt;/code&gt;或者&lt;code&gt;UserControl&lt;/code&gt;中继承字体属性。&lt;/p&gt;
+&lt;p&gt;而&lt;code&gt;DefaultControlStyle&lt;/code&gt;中定义了基础的&lt;code&gt;FontSize&lt;/code&gt;和&lt;code&gt;FontFamily&lt;/code&gt;样式，并且任何控件都可以使用。&lt;/p&gt;
+&lt;h3 id=&#34;优化button&#34;&gt;优化&lt;code&gt;Button&lt;/code&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;删除了关于&lt;code&gt;ButtonShape&lt;/code&gt;属性的内容&lt;/li&gt;
+&lt;li&gt;新增了一些无边框按钮的样式&lt;/li&gt;
+&lt;li&gt;统一了&lt;code&gt;BorderBrush&lt;/code&gt;和&lt;code&gt;BorderThickness&lt;/code&gt;的风格&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-26_20-04-46-1748075157664-2-1748076976389-89.png&#34;
+  width=&#34;1196&#34;
+  height=&#34;905&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;132&#34;
+    data-flex-basis=&#34;317px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;优化combobox&#34;&gt;优化&lt;code&gt;ComboBox&lt;/code&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;重写了&lt;code&gt;ComboBox&lt;/code&gt;的样式&lt;/li&gt;
+&lt;li&gt;新增&lt;code&gt;ComboBoxItem&lt;/code&gt;的样式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-26_20-15-22-1748075157664-5-1748076976389-90.png&#34;
+  width=&#34;249&#34;
+  height=&#34;379&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;65&#34;
+    data-flex-basis=&#34;157px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-26_20-15-01-1748075157664-6-1748076976390-99.png&#34;
+  width=&#34;249&#34;
+  height=&#34;379&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;65&#34;
+    data-flex-basis=&#34;157px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;新增innerseparator属性&#34;&gt;新增&lt;code&gt;InnerSeparator&lt;/code&gt;属性
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新增&lt;code&gt;BaseWPFControl:ControlProperty.InnerSeparator&lt;/code&gt;属性，一般用于内部存在间隙属性调整&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Markdown&#34; data-lang=&#34;Markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Content&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;图标&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;Margin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;na&#34;&gt;BaseWPFControl:ButtonProperty&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;Icon&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{StaticResource HomePage}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;na&#34;&gt;BaseWPFControl:ControlProperty&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;InnerSeparator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;20&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-26_20-34-49-1748075157665-7-1748076976390-92.png&#34;
+  width=&#34;556&#34;
+  height=&#34;99&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;561&#34;
+    data-flex-basis=&#34;1347px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;优化datagrid&#34;&gt;优化&lt;code&gt;DataGrid&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;在使用&lt;code&gt;DataGrid&lt;/code&gt;的时候，我发现有些属性没有效果，或者不尽如人意。&lt;/p&gt;
+&lt;p&gt;所以我就重新整理了一下&lt;code&gt;DataGrid&lt;/code&gt;的实现，并且给出了详细的案例。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_09-40-06-1748075157665-8-1748076976390-98.png&#34;
+  width=&#34;1196&#34;
+  height=&#34;905&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;132&#34;
+    data-flex-basis=&#34;317px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_09-41-09-1748075157665-10-1748076976389-91.png&#34;
+  width=&#34;1196&#34;
+  height=&#34;905&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;132&#34;
+    data-flex-basis=&#34;317px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_09-41-14-1748075157665-9-1748076976390-93.png&#34;
+  width=&#34;1196&#34;
+  height=&#34;905&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;132&#34;
+    data-flex-basis=&#34;317px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;优化calendar和clock&#34;&gt;优化&lt;code&gt;Calendar&lt;/code&gt;和&lt;code&gt;Clock&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_13-59-15-1748075157665-11-1748076976390-94.png&#34;
+  width=&#34;1196&#34;
+  height=&#34;905&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;132&#34;
+    data-flex-basis=&#34;317px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;优化flipbox&#34;&gt;优化&lt;code&gt;FlipBox&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_13-59-39-1748075157665-12-1748076976390-95.png&#34;
+  width=&#34;1196&#34;
+  height=&#34;905&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;132&#34;
+    data-flex-basis=&#34;317px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;新增dialog显示成window&#34;&gt;新增&lt;code&gt;Dialog&lt;/code&gt;显示成&lt;code&gt;Window&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;可以调用&lt;code&gt;ShowDialogAsWindow&lt;/code&gt;函数，将&lt;code&gt;Dialog&lt;/code&gt;显示成独立的&lt;code&gt;Window&lt;/code&gt;，就算没有&lt;code&gt;DialogContainer&lt;/code&gt;也能显示。使用体验和&lt;code&gt;WPF&lt;/code&gt;原生的&lt;code&gt;ShowDialog&lt;/code&gt;函数类似。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_14-07-45-1748075157665-13-1748076976390-96.png&#34;
+  width=&#34;1196&#34;
+  height=&#34;905&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;132&#34;
+    data-flex-basis=&#34;317px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_14-07-37-1748075157665-14-1748076976390-97.png&#34;
+  width=&#34;1196&#34;
+  height=&#34;905&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;132&#34;
+    data-flex-basis=&#34;317px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;优化listbox-1&#34;&gt;优化&lt;code&gt;ListBox&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;和之前的显示一致，只是使用&lt;code&gt;BaseClipBorder&lt;/code&gt;简化了内部实现。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_14-21-24-1748075157665-15-1748076976390-101.png&#34;
+  width=&#34;1196&#34;
+  height=&#34;905&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;132&#34;
+    data-flex-basis=&#34;317px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;优化listview&#34;&gt;优化&lt;code&gt;ListView&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_16-19-43-1748075157665-16-1748076976390-102.png&#34;
+  width=&#34;1196&#34;
+  height=&#34;905&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;132&#34;
+    data-flex-basis=&#34;317px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;优化smoothprogress&#34;&gt;优化&lt;code&gt;SmoothProgress&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;这里省事，直接让&lt;code&gt;SmoothProgressBar&lt;/code&gt;使用&lt;code&gt;ProgressBar&lt;/code&gt;的样式&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_17-44-38-1748075157665-18-1748076976390-100.png&#34;
+  width=&#34;1196&#34;
+  height=&#34;905&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;132&#34;
+    data-flex-basis=&#34;317px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;新增simplescrollviewer样式&#34;&gt;新增&lt;code&gt;SimpleScrollViewer&lt;/code&gt;样式
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;该样式没有滚动条，只有箭头按钮，并且增加了滚动动画&lt;/li&gt;
+&lt;li&gt;主要用于&lt;code&gt;TabControl&lt;/code&gt;的&lt;code&gt;Header&lt;/code&gt;部分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-04-02_11-18-51-1748075157665-17-1748076976392-103.png&#34;
+  width=&#34;1386&#34;
+  height=&#34;808&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;171&#34;
+    data-flex-basis=&#34;411px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;优化tabcontrol&#34;&gt;优化&lt;code&gt;TabControl&lt;/code&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;优化了微软原生样式下，&lt;code&gt;TabItem&lt;/code&gt;溢出的问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-04-02_11-19-13-1748075157665-19-1748076976392-104.png&#34;
+  width=&#34;1386&#34;
+  height=&#34;808&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;171&#34;
+    data-flex-basis=&#34;411px&#34;
+  
+/&gt;
+&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

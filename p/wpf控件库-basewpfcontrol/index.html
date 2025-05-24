@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="从底层开始实现的WPF自定义控件库，包含基础控件和自定义控件">
+<title>WPF控件库 BaseWPFControl</title>
+
+<link rel='canonical' href='https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="WPF控件库 BaseWPFControl">
+<meta property='og:description' content="从底层开始实现的WPF自定义控件库，包含基础控件和自定义控件">
+<meta property='og:url' content='https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/'>
+<meta property='og:site_name' content='Zeros遇见的作品集合'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-01-17T11:25:07&#43;08:00'/><meta property='article:modified_time' content='2025-01-17T11:25:07&#43;08:00'/><meta property='og:image' content='https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/Title.jpg' />
+<meta name="twitter:title" content="WPF控件库 BaseWPFControl">
+<meta name="twitter:description" content="从底层开始实现的WPF自定义控件库，包含基础控件和自定义控件"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://zeroszhang.github.io/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/Title.jpg' />
+    <link rel="shortcut icon" href="/%e5%a4%b4%e5%83%8f.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu2450056213648967934.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">📸</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Zeros遇见的作品集合</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#基础控件">基础控件</a>
+      <ol>
+        <li><a href="#button">Button</a></li>
+        <li><a href="#togglebutton">ToggleButton</a></li>
+        <li><a href="#radiobutton">RadioButton</a></li>
+        <li><a href="#checkbox">CheckBox</a></li>
+        <li><a href="#combobox">ComboBox</a></li>
+        <li><a href="#textblock">TextBlock</a></li>
+        <li><a href="#memoryblock">MemoryBlock</a></li>
+        <li><a href="#logblock">LogBlock</a></li>
+        <li><a href="#textbox">TextBox</a></li>
+        <li><a href="#numericbox">NumericBox</a></li>
+        <li><a href="#passwordbox">PasswordBox</a></li>
+        <li><a href="#datepicker--datetimepicker">DatePicker &amp; DateTimePicker</a></li>
+        <li><a href="#selectfileblock--selectfolderblock">SelectFileBlock &amp; SelectFolderBlock</a></li>
+        <li><a href="#image">Image</a></li>
+        <li><a href="#progressbar--loading">ProgressBar &amp; Loading</a></li>
+        <li><a href="#clock--calendar">Clock &amp; Calendar</a></li>
+        <li><a href="#tabcontrol">TabControl</a></li>
+      </ol>
+    </li>
+    <li><a href="#复杂控件">复杂控件</a>
+      <ol>
+        <li><a href="#configcontrol">ConfigControl</a></li>
+        <li><a href="#lisbox">LisBox</a></li>
+        <li><a href="#listview">ListView</a></li>
+        <li><a href="#datagrid">DataGrid</a></li>
+      </ol>
+    </li>
+    <li><a href="#更新记录">更新记录</a>
+      <ol>
+        <li><a href="#优化listbox">优化<code>ListBox</code></a></li>
+        <li><a href="#新增baseclipborder">新增<code>BaseClipBorder</code></a></li>
+        <li><a href="#优化progressbar">优化ProgressBar</a></li>
+        <li><a href="#新增defaultcontrolstyle和defaultwindowstyle">新增<code>DefaultControlStyle</code>和<code>DefaultWindowStyle</code></a></li>
+        <li><a href="#优化button">优化<code>Button</code></a></li>
+        <li><a href="#优化combobox">优化<code>ComboBox</code></a></li>
+        <li><a href="#新增innerseparator属性">新增<code>InnerSeparator</code>属性</a></li>
+        <li><a href="#优化datagrid">优化<code>DataGrid</code></a></li>
+        <li><a href="#优化calendar和clock">优化<code>Calendar</code>和<code>Clock</code></a></li>
+        <li><a href="#优化flipbox">优化<code>FlipBox</code></a></li>
+        <li><a href="#新增dialog显示成window">新增<code>Dialog</code>显示成<code>Window</code></a></li>
+        <li><a href="#优化listbox-1">优化<code>ListBox</code></a></li>
+        <li><a href="#优化listview">优化<code>ListView</code></a></li>
+        <li><a href="#优化smoothprogress">优化<code>SmoothProgress</code></a></li>
+        <li><a href="#新增simplescrollviewer样式">新增<code>SimpleScrollViewer</code>样式</a></li>
+        <li><a href="#优化tabcontrol">优化<code>TabControl</code></a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/">
+                <img src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/Title.jpg"
+                        
+                        width="5064" 
+                        height="3376" 
+                        loading="lazy"
+                        alt="Featured image of post WPF控件库 BaseWPFControl" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/wpf/" >
+                WPF
+            </a>
+        
+            <a href="/categories/%E5%89%8D%E7%AB%AF/" >
+                前端
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/">WPF控件库 BaseWPFControl</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            从底层开始实现的WPF自定义控件库，包含基础控件和自定义控件
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025年1月17日</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="简介">简介
+</h2><p><code>BaseWPFControl</code> 是一个 <code>dll</code>，基于 <code>.net 8.0</code> 和 <code>WPF</code> 框架实现，用于提供控件样式（包含基础控件和额外控件）。</p>
+<h2 id="基础控件">基础控件
+</h2><h3 id="button">Button
+</h3><p>重写了基础控件 <code>Button</code> 的样式。</p>
+<ol>
+<li>新增 <code>BaseWPFControl:ButtonProperty.Icon</code> 附加属性用于提供按钮图标</li>
+<li>提供圆角</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&#34;纯文字按钮&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&#34;图标&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> 
+</span></span><span class="line"><span class="cl">        <span class="na">BaseWPFControl:ButtonProperty.Icon=</span><span class="s">&#34;{StaticResource HomePage}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&#34;圆形按钮&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> 
+</span></span><span class="line"><span class="cl">        <span class="na">Style=</span><span class="s">&#34;{StaticResource CircleButtonStyle}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&#34;带图标的圆形按钮&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> 
+</span></span><span class="line"><span class="cl">        <span class="na">Style=</span><span class="s">&#34;{StaticResource CircleButtonStyle}&#34;</span> 
+</span></span><span class="line"><span class="cl">        <span class="na">BaseWPFControl:ButtonProperty.Icon=</span><span class="s">&#34;{StaticResource HomePage}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&#34;跑道形按钮&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> 
+</span></span><span class="line"><span class="cl">        <span class="na">Style=</span><span class="s">&#34;{StaticResource RoundButtonStyle}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&#34;图标&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> 
+</span></span><span class="line"><span class="cl">        <span class="na">Style=</span><span class="s">&#34;{StaticResource RoundButtonStyle}&#34;</span> 
+</span></span><span class="line"><span class="cl">        <span class="na">BaseWPFControl:ButtonProperty.Icon=</span><span class="s">&#34;{StaticResource HomePage}&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/%E6%99%AE%E9%80%9A%E6%8C%89%E9%92%AE-1748076976389-59.png"
+  width="679"
+  height="61"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="1113"
+    data-flex-basis="2671px"
+  
+/>
+</p>
+<p>针对不启用和不可点击的按钮，做出了区分，分别对应 <code>IsEnabled</code> 和 <code>IsHitTestVisible</code> 属性。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&#34;不启用&#34;</span> <span class="na">IsEnabled=</span><span class="s">&#34;False&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&#34;不可点击&#34;</span> <span class="na">IsHitTestVisible=</span><span class="s">&#34;False&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/Button%E5%8C%BA%E5%88%86%E4%B8%8D%E5%90%AF%E7%94%A8%E5%92%8C%E4%B8%8D%E5%8F%AF%E7%82%B9%E5%87%BB-1748076976389-60.png"
+  width="278"
+  height="51"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="545"
+    data-flex-basis="1308px"
+  
+/>
+</p>
+<p>之所以这样去做目的是为了 <code>GPIO</code> 的控制，<code>GPI</code> 不可点击，<code>GPO</code> 可点击。</p>
+<p>提供了两种相似的样式 <code>BooleanStateButtonStyle</code> 和 <code>BooleanToggleButtonStyle</code>。前者对应于 <code>GPI</code>，不可点击，仅用于展示 <code>GPI</code> 状态，后者对应于 <code>GPO</code>，既可以展示 <code>GPO</code> 状态，又可以通过点击切换状态。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;Button</span> <span class="na">Style=</span><span class="s">&#34;{StaticResource BooleanStateButtonStyle}&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> 
+</span></span><span class="line"><span class="cl">        <span class="na">Tag=</span><span class="s">&#34;{Binding State}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;Button</span> <span class="na">Style=</span><span class="s">&#34;{StaticResource BooleanToggleButtonStyle}&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">Tag=</span><span class="s">&#34;{Binding State}&#34;</span> <span class="na">Command=</span><span class="s">&#34;{Binding ChangeStateCommand}&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ButtonStateToggle%E5%85%B3%E9%97%AD-1748076976389-61.png"
+  width="119"
+  height="55"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="216"
+    data-flex-basis="519px"
+  
+/>
+</p>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ButtonStateToggle%E5%BC%80%E5%90%AF-1748076976389-64.png"
+  width="119"
+  height="55"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="216"
+    data-flex-basis="519px"
+  
+/>
+</p>
+<h3 id="togglebutton">ToggleButton
+</h3><p>基于 <code>ToggleButton</code> 重写样式，该控件的本意是用于 <code>GPIO</code> 的控制</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;ToggleButton</span> <span class="na">IsChecked=</span><span class="s">&#34;{Binding State}&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;ToggleButton</span> <span class="na">IsChecked=</span><span class="s">&#34;{Binding State}&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="na">IsEnabled=</span><span class="s">&#34;False&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ToggleButton%E5%85%B3%E9%97%AD-1748076976389-62.png"
+  width="214"
+  height="55"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="389"
+    data-flex-basis="933px"
+  
+/>
+</p>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ToggleButton%E5%BC%80%E5%90%AF-1748076976389-63.png"
+  width="214"
+  height="55"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="389"
+    data-flex-basis="933px"
+  
+/>
+</p>
+<blockquote>
+<p>最终方案如下：</p>
+<ul>
+<li><code>GPI</code> 使用 <code>Button</code> 的 <code>BooleanStateButtonStyle</code> 样式</li>
+<li><code>GPO</code> 使用 <code>ToggleButton</code> 的默认样式。</li>
+</ul>
+</blockquote>
+<h3 id="radiobutton">RadioButton
+</h3><p>重写 RadioButton 的样式，主要优化如下：</p>
+<ol>
+<li>勾选后样式变化</li>
+<li>勾选框尺寸跟随字体尺寸变化</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;RadioButton</span> <span class="na">Content=</span><span class="s">&#34;未勾选&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;RadioButton</span> <span class="na">Content=</span><span class="s">&#34;勾选&#34;</span> <span class="na">IsChecked=</span><span class="s">&#34;True&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;RadioButton</span> <span class="na">Content=</span><span class="s">&#34;未勾选未启用&#34;</span> <span class="na">IsEnabled=</span><span class="s">&#34;False&#34;</span> <span class="na">IsChecked=</span><span class="s">&#34;False&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;RadioButton</span> <span class="na">Content=</span><span class="s">&#34;勾选未启用&#34;</span> <span class="na">IsEnabled=</span><span class="s">&#34;False&#34;</span> <span class="na">IsChecked=</span><span class="s">&#34;True&#34;</span>  <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;RadioButton</span> <span class="na">Content=</span><span class="s">&#34;大字体&#34;</span> <span class="na">FontSize=</span><span class="s">&#34;30&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/RadioButton-1748076976389-65.png"
+  width="592"
+  height="44"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="1345"
+    data-flex-basis="3229px"
+  
+/>
+</p>
+<h3 id="checkbox">CheckBox
+</h3><p>重写 CheckBox 的样式，主要优化如下：</p>
+<ol>
+<li>勾选后样式变化</li>
+<li>勾选框圆角</li>
+<li>勾选框尺寸跟随字体尺寸变化</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;CheckBox</span> <span class="na">Content=</span><span class="s">&#34;未勾选&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;CheckBox</span> <span class="na">Content=</span><span class="s">&#34;勾选&#34;</span> <span class="na">IsChecked=</span><span class="s">&#34;True&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;CheckBox</span> <span class="na">Content=</span><span class="s">&#34;未勾选未启用&#34;</span> <span class="na">IsEnabled=</span><span class="s">&#34;False&#34;</span> <span class="na">IsChecked=</span><span class="s">&#34;False&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;CheckBox</span> <span class="na">Content=</span><span class="s">&#34;勾选未启用&#34;</span> <span class="na">IsEnabled=</span><span class="s">&#34;False&#34;</span> <span class="na">IsChecked=</span><span class="s">&#34;True&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;CheckBox</span> <span class="na">Content=</span><span class="s">&#34;大字体&#34;</span> <span class="na">FontSize=</span><span class="s">&#34;30&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/CheckBox-1748076976389-68.png"
+  width="592"
+  height="44"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="1345"
+    data-flex-basis="3229px"
+  
+/>
+</p>
+<h3 id="combobox">ComboBox
+</h3><p>重写 ComboBox 样式，主要优化如下：</p>
+<ol>
+<li>圆角属性</li>
+<li>提供 ComboBox 绑定枚举值的扩展语法 EnumBindingSource</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--示例1：ComboBox绑定枚举值--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;ComboBox</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="na">Width=</span><span class="s">&#34;120&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="na">ItemsSource=</span><span class="s">&#34;{BaseWPFControl:EnumBindingSource 
+</span></span></span><span class="line"><span class="cl"><span class="s">                                        EnumType=BaseTest:EnumDayOfWeek}&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="na">SelectedItem=</span><span class="s">&#34;{Binding SelectedEnumDayOfWeek}&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;ComboBox.ItemTemplate&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;DataTemplate&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&#34;{Binding 
+</span></span></span><span class="line"><span class="cl"><span class="s">                       Converter={StaticResource EnumToDescriptionConverter}, 
+</span></span></span><span class="line"><span class="cl"><span class="s">                       Mode=OneWay}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/DataTemplate&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/ComboBox.ItemTemplate&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/ComboBox&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--示例2：不启用ComboBox--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;ComboBox</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="na">Width=</span><span class="s">&#34;120&#34;</span> <span class="na">IsEnabled=</span><span class="s">&#34;False&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;ComboBoxItem</span> <span class="na">Content=</span><span class="s">&#34;1&#34;</span> <span class="na">IsSelected=</span><span class="s">&#34;True&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/ComboBox&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--示例3：ComboBox绑定字典--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--note：需要设置 DisplayMemberPath 和 SelectedValuePath，--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--note：并只能使用 SelectedValue 进行访问--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;ComboBox</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="na">Width=</span><span class="s">&#34;120&#34;</span> <span class="na">ItemsSource=</span><span class="s">&#34;{Binding DictionaryDayOfWeek}&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="na">DisplayMemberPath=</span><span class="s">&#34;Value&#34;</span> <span class="na">SelectedValuePath=</span><span class="s">&#34;Key&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="na">SelectedValue=</span><span class="s">&#34;{Binding SelectedDictionaryDayOfWeek}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--示例4：ComboBox绑定列表--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--note：使用 SelectedItem 或者 SelectedValue 都可以获得正确结果--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--note: 前提是绑定的值在列表中，也可以通过 SelectedIndex 进行访问--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;ComboBox</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="na">Width=</span><span class="s">&#34;120&#34;</span> <span class="na">ItemsSource=</span><span class="s">&#34;{Binding ListDayOfWeek}&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="na">SelectedItem=</span><span class="s">&#34;{Binding SelectedListDayOfWeek}&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ComboBox-1748076976389-66.png"
+  width="572"
+  height="262"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="218"
+    data-flex-basis="523px"
+  
+/>
+</p>
+<h3 id="textblock">TextBlock
+</h3><p>重写 <code>TextBlock</code> 的样式，主要优化如下：</p>
+<ol>
+<li>中英文使用不同的字体显示，中文使用<code>微软雅黑</code>，英文使用<code>Consolas</code></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&#34;显示中文&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&#34;Show English&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/TextBlock-1748076976389-69.png"
+  width="263"
+  height="38"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="692"
+    data-flex-basis="1661px"
+  
+/>
+</p>
+<h3 id="memoryblock">MemoryBlock
+</h3><p>该控件为自定义控件，主要实现以下功能：</p>
+<ol>
+<li>获取当前软件已使用内存，以 <code>MB</code> 为单位</li>
+<li>可以通过控件的 <code>Interval</code> 属性设置更新频率，单位为 <code>ms</code>，默认为 <code>1000 ms</code></li>
+<li>可以通过控件的 <code>Header</code> 属性设置前缀文字</li>
+<li>可以通过控件的 <code>UsedMemory</code> 只读属性获取内存</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;BaseWPFControl:MemoryBlock</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/MemoryBlock-1748076976389-67.png"
+  width="263"
+  height="38"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="692"
+    data-flex-basis="1661px"
+  
+/>
+</p>
+<h3 id="logblock">LogBlock
+</h3><p>该控件为自定义控件，配合 <code>BaseLogManager</code> 一起使用，主要实现以下功能：</p>
+<ol>
+<li>显示日志</li>
+<li>提供日志详情页</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;BaseWPFControl:LogBlock</span> <span class="na">x:Name=</span><span class="s">&#34;LogBlock_Test&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;ContentControl</span> <span class="na">Height=</span><span class="s">&#34;400&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="na">Content=</span><span class="s">&#34;{Binding ElementName=LogBlock_Test, Path=LogView}&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/LogBlock-1748076976389-70.png"
+  width="1106"
+  height="485"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="228"
+    data-flex-basis="547px"
+  
+/>
+</p>
+<h3 id="textbox">TextBox
+</h3><p>重写 <code>TextBox</code> 的样式，主要实现以下功能：</p>
+<ol>
+<li>可以通过 <code>TextBoxProperty.Prefix</code> 属性设置前缀文字</li>
+<li>可以通过 <code>TextBoxProperty.WaterMask</code> 属性设置水印文字</li>
+<li>可以通过 <code>TextBoxProperty.Suffix</code> 属性设置后缀文字</li>
+<li>输入时边框高亮显示</li>
+<li>大文本输入框可以通过滚动条上下滚动</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;TextBox</span> <span class="na">Width=</span><span class="s">&#34;200&#34;</span>  <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> 
+</span></span><span class="line"><span class="cl">         <span class="na">BaseWPFControl:TextBoxProperty.Prefix=</span><span class="s">&#34;www.&#34;</span> 
+</span></span><span class="line"><span class="cl">         <span class="na">BaseWPFControl:TextBoxProperty.Suffix=</span><span class="s">&#34;.com&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">BaseWPFControl:TextBoxProperty.WaterMask=</span><span class="s">&#34;输入网址&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;TextBox</span> <span class="na">Width=</span><span class="s">&#34;160&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="na">Text=</span><span class="s">&#34;默认文本框&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;TextBox</span> <span class="na">Width=</span><span class="s">&#34;100&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> 
+</span></span><span class="line"><span class="cl">         <span class="na">BaseWPFControl:TextBoxProperty.WaterMask=</span><span class="s">&#34;绑定Decimal类型&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">Text=</span><span class="s">&#34;{Binding DecimalNumber, StringFormat=0.#}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;TextBox</span> <span class="na">Style=</span><span class="s">&#34;{StaticResource BigTextBox}&#34;</span> 
+</span></span><span class="line"><span class="cl">         <span class="na">Width=</span><span class="s">&#34;400&#34;</span> <span class="na">Height=</span><span class="s">&#34;100&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="na">Text=</span><span class="s">&#34;{Binding Poetry1}&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/TextBox-1748076976389-75.png"
+  width="529"
+  height="57"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="928"
+    data-flex-basis="2227px"
+  
+/>
+</p>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/BitTextBox-1748076976389-71.png"
+  width="416"
+  height="116"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="358"
+    data-flex-basis="860px"
+  
+/>
+</p>
+<h3 id="numericbox">NumericBox
+</h3><p><code>NumericBox</code> 为自定义控件，主要实现以下功能：</p>
+<ol>
+<li>更方便的绑定数字，并提供限制</li>
+<li>可以通过 <code>Value</code> 属性获取/设置值</li>
+<li>可以通过 <code>TextFormat</code> 属性设置文本格式</li>
+<li>可以通过 <code>MinValue</code> 属性设置最小值</li>
+<li>可以通过 <code>MaxValue</code> 属性设置最大值</li>
+<li>可以通过 <code>Interval</code> 属性设置点击增减按钮时的变化量</li>
+<li>可以通过 <code>ValueChanged</code> 事件获取值改变事件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;BaseWPFControl:NumericBox</span> <span class="na">Value=</span><span class="s">&#34;{Binding DecimalNumber}&#34;</span> <span class="na">TextFormat=</span><span class="s">&#34;0.#&#34;</span> 
+</span></span><span class="line"><span class="cl">                           <span class="na">MinValue =</span> <span class="s">&#34;0&#34;</span> <span class="na">MaxValue =</span> <span class="s">&#34;100&#34;</span> <span class="na">Interval =</span> <span class="s">&#34;1&#34;</span>
+</span></span><span class="line"><span class="cl">                           <span class="na">ValueChanged=</span><span class="s">&#34;NumericBox_ValueChanged&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;BaseWPFControl:NumericBox</span> <span class="na">Value=</span><span class="s">&#34;{Binding DecimalNumber}&#34;</span> <span class="na">TextFormat=</span><span class="s">&#34;0.#&#34;</span> 
+</span></span><span class="line"><span class="cl">                           <span class="na">IsEnabled=</span><span class="s">&#34;False&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/NumericBox-1748076976389-72.png"
+  width="331"
+  height="53"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="624"
+    data-flex-basis="1498px"
+  
+/>
+</p>
+<h3 id="passwordbox">PasswordBox
+</h3><p>重写 <code>PasswordBox</code> 样式，主要实现以下功能：</p>
+<ol>
+<li>可以通过 <code>PasswordBoxProperty.CanShowPassword</code> 属性设置是否显示密码的功能</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;PasswordBox</span> <span class="na">Width=</span><span class="s">&#34;200&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="na">Password=</span><span class="s">&#34;123456&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;PasswordBox</span> <span class="na">Width=</span><span class="s">&#34;200&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="na">Password=</span><span class="s">&#34;123456&#34;</span> 
+</span></span><span class="line"><span class="cl">             <span class="na">BaseWPFControl:PasswordBoxProperty.CanShowPassword=</span><span class="s">&#34;False&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PasswordBox-1748076976389-73.png"
+  width="446"
+  height="55"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="810"
+    data-flex-basis="1946px"
+  
+/>
+</p>
+<h3 id="datepicker--datetimepicker">DatePicker &amp; DateTimePicker
+</h3><p><code>DatePicker</code> 和 <code>DateTimePicker</code> 都是自定义控件，主要实现以下功能：</p>
+<ol>
+<li>选择时间和日期，这两个控件的区别在于一个前者只有日期，后者包含时间</li>
+<li>可以通过 <code>SelectedDateTime</code> 获取选中的日期时间</li>
+<li>可以通过 <code>SelectedDateTimeFormat</code> 设置日期时间的格式</li>
+<li>可以通过 <code>SelectedDateTimeChanged</code> 获取时间改变的事件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;BaseWPFControl:DatePicker</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;BaseWPFControl:DateTimePicker</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/DateTimePicker-1748076976389-74.png"
+  width="532"
+  height="317"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="167"
+    data-flex-basis="402px"
+  
+/>
+</p>
+<h3 id="selectfileblock--selectfolderblock">SelectFileBlock &amp; SelectFolderBlock
+</h3><p><code>SelectFileBlock</code> 和 <code>SelectFolderBlock</code> 都是自定义控件，主要实现以下功能：</p>
+<ol>
+<li>点击按钮通过对话框选择文件或者文件夹</li>
+<li>可以通过 <code>SelectedPath</code> 属性获取/设置路径</li>
+<li>可以通过 <code>SelectedPathChanged</code> 获取选中路径改变的事件</li>
+<li><code>SelectFileBlock</code> 可以通过 <code>ExtensionFilter</code> 属性设置文件过滤</li>
+<li>鼠标移动到文字上方出现 <code>ToolTip</code> 显示路径的全文</li>
+<li>鼠标双击文字直接跳转到路径所在的文件夹</li>
+</ol>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/SelectFileBlock-1748076976389-76.png"
+  width="533"
+  height="54"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="987"
+    data-flex-basis="2368px"
+  
+/>
+</p>
+<h3 id="image">Image
+</h3><p>提供一些内置的 <code>SVG</code>，可以直接通过 <code>Source</code> 绑定 <code>StaticResource</code> 值进行设置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;Image</span> <span class="na">Source=</span><span class="s">&#34;{StaticResource DirectoryConfig}&#34;</span> <span class="na">Height=</span><span class="s">&#34;50&#34;</span> <span class="na">Margin=</span><span class="s">&#34;10&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/SVGImage-1748076976389-77.png"
+  width="706"
+  height="429"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="164"
+    data-flex-basis="394px"
+  
+/>
+</p>
+<h3 id="progressbar--loading">ProgressBar &amp; Loading
+</h3><ol>
+<li>重写 <code>ProgressBar</code> 样式，提供圆角</li>
+<li>可以通过 <code>ProgressBarProperty.ShowValue</code> 属性设置进度条显示当前值</li>
+<li>提供扩展函数 <code>SetAnimateValue</code> 设置进度条的值，通过该函数设置可以显示动画</li>
+<li>提供自定义控件圆形进度条 <code>Loading</code>，仅用于等待功能</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;ProgressBar</span> <span class="na">Height=</span><span class="s">&#34;40&#34;</span> <span class="na">Width=</span><span class="s">&#34;400&#34;</span> <span class="na">d:Value=</span><span class="s">&#34;20&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;ProgressBar</span> <span class="na">Height=</span><span class="s">&#34;40&#34;</span> <span class="na">Width=</span><span class="s">&#34;400&#34;</span> <span class="na">IsIndeterminate=</span><span class="s">&#34;True&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;BaseWPFControl:Loading</span> <span class="na">Diameter=</span><span class="s">&#34;150&#34;</span> <span class="na">StrokeThickness=</span><span class="s">&#34;30&#34;</span> 
+</span></span><span class="line"><span class="cl">                        <span class="na">Content=</span><span class="s">&#34;加载中，请等待...&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ProgressBar-1748076976389-78.png"
+  width="454"
+  height="502"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="90"
+    data-flex-basis="217px"
+  
+/>
+</p>
+<h3 id="clock--calendar">Clock &amp; Calendar
+</h3><ol>
+<li>重写 <code>Calender</code> 样式</li>
+<li>提供 自定义控件 <code>Clock</code>，用于选择时间</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;Calendar</span> <span class="na">x:Name =</span> <span class="s">&#34;Calendar&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;BaseWPFControl:Clock</span> <span class="na">Height=</span><span class="s">&#34;{Binding ActualHeight, ElementName=Calender}&#34;</span><span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/Calender-1748076976389-79.png"
+  width="520"
+  height="354"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="146"
+    data-flex-basis="352px"
+  
+/>
+</p>
+<h3 id="tabcontrol">TabControl
+</h3><p>重写 <code>TabControl</code> 的样式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;TabControl</span> <span class="na">TabStripPlacement=</span><span class="s">&#34;Left&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;TabItem</span> <span class="na">Header=</span><span class="s">&#34;水调歌头&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&#34;{Binding Poetry1}&#34;</span> <span class="na">FontSize=</span><span class="s">&#34;14&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/TabItem&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;TabItem</span> <span class="na">Header=</span><span class="s">&#34;如梦令&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&#34;{Binding Poetry2}&#34;</span> <span class="na">FontSize=</span><span class="s">&#34;14&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/TabItem&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;TabItem</span> <span class="na">Header=</span><span class="s">&#34;破阵子&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&#34;{Binding Poetry3}&#34;</span> <span class="na">FontSize=</span><span class="s">&#34;14&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/TabItem&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;TabItem</span> <span class="na">Header=</span><span class="s">&#34;未启用&#34;</span> <span class="na">IsEnabled=</span><span class="s">&#34;False&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/TabControl&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/TabControl-1748076976389-80.png"
+  width="1055"
+  height="227"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="464"
+    data-flex-basis="1115px"
+  
+/>
+</p>
+<h2 id="复杂控件">复杂控件
+</h2><h3 id="configcontrol">ConfigControl
+</h3><p>提供自定义控件 <code>ConfigControl</code>，用于方便的实现配置界面</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;BaseWPFControl:ConfigControl</span> <span class="na">ConfigName=</span><span class="s">&#34;日期时间&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;BaseWPFControl:DateTimePicker</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/BaseWPFControl:ConfigControl&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;BaseWPFControl:ConfigControl</span> <span class="na">ConfigName=</span><span class="s">&#34;选择文件&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;BaseWPFControl:SelectFileBlock</span> <span class="na">Width=</span><span class="s">&#34;280&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/BaseWPFControl:ConfigControl&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ConfigControl-1748076976389-81.png"
+  width="473"
+  height="543"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="87"
+    data-flex-basis="209px"
+  
+/>
+</p>
+<h3 id="lisbox">LisBox
+</h3><p>重写 <code>ListBox</code> 的样式，可以绑定 <code>Enum/List/Dictionary</code></p>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ListBox-1748076976389-82.png"
+  width="401"
+  height="292"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="137"
+    data-flex-basis="329px"
+  
+/>
+</p>
+<h3 id="listview">ListView
+</h3><ol>
+<li>重写 <code>ListView</code> 的样式</li>
+</ol>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ListView-1748076976389-83.png"
+  width="405"
+  height="335"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="120"
+    data-flex-basis="290px"
+  
+/>
+</p>
+<h3 id="datagrid">DataGrid
+</h3><p>重写 <code>DataGrid</code> 的样式，这里包含两种样式，一种是选择单元格，另一种是鼠标经过选中整行</p>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/DataGrid-1748076976389-84.png"
+  width="465"
+  height="289"
+  
+  loading="lazy"
+  alt="选中单元格"
+  
+    class="gallery-image"
+    data-flex-grow="160"
+    data-flex-basis="386px"
+  
+/>
+
+<img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/ListViewDataGrid-1748076976389-85.png"
+  width="465"
+  height="289"
+  
+  loading="lazy"
+  alt="无法选中，鼠标经过选中整行"
+  
+    class="gallery-image"
+    data-flex-grow="160"
+    data-flex-basis="386px"
+  
+/>
+</p>
+<h2 id="更新记录">更新记录
+</h2><p>更新了部分 <code>BaseWPFControl</code> 中的控件，实现了更多的功能。</p>
+<h3 id="优化listbox">优化<code>ListBox</code>
+</h3><p>实际使用了一下<code>ListBox</code>之后发现还是有很多问题，尤其是关于调整属性之后，并且给出了更多的示例</p>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-17_10-07-54-1748075157664-1-1748076976389-86.png"
+  width="1196"
+  height="905"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="132"
+    data-flex-basis="317px"
+  
+/>
+</p>
+<h3 id="新增baseclipborder">新增<code>BaseClipBorder</code>
+</h3><ul>
+<li>实现了新的控件<code>BaseClipBorder</code>来解决边框溢出和边框圆角缝隙的问题</li>
+<li>最终实现如右图所示</li>
+</ul>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-26_20-07-25-1748075157664-4-1748076976389-87.png"
+  width="2222"
+  height="421"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="527"
+    data-flex-basis="1266px"
+  
+/>
+</p>
+<h3 id="优化progressbar">优化ProgressBar
+</h3><ul>
+<li>在上面<code>BaseClipBorder</code>的基础上优化了<code>ProgressBar</code>的实现</li>
+<li>给出了垂直<code>ProgressBar</code>例程实现</li>
+</ul>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-26_20-10-51-1748075157664-3-1748076976389-88.gif"
+  width="1196"
+  height="905"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="132"
+    data-flex-basis="317px"
+  
+/>
+</p>
+<h3 id="新增defaultcontrolstyle和defaultwindowstyle">新增<code>DefaultControlStyle</code>和<code>DefaultWindowStyle</code>
+</h3><p>这样设计的原因其实是为了移除掉<code>TextBlock</code>的<code>FontSize</code>属性和<code>FontFamily</code>属性，改为直接从<code>Window</code>或者<code>UserControl</code>中继承字体属性。</p>
+<p>而<code>DefaultControlStyle</code>中定义了基础的<code>FontSize</code>和<code>FontFamily</code>样式，并且任何控件都可以使用。</p>
+<h3 id="优化button">优化<code>Button</code>
+</h3><ul>
+<li>删除了关于<code>ButtonShape</code>属性的内容</li>
+<li>新增了一些无边框按钮的样式</li>
+<li>统一了<code>BorderBrush</code>和<code>BorderThickness</code>的风格</li>
+</ul>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-26_20-04-46-1748075157664-2-1748076976389-89.png"
+  width="1196"
+  height="905"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="132"
+    data-flex-basis="317px"
+  
+/>
+</p>
+<h3 id="优化combobox">优化<code>ComboBox</code>
+</h3><ul>
+<li>重写了<code>ComboBox</code>的样式</li>
+<li>新增<code>ComboBoxItem</code>的样式</li>
+</ul>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-26_20-15-22-1748075157664-5-1748076976389-90.png"
+  width="249"
+  height="379"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="65"
+    data-flex-basis="157px"
+  
+/>
+
+<img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-26_20-15-01-1748075157664-6-1748076976390-99.png"
+  width="249"
+  height="379"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="65"
+    data-flex-basis="157px"
+  
+/>
+</p>
+<h3 id="新增innerseparator属性">新增<code>InnerSeparator</code>属性
+</h3><ul>
+<li>新增<code>BaseWPFControl:ControlProperty.InnerSeparator</code>属性，一般用于内部存在间隙属性调整</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Markdown" data-lang="Markdown"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">Button</span> <span class="na">Content</span><span class="o">=</span><span class="s">&#34;图标&#34;</span> <span class="na">Margin</span><span class="o">=</span><span class="s">&#34;10&#34;</span> 
+</span></span><span class="line"><span class="cl">        <span class="na">BaseWPFControl:ButtonProperty</span><span class="err">.</span><span class="na">Icon</span><span class="o">=</span><span class="s">&#34;{StaticResource HomePage}&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">BaseWPFControl:ControlProperty</span><span class="err">.</span><span class="na">InnerSeparator</span><span class="o">=</span><span class="s">&#34;20&#34;</span> <span class="p">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-26_20-34-49-1748075157665-7-1748076976390-92.png"
+  width="556"
+  height="99"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="561"
+    data-flex-basis="1347px"
+  
+/>
+</p>
+<h3 id="优化datagrid">优化<code>DataGrid</code>
+</h3><p>在使用<code>DataGrid</code>的时候，我发现有些属性没有效果，或者不尽如人意。</p>
+<p>所以我就重新整理了一下<code>DataGrid</code>的实现，并且给出了详细的案例。</p>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_09-40-06-1748075157665-8-1748076976390-98.png"
+  width="1196"
+  height="905"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="132"
+    data-flex-basis="317px"
+  
+/>
+
+<img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_09-41-09-1748075157665-10-1748076976389-91.png"
+  width="1196"
+  height="905"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="132"
+    data-flex-basis="317px"
+  
+/>
+
+<img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_09-41-14-1748075157665-9-1748076976390-93.png"
+  width="1196"
+  height="905"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="132"
+    data-flex-basis="317px"
+  
+/>
+</p>
+<h3 id="优化calendar和clock">优化<code>Calendar</code>和<code>Clock</code>
+</h3><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_13-59-15-1748075157665-11-1748076976390-94.png"
+  width="1196"
+  height="905"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="132"
+    data-flex-basis="317px"
+  
+/>
+</p>
+<h3 id="优化flipbox">优化<code>FlipBox</code>
+</h3><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_13-59-39-1748075157665-12-1748076976390-95.png"
+  width="1196"
+  height="905"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="132"
+    data-flex-basis="317px"
+  
+/>
+</p>
+<h3 id="新增dialog显示成window">新增<code>Dialog</code>显示成<code>Window</code>
+</h3><p>可以调用<code>ShowDialogAsWindow</code>函数，将<code>Dialog</code>显示成独立的<code>Window</code>，就算没有<code>DialogContainer</code>也能显示。使用体验和<code>WPF</code>原生的<code>ShowDialog</code>函数类似。</p>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_14-07-45-1748075157665-13-1748076976390-96.png"
+  width="1196"
+  height="905"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="132"
+    data-flex-basis="317px"
+  
+/>
+
+<img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_14-07-37-1748075157665-14-1748076976390-97.png"
+  width="1196"
+  height="905"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="132"
+    data-flex-basis="317px"
+  
+/>
+</p>
+<h3 id="优化listbox-1">优化<code>ListBox</code>
+</h3><p>和之前的显示一致，只是使用<code>BaseClipBorder</code>简化了内部实现。</p>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_14-21-24-1748075157665-15-1748076976390-101.png"
+  width="1196"
+  height="905"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="132"
+    data-flex-basis="317px"
+  
+/>
+</p>
+<h3 id="优化listview">优化<code>ListView</code>
+</h3><p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_16-19-43-1748075157665-16-1748076976390-102.png"
+  width="1196"
+  height="905"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="132"
+    data-flex-basis="317px"
+  
+/>
+</p>
+<h3 id="优化smoothprogress">优化<code>SmoothProgress</code>
+</h3><p>这里省事，直接让<code>SmoothProgressBar</code>使用<code>ProgressBar</code>的样式</p>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-03-28_17-44-38-1748075157665-18-1748076976390-100.png"
+  width="1196"
+  height="905"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="132"
+    data-flex-basis="317px"
+  
+/>
+</p>
+<h3 id="新增simplescrollviewer样式">新增<code>SimpleScrollViewer</code>样式
+</h3><ul>
+<li>该样式没有滚动条，只有箭头按钮，并且增加了滚动动画</li>
+<li>主要用于<code>TabControl</code>的<code>Header</code>部分</li>
+</ul>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-04-02_11-18-51-1748075157665-17-1748076976392-103.png"
+  width="1386"
+  height="808"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="171"
+    data-flex-basis="411px"
+  
+/>
+</p>
+<h3 id="优化tabcontrol">优化<code>TabControl</code>
+</h3><ul>
+<li>优化了微软原生样式下，<code>TabItem</code>溢出的问题</li>
+</ul>
+<p><img
+  src="/p/wpf%E6%8E%A7%E4%BB%B6%E5%BA%93-basewpfcontrol/assets/PixPin_2025-04-02_11-19-13-1748075157665-19-1748076976392-104.png"
+  width="1386"
+  height="808"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="171"
+    data-flex-basis="411px"
+  
+/>
+</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2025 Zeros遇见
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
