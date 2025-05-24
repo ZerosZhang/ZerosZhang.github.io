@@ -7,7 +7,68 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Zeros遇见</copyright>
-        <lastBuildDate>Sat, 24 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://zeroszhang.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 24 May 2025 19:39:45 +0800</lastBuildDate><atom:link href="https://zeroszhang.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>芯片键合</title>
+        <link>https://zeroszhang.github.io/p/%E8%8A%AF%E7%89%87%E9%94%AE%E5%90%88/</link>
+        <pubDate>Sat, 24 May 2025 19:39:45 +0800</pubDate>
+        
+        <guid>https://zeroszhang.github.io/p/%E8%8A%AF%E7%89%87%E9%94%AE%E5%90%88/</guid>
+        <description>&lt;h1 id=&#34;芯片键合die-bond&#34;&gt;芯片键合（Die Bond）
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;参考：&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/qq_46675545/article/details/128050411?spm=1001.2014.3001.5502&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://blog.csdn.net/qq_46675545/article/details/128050411?spm=1001.2014.3001.5502&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;🦪&lt;strong&gt;芯片键合&lt;/strong&gt;工艺在划片工艺之后将从晶圆上切割的芯片黏贴在封装基板（引线框架或印刷电路板）上，&lt;strong&gt;来实现芯片与外部之间的电连接&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;键合工艺可分为传统方法和先进方法两种类型。传统方法采用芯片键合&lt;code&gt;Die Bonding&lt;/code&gt;和引线键合&lt;code&gt;Wire Bonding&lt;/code&gt;，而先进方法则采用 IBM 于 60 年代后期开发的倒装芯片键合&lt;code&gt;Flip Chip Bonding&lt;/code&gt;技术。倒装芯片键合技术将芯片键合与引线键合相结合，并通过在芯片焊盘上形成凸块&lt;code&gt;Bump&lt;/code&gt;的方式将芯片和基板连接起来。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%8A%AF%E7%89%87%E9%94%AE%E5%90%88/assets/image_mOwN1-X4J0.png&#34;
+  width=&#34;1000&#34;
+  height=&#34;271&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;芯片键合与倒装芯片键合之间的比较 芯片键合与倒装芯片键合之间的比较 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;369&#34;
+    data-flex-basis=&#34;885px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;芯片拾取与放置pick--place&#34;&gt;芯片拾取与放置&lt;code&gt;Pick &amp;amp; Place&lt;/code&gt;
+&lt;/h4&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%8A%AF%E7%89%87%E9%94%AE%E5%90%88/assets/image_660BBtQXMY.png&#34;
+  width=&#34;1000&#34;
+  height=&#34;511&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;195&#34;
+    data-flex-basis=&#34;469px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;逐个移除附着在切割胶带上数百个芯片的过程称为“拾取&lt;code&gt;Pick&lt;/code&gt;”。使用柱塞从晶圆上拾取合格芯片并将其放置在封装基板表面的过程称为“放置&lt;code&gt;Place&lt;/code&gt;”。这两项任务合称为“拾取与放置&lt;code&gt;Pick&amp;amp;Place&lt;/code&gt;”，均在固晶机（用于芯片键合的装置）上完成。完成对所有合格芯片的芯片键合之后，未移除的不合格芯片将留在切割胶带上，并在框架回收时全部丢弃。在这个过程中，将通过在映射表（&lt;code&gt;Mapping&lt;/code&gt;图）中输入晶圆测试结果（合格/不合格）的方式对合格芯片进行分类。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E8%8A%AF%E7%89%87%E9%94%AE%E5%90%88/assets/image_4aZj4l9bvB.png&#34;
+  width=&#34;1000&#34;
+  height=&#34;402&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;248&#34;
+    data-flex-basis=&#34;597px&#34;
+  
+/&gt;
+&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>红黑树</title>
         <link>https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/</link>
         <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate>
