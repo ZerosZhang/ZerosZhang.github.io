@@ -7,13 +7,246 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Zeros遇见</copyright>
-        <lastBuildDate>Sat, 24 May 2025 19:39:45 +0800</lastBuildDate><atom:link href="https://zeroszhang.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 24 May 2025 19:50:14 +0800</lastBuildDate><atom:link href="https://zeroszhang.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>先进封装</title>
+        <link>https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/</link>
+        <pubDate>Sat, 24 May 2025 19:50:14 +0800</pubDate>
+        
+        <guid>https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/</guid>
+        <description>&lt;img src="https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/Title.jpg" alt="Featured image of post 先进封装" /&gt;&lt;h1 id=&#34;先进封装&#34;&gt;先进封装
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;🦪&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1Yu411c7ic/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.bilibili.com/video/BV1Yu411c7ic&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;所谓封装，就是给芯片加壳后再连接电路。&lt;/p&gt;
+&lt;h2 id=&#34;传统的封装&#34;&gt;传统的封装
+&lt;/h2&gt;&lt;p&gt;半导体的后道工艺通常包含以下内容：&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/PixPin_2025-05-24_19-53-28.png&#34;
+  width=&#34;685&#34;
+  height=&#34;83&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;825&#34;
+    data-flex-basis=&#34;1980px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;而本文会着重解释键合和封装的工艺。传统的键合是先进行芯片键合，再进行引线键合，然后套一层壳。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_zPdHGUZkKp.png&#34;
+  width=&#34;1139&#34;
+  height=&#34;599&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;装片的芯片顶出结构 装片的芯片顶出结构 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;190&#34;
+    data-flex-basis=&#34;456px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_Vfjkg4XpZy.png&#34;
+  width=&#34;1544&#34;
+  height=&#34;387&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;键合说明 键合说明 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;398&#34;
+    data-flex-basis=&#34;957px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;芯片键合——Die Bonding&lt;/li&gt;
+&lt;li&gt;引线键合——Wire Bonding&lt;/li&gt;
+&lt;li&gt;倒装芯片键合——Filp Chip Bonding&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;🦪 传统封装的缺点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;引线框架比较大——芯片体积大&lt;/li&gt;
+&lt;li&gt;金属引线比较长——信号传输耗时长&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;封装的发展&#34;&gt;封装的发展
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;裸片贴装——引线键合&lt;/li&gt;
+&lt;li&gt;倒片封装——焊球/凸点&lt;/li&gt;
+&lt;li&gt;晶圆级封装——RDL 重布线层&lt;/li&gt;
+&lt;li&gt;2.5D/3D 封装——TSV 硅通孔技术，chiplet 封装技术&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;🦪 每一代技术之间的本质区别，就是芯片和电路之间连接方式的区别&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;倒片封装&#34;&gt;倒片封装
+&lt;/h2&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_UWdeAT5jAJ.png&#34;
+  width=&#34;1611&#34;
+  height=&#34;624&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;258&#34;
+    data-flex-basis=&#34;619px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;芯片电路层朝下，通过金属球将芯片与电路连接，有效减少了芯片的体积，提升了传输速率。&lt;/p&gt;
+&lt;p&gt;需要用到曝光，刻蚀，沉积等工艺。&lt;/p&gt;
+&lt;h2 id=&#34;晶圆级封装&#34;&gt;晶圆级封装
+&lt;/h2&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_7tNXKalkUw.png&#34;
+  width=&#34;956&#34;
+  height=&#34;692&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;138&#34;
+    data-flex-basis=&#34;331px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_WYqdJCCf2v.png&#34;
+  width=&#34;764&#34;
+  height=&#34;700&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;109&#34;
+    data-flex-basis=&#34;261px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_Ki9XlPQC3e.png&#34;
+  width=&#34;1694&#34;
+  height=&#34;606&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;279&#34;
+    data-flex-basis=&#34;670px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;这种叫做扇入型封装。该封装方式的缺点在于芯片的保护性不强，且可能会导致后续发生变形。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_lyVgH7dTXv.png&#34;
+  width=&#34;1050&#34;
+  height=&#34;757&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;138&#34;
+    data-flex-basis=&#34;332px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;这种方式叫做扇出型封装，在扇入的基础上增加一层保护壳。&lt;/p&gt;
+&lt;h2 id=&#34;25d3d-封装&#34;&gt;2.5D/3D 封装
+&lt;/h2&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_NpEmeJ1l14.png&#34;
+  width=&#34;1672&#34;
+  height=&#34;518&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;2.5D封装 2.5D封装 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;322&#34;
+    data-flex-basis=&#34;774px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;将两个芯片放在同一块硅中介层上，再将其放在 PCB 板上，作为一个完整的芯片。&lt;/p&gt;
+&lt;p&gt;这种方式的做法是可以有效的增加两块芯片之间的通信效率。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_4ReYG8bzaW.png&#34;
+  width=&#34;1217&#34;
+  height=&#34;588&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;3D封装 3D封装 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;206&#34;
+    data-flex-basis=&#34;496px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;3D 封装去除了硅中介层，将芯片与芯片直接相连。&lt;/p&gt;
+&lt;p&gt;3D 封装依赖于 TSV 硅通孔技术，即在硅上打通孔，然后在通孔上填充金属材料，这样就可以把芯片一层一层的串联起来。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_9Yye8CsYRK.png&#34;
+  width=&#34;1028&#34;
+  height=&#34;673&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;152&#34;
+    data-flex-basis=&#34;366px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_dlcPrFIVJ8.png&#34;
+  width=&#34;1062&#34;
+  height=&#34;695&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;152&#34;
+    data-flex-basis=&#34;366px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_5O1kFIgwBF.png&#34;
+  width=&#34;1514&#34;
+  height=&#34;757&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;200&#34;
+    data-flex-basis=&#34;480px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;Chiplet 芯粒：一种按照功能对现有逻辑芯片进行拆分并使用硅通孔堆叠实现互联的技术。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>芯片键合</title>
         <link>https://zeroszhang.github.io/p/%E8%8A%AF%E7%89%87%E9%94%AE%E5%90%88/</link>
         <pubDate>Sat, 24 May 2025 19:39:45 +0800</pubDate>
         
         <guid>https://zeroszhang.github.io/p/%E8%8A%AF%E7%89%87%E9%94%AE%E5%90%88/</guid>
-        <description>&lt;h1 id=&#34;芯片键合die-bond&#34;&gt;芯片键合（Die Bond）
+        <description>&lt;img src="https://zeroszhang.github.io/p/%E8%8A%AF%E7%89%87%E9%94%AE%E5%90%88/Title.jpg" alt="Featured image of post 芯片键合" /&gt;&lt;h1 id=&#34;芯片键合die-bond&#34;&gt;芯片键合（Die Bond）
 &lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;参考：&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/qq_46675545/article/details/128050411?spm=1001.2014.3001.5502&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://blog.csdn.net/qq_46675545/article/details/128050411?spm=1001.2014.3001.5502&lt;/a&gt;&lt;/p&gt;

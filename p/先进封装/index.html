@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本文介绍半导体工艺中的传统封装和先进封装">
+<title>先进封装</title>
+
+<link rel='canonical' href='https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="先进封装">
+<meta property='og:description' content="本文介绍半导体工艺中的传统封装和先进封装">
+<meta property='og:url' content='https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/'>
+<meta property='og:site_name' content='Zeros遇见的作品集合'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-05-24T19:50:14&#43;08:00'/><meta property='article:modified_time' content='2025-05-24T19:50:14&#43;08:00'/><meta property='og:image' content='https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/Title.jpg' />
+<meta name="twitter:title" content="先进封装">
+<meta name="twitter:description" content="本文介绍半导体工艺中的传统封装和先进封装"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://zeroszhang.github.io/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/Title.jpg' />
+    <link rel="shortcut icon" href="/%e5%a4%b4%e5%83%8f.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu2450056213648967934.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">📸</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Zeros遇见的作品集合</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#传统的封装">传统的封装</a></li>
+    <li><a href="#封装的发展">封装的发展</a></li>
+    <li><a href="#倒片封装">倒片封装</a></li>
+    <li><a href="#晶圆级封装">晶圆级封装</a></li>
+    <li><a href="#25d3d-封装">2.5D/3D 封装</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/">
+                <img src="/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/Title.jpg"
+                        
+                        width="4975" 
+                        height="3317" 
+                        loading="lazy"
+                        alt="Featured image of post 先进封装" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%B7%A5%E8%89%BA/" >
+                半导体工艺
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/">先进封装</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            本文介绍半导体工艺中的传统封装和先进封装
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025年5月24日</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="先进封装">先进封装
+</h1><blockquote>
+<p>🦪<a class="link" href="https://www.bilibili.com/video/BV1Yu411c7ic/"  target="_blank" rel="noopener"
+    >https://www.bilibili.com/video/BV1Yu411c7ic</a></p>
+</blockquote>
+<p>所谓封装，就是给芯片加壳后再连接电路。</p>
+<h2 id="传统的封装">传统的封装
+</h2><p>半导体的后道工艺通常包含以下内容：</p>
+<p><img
+  src="/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/PixPin_2025-05-24_19-53-28.png"
+  width="685"
+  height="83"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="825"
+    data-flex-basis="1980px"
+  
+/>
+</p>
+<p>而本文会着重解释键合和封装的工艺。传统的键合是先进行芯片键合，再进行引线键合，然后套一层壳。</p>
+<p><img
+  src="/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_zPdHGUZkKp.png"
+  width="1139"
+  height="599"
+  
+  loading="lazy"
+  alt="装片的芯片顶出结构 装片的芯片顶出结构 "
+  
+    class="gallery-image"
+    data-flex-grow="190"
+    data-flex-basis="456px"
+  
+/>
+</p>
+<p><img
+  src="/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_Vfjkg4XpZy.png"
+  width="1544"
+  height="387"
+  
+  loading="lazy"
+  alt="键合说明 键合说明 "
+  
+    class="gallery-image"
+    data-flex-grow="398"
+    data-flex-basis="957px"
+  
+/>
+</p>
+<ul>
+<li>芯片键合——Die Bonding</li>
+<li>引线键合——Wire Bonding</li>
+<li>倒装芯片键合——Filp Chip Bonding</li>
+</ul>
+<blockquote>
+<p>🦪 传统封装的缺点：</p>
+<ol>
+<li>引线框架比较大——芯片体积大</li>
+<li>金属引线比较长——信号传输耗时长</li>
+</ol>
+</blockquote>
+<h2 id="封装的发展">封装的发展
+</h2><ol>
+<li>裸片贴装——引线键合</li>
+<li>倒片封装——焊球/凸点</li>
+<li>晶圆级封装——RDL 重布线层</li>
+<li>2.5D/3D 封装——TSV 硅通孔技术，chiplet 封装技术</li>
+</ol>
+<blockquote>
+<p>🦪 每一代技术之间的本质区别，就是芯片和电路之间连接方式的区别</p>
+</blockquote>
+<h2 id="倒片封装">倒片封装
+</h2><p><img
+  src="/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_UWdeAT5jAJ.png"
+  width="1611"
+  height="624"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="258"
+    data-flex-basis="619px"
+  
+/>
+</p>
+<p>芯片电路层朝下，通过金属球将芯片与电路连接，有效减少了芯片的体积，提升了传输速率。</p>
+<p>需要用到曝光，刻蚀，沉积等工艺。</p>
+<h2 id="晶圆级封装">晶圆级封装
+</h2><p><img
+  src="/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_7tNXKalkUw.png"
+  width="956"
+  height="692"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="138"
+    data-flex-basis="331px"
+  
+/>
+
+<img
+  src="/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_WYqdJCCf2v.png"
+  width="764"
+  height="700"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="109"
+    data-flex-basis="261px"
+  
+/>
+
+<img
+  src="/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_Ki9XlPQC3e.png"
+  width="1694"
+  height="606"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="279"
+    data-flex-basis="670px"
+  
+/>
+</p>
+<p>这种叫做扇入型封装。该封装方式的缺点在于芯片的保护性不强，且可能会导致后续发生变形。</p>
+<p><img
+  src="/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_lyVgH7dTXv.png"
+  width="1050"
+  height="757"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="138"
+    data-flex-basis="332px"
+  
+/>
+</p>
+<p>这种方式叫做扇出型封装，在扇入的基础上增加一层保护壳。</p>
+<h2 id="25d3d-封装">2.5D/3D 封装
+</h2><p><img
+  src="/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_NpEmeJ1l14.png"
+  width="1672"
+  height="518"
+  
+  loading="lazy"
+  alt="2.5D封装 2.5D封装 "
+  
+    class="gallery-image"
+    data-flex-grow="322"
+    data-flex-basis="774px"
+  
+/>
+</p>
+<p>将两个芯片放在同一块硅中介层上，再将其放在 PCB 板上，作为一个完整的芯片。</p>
+<p>这种方式的做法是可以有效的增加两块芯片之间的通信效率。</p>
+<p><img
+  src="/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_4ReYG8bzaW.png"
+  width="1217"
+  height="588"
+  
+  loading="lazy"
+  alt="3D封装 3D封装 "
+  
+    class="gallery-image"
+    data-flex-grow="206"
+    data-flex-basis="496px"
+  
+/>
+</p>
+<p>3D 封装去除了硅中介层，将芯片与芯片直接相连。</p>
+<p>3D 封装依赖于 TSV 硅通孔技术，即在硅上打通孔，然后在通孔上填充金属材料，这样就可以把芯片一层一层的串联起来。</p>
+<p><img
+  src="/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_9Yye8CsYRK.png"
+  width="1028"
+  height="673"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="152"
+    data-flex-basis="366px"
+  
+/>
+
+<img
+  src="/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_dlcPrFIVJ8.png"
+  width="1062"
+  height="695"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="152"
+    data-flex-basis="366px"
+  
+/>
+
+<img
+  src="/p/%E5%85%88%E8%BF%9B%E5%B0%81%E8%A3%85/assets/image_5O1kFIgwBF.png"
+  width="1514"
+  height="757"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="200"
+    data-flex-basis="480px"
+  
+/>
+</p>
+<p>Chiplet 芯粒：一种按照功能对现有逻辑芯片进行拆分并使用硅通孔堆叠实现互联的技术。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E8%8A%AF%E7%89%87%E9%94%AE%E5%90%88/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E8%8A%AF%E7%89%87%E9%94%AE%E5%90%88/Title.229d741c9748191763e40188090e8f27.jpg" 
+                        width="3872" 
+                        height="2592" 
+                        loading="lazy"
+                        alt="Featured image of post 芯片键合"
+                        
+                        data-hash="md5-Ip10HJdIGRdj5AGICQ6PJw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">芯片键合</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2025 Zeros遇见
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
