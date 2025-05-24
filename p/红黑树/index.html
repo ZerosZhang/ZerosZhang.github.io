@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本文介绍红黑树的相关概念">
+<title>红黑树</title>
+
+<link rel='canonical' href='https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="红黑树">
+<meta property='og:description' content="本文介绍红黑树的相关概念">
+<meta property='og:url' content='https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/'>
+<meta property='og:site_name' content='Zeros遇见的作品集合'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-05-24T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-05-24T00:00:00&#43;00:00'/><meta property='og:image' content='https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/Title.jpg' />
+<meta name="twitter:title" content="红黑树">
+<meta name="twitter:description" content="本文介绍红黑树的相关概念"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/Title.jpg' />
+    <link rel="shortcut icon" href="/%e5%a4%b4%e5%83%8f.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu2450056213648967934.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">📸</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Zeros遇见的作品集合</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#红黑树诞生的背景">红黑树诞生的背景</a></li>
+    <li><a href="#红黑属性的意义">红黑属性的意义</a></li>
+    <li><a href="#红黑树的性质">红黑树的性质</a></li>
+    <li><a href="#节点的定义">节点的定义</a></li>
+    <li><a href="#红黑树的着色和旋转">红黑树的着色和旋转</a></li>
+    <li><a href="#红黑树中的红黑属性并非唯一">红黑树中的红黑属性并非唯一</a></li>
+    <li><a href="#红黑树的插入操作">红黑树的插入操作</a>
+      <ol>
+        <li><a href="#父节点为黑">父节点为黑</a></li>
+        <li><a href="#父节点为红色叔叔节点为红色">父节点为红色，叔叔节点为红色</a></li>
+        <li><a href="#父节点为红色叔叔节点为黑色且父子同侧llrr-型">父节点为红色，叔叔节点为黑色，且父子同侧（LL/RR 型）</a></li>
+        <li><a href="#父节点为红色叔叔节点为黑色且父子异侧lrrl-型">父节点为红色，叔叔节点为黑色，且父子异侧（LR/RL 型）</a></li>
+      </ol>
+    </li>
+    <li><a href="#红黑树的删除操作">红黑树的删除操作</a>
+      <ol>
+        <li><a href="#删除单个红节点">删除单个红节点</a></li>
+        <li><a href="#删除单个黑节点"><strong>删除单个黑节点</strong></a></li>
+        <li><a href="#删除只包含一个子节点的黑色节点该节点只可能是红色节点">删除只包含一个子节点的黑色节点，该节点只可能是红色节点</a></li>
+        <li><a href="#删除包含两个子节点的节点不论红黑">删除包含两个子节点的节点（不论红黑）</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/">
+                <img src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/Title.jpg"
+                        
+                        width="6000" 
+                        height="4000" 
+                        loading="lazy"
+                        alt="Featured image of post 红黑树" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%BD%AF%E4%BB%B6/" >
+                软件
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/">红黑树</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            本文介绍红黑树的相关概念
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025年5月24日</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="红黑树诞生的背景">红黑树诞生的背景
+</h2><p>普通的二叉搜索树在添加有序数据（递增或者递减）的时候，所有的节点都会在根节点的右侧或者左侧，此时普通的二叉树就退化成链表，操作的时间复杂组退化成了$O(N)$。</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/image_whCvbOT7Ij.png"
+  width="720"
+  height="559"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="128"
+    data-flex-basis="309px"
+  
+/>
+</p>
+<p>于是就有了平衡二叉树（AVL 树）。平衡二叉树通过平衡因子来限制树的解构——<strong>任意节点的子树的高度差都小于等于 1</strong>。将查询效率优化为了$\log _{2} n$。</p>
+<p>AVL 树作为严格平衡的二叉树，就需要频繁的通过旋转操作来保持平衡，而旋转操作是比较耗时的，导致了维护这种高度平衡所付出的代价比从中获得的收益还大，因此只适用于插入删除次数较少，但是查找多的情况。</p>
+<p>在上面的大背景下，诞生了红黑树，即使在最坏的情况下，也可以在$ \log _{2} n$时间内实现插入/删除/查找操作。</p>
+<p>红黑树是一个弱平衡二叉树，相比于严格平衡的 AVL 树，每次树的结构发生改变需要调整时，所需要的转换次数更少，因此对于插入和删除操作的效率更高。</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/image_MfNghsHPdV.png"
+  width="722"
+  height="354"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="203"
+    data-flex-basis="489px"
+  
+/>
+</p>
+<h2 id="红黑属性的意义">红黑属性的意义
+</h2><p>为了确保红黑树的弱平衡属性，要求没有任何一条路径比其他路径长出两倍。因此在每个节点上增加了颜色属性——红或者黑。</p>
+<p>红黑属性通过颜色规则来保持树的平衡，减少旋转操作。每次改变了树的结构（插入/删除操作）之后，最多只需要两次旋转操作即可完成树的平衡。</p>
+<h2 id="红黑树的性质">红黑树的性质
+</h2><p>红黑树有五条性质，记住后面两条就行：</p>
+<ol>
+<li>每个节点非红即黑</li>
+<li>根节点是黑的</li>
+<li>每个叶节点（树尾端 NULL 节点）都是黑的</li>
+<li>如果一个节点是红的,那么它的两儿子都是黑的<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+<li>任意节点到每个叶子节点的所有路径都包含相同数目的黑节点</li>
+</ol>
+<h2 id="节点的定义">节点的定义
+</h2><p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_09-32-57_A-oVSsOBZu.png"
+  width="698"
+  height="257"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="271"
+    data-flex-basis="651px"
+  
+/>
+</p>
+<h2 id="红黑树的着色和旋转">红黑树的着色和旋转
+</h2><p>在插入/删除节点的时候，会破坏红黑树的性质，因此需要调整红黑树的结构，以满足上述性质。总共包含三种调整的操作——着色/左旋/右旋。</p>
+<p>着色指的是将红色节点变为黑色节点，或者黑色节点变为红色节点。</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_20-44-40_JD_iLQlgdf.png"
+  width="535"
+  height="257"
+  
+  loading="lazy"
+  alt="黑变红或者红变黑"
+  
+    class="gallery-image"
+    data-flex-grow="208"
+    data-flex-basis="499px"
+  
+/>
+</p>
+<p>左旋操作如下所示：</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/image_9Zz4k-LX_8.png"
+  width="1105"
+  height="485"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="227"
+    data-flex-basis="546px"
+  
+/>
+</p>
+<p>右旋操作如下所示：</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/image_KThfgLwkU8.png"
+  width="1106"
+  height="485"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="228"
+    data-flex-basis="547px"
+  
+/>
+</p>
+<h2 id="红黑树中的红黑属性并非唯一">红黑树中的红黑属性并非唯一
+</h2><p>红黑树的颜色属性情况并非只有唯一解，只要保证满足红黑树性质即可。如下所示，在插入 101 后删除 101，红黑树还是原来的红黑树，但是颜色属性变化了。</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_20-51-32_17dz04mD3F.png"
+  width="307"
+  height="172"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="178"
+    data-flex-basis="428px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_20-51-52_ibPOatK2dX.png"
+  width="307"
+  height="172"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="178"
+    data-flex-basis="428px"
+  
+/>
+</p>
+<h2 id="红黑树的插入操作">红黑树的插入操作
+</h2><blockquote>
+<p>这里有一个规则，新插入的节点一定是红色的。因为红色节点可能不会影响平衡<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>，但是黑色节点一定会影响树的平衡<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>。默认插入红色节点可以减少后续操作。</p>
+</blockquote>
+<p>红黑树的插入操作分为四种情况：</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/%E7%BA%A2%E9%BB%91%E6%A0%91%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C-1748085534718-3.png"
+  width="2949"
+  height="1125"
+  
+  loading="lazy"
+  alt="红黑树插入操作"
+  
+    class="gallery-image"
+    data-flex-grow="262"
+    data-flex-basis="629px"
+  
+/>
+</p>
+<blockquote>
+<p>🦪<strong>以下的「父节点」「叔叔节点」「祖父节点」都是插入新节点后，调整树结构前的状态（图 2 中）</strong></p>
+</blockquote>
+<h3 id="父节点为黑">父节点为黑
+</h3><blockquote>
+<p>🧋 直接插入新元素，不需要调整树的结构。</p>
+</blockquote>
+<h3 id="父节点为红色叔叔节点为红色">父节点为红色，叔叔节点为红色
+</h3><blockquote>
+<p>🧋「父节点」和「叔叔节点」变黑，「祖父节点」变红，递归检查祖父节点是否引发新的冲突。</p>
+</blockquote>
+<p>如图 1，插入节点 120。父节点是 110，叔叔节点是 90，符合该情况。因此将父节点 110 和叔叔节点 90 变黑，祖父节点 100 变红。引发性质 2 冲突，因此将祖父节点 100 变黑。</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-23-40_wqZWRdTZB4.png"
+  width="340"
+  height="238"
+  
+  loading="lazy"
+  alt="原始树 原始树 "
+  
+    class="gallery-image"
+    data-flex-grow="142"
+    data-flex-basis="342px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-30-55_Eq3eUJ4yAW.png"
+  width="340"
+  height="238"
+  
+  loading="lazy"
+  alt="插入节点120 插入节点120 "
+  
+    class="gallery-image"
+    data-flex-grow="142"
+    data-flex-basis="342px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-22-08_XaEl8hp_LS.gif"
+  width="340"
+  height="238"
+  
+  loading="lazy"
+  alt="调整树的结构 调整树的结构 "
+  
+    class="gallery-image"
+    data-flex-grow="142"
+    data-flex-basis="342px"
+  
+/>
+</p>
+<h3 id="父节点为红色叔叔节点为黑色且父子同侧llrr-型">父节点为红色，叔叔节点为黑色，且父子同侧（LL/RR 型）
+</h3><blockquote>
+<p>🧋<strong>左左型（LL）</strong>：右旋「祖父节点」。「父节点」变黑，「祖父节点」变红。</p>
+<p>🧋<strong>右右型（RR）</strong>：左旋「祖父节点」。「父节点」变黑，「祖父节点」变红。</p>
+</blockquote>
+<p><code>例1：</code>插入节点 70。父节点 80 为红色，叔叔节点 null 为黑色，且父节点 80 和目标节点 70 都是左子节点，为 LL 型。因此对祖父节点 90 进行右旋。父节点 80 变黑，祖父节点 90 变红。</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-27-03_S3aHGGYfkj.png"
+  width="381"
+  height="299"
+  
+  loading="lazy"
+  alt="原始树 原始树 "
+  
+    class="gallery-image"
+    data-flex-grow="127"
+    data-flex-basis="305px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-29-45_l1pn2zPmt0.png"
+  width="381"
+  height="299"
+  
+  loading="lazy"
+  alt="插入70节点 插入70节点 "
+  
+    class="gallery-image"
+    data-flex-grow="127"
+    data-flex-basis="305px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-26-47_FUDOqt44ET.gif"
+  width="381"
+  height="299"
+  
+  loading="lazy"
+  alt="调整树的结构 调整树的结构 "
+  
+    class="gallery-image"
+    data-flex-grow="127"
+    data-flex-basis="305px"
+  
+/>
+</p>
+<p><code>例2：</code>插入节点 97。父节点 95 为红色，叔叔节点 null 为黑色，且父节点 95 和目标节点 97 都是右子节点，为 RR 型。因此对祖父节点 90 进行右旋。父节点 95 变黑，祖父节点 90 变红。</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-44-53_lfBYGH_RQO.png"
+  width="381"
+  height="299"
+  
+  loading="lazy"
+  alt="原始树 原始树 "
+  
+    class="gallery-image"
+    data-flex-grow="127"
+    data-flex-basis="305px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-45-21_WeWz0ANMgW.png"
+  width="381"
+  height="299"
+  
+  loading="lazy"
+  alt="插入节点97 插入节点97 "
+  
+    class="gallery-image"
+    data-flex-grow="127"
+    data-flex-basis="305px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-44-41_8BulbeUvYo.gif"
+  width="381"
+  height="299"
+  
+  loading="lazy"
+  alt="调整树的结构 调整树的结构 "
+  
+    class="gallery-image"
+    data-flex-grow="127"
+    data-flex-basis="305px"
+  
+/>
+</p>
+<h3 id="父节点为红色叔叔节点为黑色且父子异侧lrrl-型">父节点为红色，叔叔节点为黑色，且父子异侧（LR/RL 型）
+</h3><blockquote>
+<p>🧋<strong>左右型（LR）</strong>：先左旋「父节点」，再右旋「祖父节点」。「目标节点」变黑，「祖父节点」变红<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>。</p>
+<p>🧋<strong>右左型（RL）</strong>：先右旋「父节点」，再左旋「祖父节点」。「目标节点」变黑，「祖父节点」变红<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>。</p>
+</blockquote>
+<p><code>例1：</code>插入节点 85。父节点 80 为红色，叔叔节点 null 为黑色，且父节点 80 是左子节点，目标节点 85 是右子节点，为 LR 型。因此先对父节点 80 进行左旋，再对祖父节点 90 进行右旋。目标节点 85 变黑，祖父节点 90 变红。</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-48-38_LK1TUkgXl6.png"
+  width="381"
+  height="299"
+  
+  loading="lazy"
+  alt="原始树 原始树 "
+  
+    class="gallery-image"
+    data-flex-grow="127"
+    data-flex-basis="305px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-48-55_R9wBcsUPJ9.png"
+  width="381"
+  height="299"
+  
+  loading="lazy"
+  alt="插入节点85 插入节点85 "
+  
+    class="gallery-image"
+    data-flex-grow="127"
+    data-flex-basis="305px"
+  
+/>
+</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-49-53_8OB_UvhBzd.gif"
+  width="381"
+  height="299"
+  
+  loading="lazy"
+  alt="调整树的结构 调整树的结构 "
+  
+    class="gallery-image"
+    data-flex-grow="127"
+    data-flex-basis="305px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-49-07_mHJq5CXLOH.png"
+  width="381"
+  height="299"
+  
+  loading="lazy"
+  alt="调整后的树 调整后的树 "
+  
+    class="gallery-image"
+    data-flex-grow="127"
+    data-flex-basis="305px"
+  
+/>
+</p>
+<p><code>例2：</code>插入节点 92。父节点 95 为红色，叔叔节点 null 为黑色，且父节点 95 是右子节点，目标节点 92 是左子节点，为 RL 型。因此先对父节点 95 进行右旋，再对祖父节点 90 进行左旋。目标节点 92 变黑，祖父节点 90 变红。</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-59-16_tB2m_G8t1q.png"
+  width="381"
+  height="299"
+  
+  loading="lazy"
+  alt="原始树 原始树 "
+  
+    class="gallery-image"
+    data-flex-grow="127"
+    data-flex-basis="305px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_22-00-41_p3vE5F8v7L.png"
+  width="381"
+  height="299"
+  
+  loading="lazy"
+  alt="插入节点92 插入节点92 "
+  
+    class="gallery-image"
+    data-flex-grow="127"
+    data-flex-basis="305px"
+  
+/>
+</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_22-00-18_kgV5R6JkGA.gif"
+  width="381"
+  height="299"
+  
+  loading="lazy"
+  alt="调整树的结构 调整树的结构 "
+  
+    class="gallery-image"
+    data-flex-grow="127"
+    data-flex-basis="305px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-59-31_frbTBTN7dN.png"
+  width="381"
+  height="299"
+  
+  loading="lazy"
+  alt="调整后的树 调整后的树 "
+  
+    class="gallery-image"
+    data-flex-grow="127"
+    data-flex-basis="305px"
+  
+/>
+</p>
+<h2 id="红黑树的删除操作">红黑树的删除操作
+</h2><p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/%E7%BA%A2%E9%BB%91%E6%A0%91%E7%9A%84%E5%88%A0%E9%99%A4-1748085534719-4.png"
+  width="1677"
+  height="978"
+  
+  loading="lazy"
+  alt="红黑树的删除"
+  
+    class="gallery-image"
+    data-flex-grow="171"
+    data-flex-basis="411px"
+  
+/>
+</p>
+<blockquote>
+<p>🧋「当前节点」指的是删除了「目标节点」后，替换了「目标节点」位置的节点。</p>
+</blockquote>
+<h3 id="删除单个红节点">删除单个红节点
+</h3><blockquote>
+<p>🧋 单个红节点指的是左右子节点都是 null 的节点。不会影响红黑树的性质，因此可以直接删除。</p>
+</blockquote>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_09-37-07_lmA_U2bY5F.png"
+  width="326"
+  height="192"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="169"
+    data-flex-basis="407px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_09-37-25_UgD77giUAM.png"
+  width="326"
+  height="192"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="169"
+    data-flex-basis="407px"
+  
+/>
+</p>
+<h3 id="删除单个黑节点"><strong>删除单个黑节点</strong>
+</h3><blockquote>
+<p>🧋 单个黑节点指得是左右子节点都是 null 的节点。</p>
+<ol>
+<li><strong>兄弟节点是黑色，且远侄节点为红</strong>：旋转父节点，兄弟节点颜色变为父节点的颜色，父节点和远侄节点变黑。</li>
+<li><strong>兄弟节点是黑色，近侄节点为红，远侄节点为黑</strong>：旋转兄弟节点，近侄节点变黑，兄弟节点变红。转换为兄弟节点为黑，远侄节点为红。</li>
+<li><strong>兄弟节点为黑，且侄节点全黑</strong>：兄弟节点变红，将问题上移至父节点，递归处理。</li>
+<li><strong>兄弟节点为红</strong>：旋转父节点，兄弟节点变黑，父节点变红，转换成兄弟节点为黑的情况。</li>
+</ol>
+</blockquote>
+<p><code>例1：</code>删除节点 70。兄弟节点 100 是黑色，近侄节点 90 是红色，远侄节点 null 是黑色，为情况 2。删除节点 70 后，使用 null 节点代替，作为当前节点。</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-41-41_822nDf7s6i.png"
+  width="412"
+  height="232"
+  
+  loading="lazy"
+  alt="  "
+  
+    class="gallery-image"
+    data-flex-grow="177"
+    data-flex-basis="426px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-42-03_Ut1nIZhITM.png"
+  width="412"
+  height="232"
+  
+  loading="lazy"
+  alt="  "
+  
+    class="gallery-image"
+    data-flex-grow="177"
+    data-flex-basis="426px"
+  
+/>
+</p>
+<p>兄弟节点 100 右旋，近侄节点 90 变黑，兄弟节点 100 变红。</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-42-33_RAaz-XgwOH.png"
+  width="412"
+  height="232"
+  
+  loading="lazy"
+  alt="  "
+  
+    class="gallery-image"
+    data-flex-grow="177"
+    data-flex-basis="426px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-42-54_EFU7raX0a7.png"
+  width="412"
+  height="232"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="177"
+    data-flex-basis="426px"
+  
+/>
+</p>
+<p>此时并没有调整完成，以 null 节点为目标节点，转换成兄弟节点 90 为黑，远侄节点 100 为红的情况。左旋父节点 80，兄弟节点 90 颜色变为父节点 80 的颜色（此处为黑色），父节点 80 和远侄节点 100 变黑。</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-47-25_R72TaJHCat.png"
+  width="412"
+  height="232"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="177"
+    data-flex-basis="426px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-47-34_-n2GuW0NB7.png"
+  width="412"
+  height="232"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="177"
+    data-flex-basis="426px"
+  
+/>
+</p>
+<p><code>例2：</code>删除节点 120。兄弟节点是红色，为情况 4。删除节点 120 后，使用 null 节点代替，作为当前节点。</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-14-08_b6qMH6BP-F.png"
+  width="412"
+  height="232"
+  
+  loading="lazy"
+  alt="  "
+  
+    class="gallery-image"
+    data-flex-grow="177"
+    data-flex-basis="426px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-14-57_EJTNuXKBCI.png"
+  width="412"
+  height="232"
+  
+  loading="lazy"
+  alt="  "
+  
+    class="gallery-image"
+    data-flex-grow="177"
+    data-flex-basis="426px"
+  
+/>
+</p>
+<p>右旋父节点 100，兄弟节点 80 变黑，父节点 100 变红。</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-36-23_4nTHWTBetU.png"
+  width="412"
+  height="232"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="177"
+    data-flex-basis="426px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-20-09_hRrx4gupDs.png"
+  width="412"
+  height="232"
+  
+  loading="lazy"
+  alt="  "
+  
+    class="gallery-image"
+    data-flex-grow="177"
+    data-flex-basis="426px"
+  
+/>
+</p>
+<p>此时并没有调整完成，以 null 节点为目标节点，转换成兄弟节点 90 为黑，侄节点全黑的情况。兄弟节点 90 变红，并递归检查。</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-33-15_xwYcqnW7Ik.png"
+  width="412"
+  height="232"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="177"
+    data-flex-basis="426px"
+  
+/>
+</p>
+<h3 id="删除只包含一个子节点的黑色节点该节点只可能是红色节点">删除只包含一个子节点的黑色节点，该节点只可能是红色节点
+</h3><p>只包含一个子节点时，这是唯一情况。目标节点为红色或者子节点为黑色，都会破坏红黑树的性质。</p>
+<blockquote>
+<p>🧋 目标节点替换为红色子节点，且子节点变为黑色。</p>
+</blockquote>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-11_12-39-47_tGIi43hMja.png"
+  width="235"
+  height="206"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="114"
+    data-flex-basis="273px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-11_12-39-59_dnh63OG8ei.png"
+  width="235"
+  height="206"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="114"
+    data-flex-basis="273px"
+  
+/>
+</p>
+<h3 id="删除包含两个子节点的节点不论红黑">删除包含两个子节点的节点（不论红黑）
+</h3><blockquote>
+<p>🧋 使用「左子树的最右节点<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>」代替该节点，颜色保持一致，仅替换内容。然后删除最右节点（跳转其他情况）。</p>
+</blockquote>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-11_17-05-40_A1yrPdYsZC.png"
+  width="487"
+  height="304"
+  
+  loading="lazy"
+  alt="原始树 原始树 "
+  
+    class="gallery-image"
+    data-flex-grow="160"
+    data-flex-basis="384px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-11_17-06-03_u7J4LaHmEi.png"
+  width="487"
+  height="304"
+  
+  loading="lazy"
+  alt="使用左子树的最右节点替换当前节点 使用左子树的最右节点替换当前节点 "
+  
+    class="gallery-image"
+    data-flex-grow="160"
+    data-flex-basis="384px"
+  
+/>
+</p>
+<p><img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-11_17-05-15_l7RxXM2Rc_.gif"
+  width="487"
+  height="304"
+  
+  loading="lazy"
+  alt="调整树的结构 调整树的结构 "
+  
+    class="gallery-image"
+    data-flex-grow="160"
+    data-flex-basis="384px"
+  
+/>
+
+<img
+  src="/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-11_17-05-34_snwoW7gw9z.png"
+  width="487"
+  height="304"
+  
+  loading="lazy"
+  alt="调整后的树 调整后的树 "
+  
+    class="gallery-image"
+    data-flex-grow="160"
+    data-flex-basis="384px"
+  
+/>
+</p>
+<hr>
+<p><a class="link" href="https://zhuanlan.zhihu.com/p/166319823"  title="红黑树的原理 (插入&#43; 删除) 案例分析"
+     target="_blank" rel="noopener"
+    >红黑树的原理 (插入+ 删除) 案例分析</a></p>
+<p><a class="link" href="https://www.cs.usfca.edu/~galles/visualization/RedBlack.html"  title="红黑树可视化网站"
+     target="_blank" rel="noopener"
+    >红黑树可视化网站</a></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>红色节点不会连续出现&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>可能违反违反性质 4&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>可能违反性质 4，一定违反性质 5&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>左旋「父节点」之后，已经转化成了 LL 型的情况。&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>右旋「父节点」之后，已经转化成了 RR 型的情况。&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>也可以右子树的最左节点&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/">
+        
+        
+            <div class="article-image">
+                <img src="/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/Title.2cab42b6087383245623940b5182fa61.jpg" 
+                        width="4961" 
+                        height="2754" 
+                        loading="lazy"
+                        alt="Featured image of post Microsoft Rewards 自动获取助手"
+                        
+                        data-hash="md5-LKtCtghzgyRWI5QLUYL6YQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Microsoft Rewards 自动获取助手</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/Title.89b034d6079105049854308af561c78d.jpg" 
+                        width="5246" 
+                        height="3497" 
+                        loading="lazy"
+                        alt="Featured image of post 软件推荐"
+                        
+                        data-hash="md5-ibA01geRBQSYVDCK9WHHjQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">软件推荐</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/">
+        
+        
+            <div class="article-image">
+                <img src="/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/Title.fc8b11fc60ef9781175204fe035aeadd.jpg" 
+                        width="2500" 
+                        height="1667" 
+                        loading="lazy"
+                        alt="Featured image of post ZerosTodo 个人助手"
+                        
+                        data-hash="md5-/IsR/GDvl4EXUgT&#43;A1rq3Q==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ZerosTodo 个人助手</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2025 Zeros遇见
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

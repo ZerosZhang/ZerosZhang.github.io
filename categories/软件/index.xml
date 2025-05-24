@@ -7,7 +7,779 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Zeros遇见</copyright>
-        <lastBuildDate>Thu, 06 Feb 2025 15:44:39 +0800</lastBuildDate><atom:link href="https://zeroszhang.github.io/categories/%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 24 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://zeroszhang.github.io/categories/%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>红黑树</title>
+        <link>https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/</link>
+        <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/</guid>
+        <description>&lt;img src="https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/Title.jpg" alt="Featured image of post 红黑树" /&gt;&lt;h2 id=&#34;红黑树诞生的背景&#34;&gt;红黑树诞生的背景
+&lt;/h2&gt;&lt;p&gt;普通的二叉搜索树在添加有序数据（递增或者递减）的时候，所有的节点都会在根节点的右侧或者左侧，此时普通的二叉树就退化成链表，操作的时间复杂组退化成了$O(N)$。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/image_whCvbOT7Ij.png&#34;
+  width=&#34;720&#34;
+  height=&#34;559&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;128&#34;
+    data-flex-basis=&#34;309px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;于是就有了平衡二叉树（AVL 树）。平衡二叉树通过平衡因子来限制树的解构——&lt;strong&gt;任意节点的子树的高度差都小于等于 1&lt;/strong&gt;。将查询效率优化为了$\log _{2} n$。&lt;/p&gt;
+&lt;p&gt;AVL 树作为严格平衡的二叉树，就需要频繁的通过旋转操作来保持平衡，而旋转操作是比较耗时的，导致了维护这种高度平衡所付出的代价比从中获得的收益还大，因此只适用于插入删除次数较少，但是查找多的情况。&lt;/p&gt;
+&lt;p&gt;在上面的大背景下，诞生了红黑树，即使在最坏的情况下，也可以在$ \log _{2} n$时间内实现插入/删除/查找操作。&lt;/p&gt;
+&lt;p&gt;红黑树是一个弱平衡二叉树，相比于严格平衡的 AVL 树，每次树的结构发生改变需要调整时，所需要的转换次数更少，因此对于插入和删除操作的效率更高。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/image_MfNghsHPdV.png&#34;
+  width=&#34;722&#34;
+  height=&#34;354&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;203&#34;
+    data-flex-basis=&#34;489px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;红黑属性的意义&#34;&gt;红黑属性的意义
+&lt;/h2&gt;&lt;p&gt;为了确保红黑树的弱平衡属性，要求没有任何一条路径比其他路径长出两倍。因此在每个节点上增加了颜色属性——红或者黑。&lt;/p&gt;
+&lt;p&gt;红黑属性通过颜色规则来保持树的平衡，减少旋转操作。每次改变了树的结构（插入/删除操作）之后，最多只需要两次旋转操作即可完成树的平衡。&lt;/p&gt;
+&lt;h2 id=&#34;红黑树的性质&#34;&gt;红黑树的性质
+&lt;/h2&gt;&lt;p&gt;红黑树有五条性质，记住后面两条就行：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;每个节点非红即黑&lt;/li&gt;
+&lt;li&gt;根节点是黑的&lt;/li&gt;
+&lt;li&gt;每个叶节点（树尾端 NULL 节点）都是黑的&lt;/li&gt;
+&lt;li&gt;如果一个节点是红的,那么它的两儿子都是黑的&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;任意节点到每个叶子节点的所有路径都包含相同数目的黑节点&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;节点的定义&#34;&gt;节点的定义
+&lt;/h2&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_09-32-57_A-oVSsOBZu.png&#34;
+  width=&#34;698&#34;
+  height=&#34;257&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;271&#34;
+    data-flex-basis=&#34;651px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;红黑树的着色和旋转&#34;&gt;红黑树的着色和旋转
+&lt;/h2&gt;&lt;p&gt;在插入/删除节点的时候，会破坏红黑树的性质，因此需要调整红黑树的结构，以满足上述性质。总共包含三种调整的操作——着色/左旋/右旋。&lt;/p&gt;
+&lt;p&gt;着色指的是将红色节点变为黑色节点，或者黑色节点变为红色节点。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_20-44-40_JD_iLQlgdf.png&#34;
+  width=&#34;535&#34;
+  height=&#34;257&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;黑变红或者红变黑&#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;208&#34;
+    data-flex-basis=&#34;499px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;左旋操作如下所示：&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/image_9Zz4k-LX_8.png&#34;
+  width=&#34;1105&#34;
+  height=&#34;485&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;227&#34;
+    data-flex-basis=&#34;546px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;右旋操作如下所示：&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/image_KThfgLwkU8.png&#34;
+  width=&#34;1106&#34;
+  height=&#34;485&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;228&#34;
+    data-flex-basis=&#34;547px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;红黑树中的红黑属性并非唯一&#34;&gt;红黑树中的红黑属性并非唯一
+&lt;/h2&gt;&lt;p&gt;红黑树的颜色属性情况并非只有唯一解，只要保证满足红黑树性质即可。如下所示，在插入 101 后删除 101，红黑树还是原来的红黑树，但是颜色属性变化了。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_20-51-32_17dz04mD3F.png&#34;
+  width=&#34;307&#34;
+  height=&#34;172&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;178&#34;
+    data-flex-basis=&#34;428px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_20-51-52_ibPOatK2dX.png&#34;
+  width=&#34;307&#34;
+  height=&#34;172&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;178&#34;
+    data-flex-basis=&#34;428px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;红黑树的插入操作&#34;&gt;红黑树的插入操作
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;这里有一个规则，新插入的节点一定是红色的。因为红色节点可能不会影响平衡&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;，但是黑色节点一定会影响树的平衡&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;。默认插入红色节点可以减少后续操作。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;红黑树的插入操作分为四种情况：&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/%E7%BA%A2%E9%BB%91%E6%A0%91%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C-1748085534718-3.png&#34;
+  width=&#34;2949&#34;
+  height=&#34;1125&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;红黑树插入操作&#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;262&#34;
+    data-flex-basis=&#34;629px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;🦪&lt;strong&gt;以下的「父节点」「叔叔节点」「祖父节点」都是插入新节点后，调整树结构前的状态（图 2 中）&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;父节点为黑&#34;&gt;父节点为黑
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;🧋 直接插入新元素，不需要调整树的结构。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;父节点为红色叔叔节点为红色&#34;&gt;父节点为红色，叔叔节点为红色
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;🧋「父节点」和「叔叔节点」变黑，「祖父节点」变红，递归检查祖父节点是否引发新的冲突。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如图 1，插入节点 120。父节点是 110，叔叔节点是 90，符合该情况。因此将父节点 110 和叔叔节点 90 变黑，祖父节点 100 变红。引发性质 2 冲突，因此将祖父节点 100 变黑。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-23-40_wqZWRdTZB4.png&#34;
+  width=&#34;340&#34;
+  height=&#34;238&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;原始树 原始树 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;142&#34;
+    data-flex-basis=&#34;342px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-30-55_Eq3eUJ4yAW.png&#34;
+  width=&#34;340&#34;
+  height=&#34;238&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;插入节点120 插入节点120 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;142&#34;
+    data-flex-basis=&#34;342px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-22-08_XaEl8hp_LS.gif&#34;
+  width=&#34;340&#34;
+  height=&#34;238&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;调整树的结构 调整树的结构 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;142&#34;
+    data-flex-basis=&#34;342px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;父节点为红色叔叔节点为黑色且父子同侧llrr-型&#34;&gt;父节点为红色，叔叔节点为黑色，且父子同侧（LL/RR 型）
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;🧋&lt;strong&gt;左左型（LL）&lt;/strong&gt;：右旋「祖父节点」。「父节点」变黑，「祖父节点」变红。&lt;/p&gt;
+&lt;p&gt;🧋&lt;strong&gt;右右型（RR）&lt;/strong&gt;：左旋「祖父节点」。「父节点」变黑，「祖父节点」变红。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;例1：&lt;/code&gt;插入节点 70。父节点 80 为红色，叔叔节点 null 为黑色，且父节点 80 和目标节点 70 都是左子节点，为 LL 型。因此对祖父节点 90 进行右旋。父节点 80 变黑，祖父节点 90 变红。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-27-03_S3aHGGYfkj.png&#34;
+  width=&#34;381&#34;
+  height=&#34;299&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;原始树 原始树 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;127&#34;
+    data-flex-basis=&#34;305px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-29-45_l1pn2zPmt0.png&#34;
+  width=&#34;381&#34;
+  height=&#34;299&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;插入70节点 插入70节点 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;127&#34;
+    data-flex-basis=&#34;305px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-26-47_FUDOqt44ET.gif&#34;
+  width=&#34;381&#34;
+  height=&#34;299&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;调整树的结构 调整树的结构 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;127&#34;
+    data-flex-basis=&#34;305px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;例2：&lt;/code&gt;插入节点 97。父节点 95 为红色，叔叔节点 null 为黑色，且父节点 95 和目标节点 97 都是右子节点，为 RR 型。因此对祖父节点 90 进行右旋。父节点 95 变黑，祖父节点 90 变红。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-44-53_lfBYGH_RQO.png&#34;
+  width=&#34;381&#34;
+  height=&#34;299&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;原始树 原始树 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;127&#34;
+    data-flex-basis=&#34;305px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-45-21_WeWz0ANMgW.png&#34;
+  width=&#34;381&#34;
+  height=&#34;299&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;插入节点97 插入节点97 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;127&#34;
+    data-flex-basis=&#34;305px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-44-41_8BulbeUvYo.gif&#34;
+  width=&#34;381&#34;
+  height=&#34;299&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;调整树的结构 调整树的结构 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;127&#34;
+    data-flex-basis=&#34;305px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;父节点为红色叔叔节点为黑色且父子异侧lrrl-型&#34;&gt;父节点为红色，叔叔节点为黑色，且父子异侧（LR/RL 型）
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;🧋&lt;strong&gt;左右型（LR）&lt;/strong&gt;：先左旋「父节点」，再右旋「祖父节点」。「目标节点」变黑，「祖父节点」变红&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;🧋&lt;strong&gt;右左型（RL）&lt;/strong&gt;：先右旋「父节点」，再左旋「祖父节点」。「目标节点」变黑，「祖父节点」变红&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;例1：&lt;/code&gt;插入节点 85。父节点 80 为红色，叔叔节点 null 为黑色，且父节点 80 是左子节点，目标节点 85 是右子节点，为 LR 型。因此先对父节点 80 进行左旋，再对祖父节点 90 进行右旋。目标节点 85 变黑，祖父节点 90 变红。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-48-38_LK1TUkgXl6.png&#34;
+  width=&#34;381&#34;
+  height=&#34;299&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;原始树 原始树 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;127&#34;
+    data-flex-basis=&#34;305px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-48-55_R9wBcsUPJ9.png&#34;
+  width=&#34;381&#34;
+  height=&#34;299&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;插入节点85 插入节点85 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;127&#34;
+    data-flex-basis=&#34;305px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-49-53_8OB_UvhBzd.gif&#34;
+  width=&#34;381&#34;
+  height=&#34;299&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;调整树的结构 调整树的结构 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;127&#34;
+    data-flex-basis=&#34;305px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-49-07_mHJq5CXLOH.png&#34;
+  width=&#34;381&#34;
+  height=&#34;299&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;调整后的树 调整后的树 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;127&#34;
+    data-flex-basis=&#34;305px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;例2：&lt;/code&gt;插入节点 92。父节点 95 为红色，叔叔节点 null 为黑色，且父节点 95 是右子节点，目标节点 92 是左子节点，为 RL 型。因此先对父节点 95 进行右旋，再对祖父节点 90 进行左旋。目标节点 92 变黑，祖父节点 90 变红。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-59-16_tB2m_G8t1q.png&#34;
+  width=&#34;381&#34;
+  height=&#34;299&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;原始树 原始树 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;127&#34;
+    data-flex-basis=&#34;305px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_22-00-41_p3vE5F8v7L.png&#34;
+  width=&#34;381&#34;
+  height=&#34;299&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;插入节点92 插入节点92 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;127&#34;
+    data-flex-basis=&#34;305px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_22-00-18_kgV5R6JkGA.gif&#34;
+  width=&#34;381&#34;
+  height=&#34;299&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;调整树的结构 调整树的结构 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;127&#34;
+    data-flex-basis=&#34;305px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-10_21-59-31_frbTBTN7dN.png&#34;
+  width=&#34;381&#34;
+  height=&#34;299&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;调整后的树 调整后的树 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;127&#34;
+    data-flex-basis=&#34;305px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;红黑树的删除操作&#34;&gt;红黑树的删除操作
+&lt;/h2&gt;&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/%E7%BA%A2%E9%BB%91%E6%A0%91%E7%9A%84%E5%88%A0%E9%99%A4-1748085534719-4.png&#34;
+  width=&#34;1677&#34;
+  height=&#34;978&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;红黑树的删除&#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;171&#34;
+    data-flex-basis=&#34;411px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;🧋「当前节点」指的是删除了「目标节点」后，替换了「目标节点」位置的节点。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;删除单个红节点&#34;&gt;删除单个红节点
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;🧋 单个红节点指的是左右子节点都是 null 的节点。不会影响红黑树的性质，因此可以直接删除。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_09-37-07_lmA_U2bY5F.png&#34;
+  width=&#34;326&#34;
+  height=&#34;192&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;169&#34;
+    data-flex-basis=&#34;407px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_09-37-25_UgD77giUAM.png&#34;
+  width=&#34;326&#34;
+  height=&#34;192&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;169&#34;
+    data-flex-basis=&#34;407px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;删除单个黑节点&#34;&gt;&lt;strong&gt;删除单个黑节点&lt;/strong&gt;
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;🧋 单个黑节点指得是左右子节点都是 null 的节点。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;兄弟节点是黑色，且远侄节点为红&lt;/strong&gt;：旋转父节点，兄弟节点颜色变为父节点的颜色，父节点和远侄节点变黑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;兄弟节点是黑色，近侄节点为红，远侄节点为黑&lt;/strong&gt;：旋转兄弟节点，近侄节点变黑，兄弟节点变红。转换为兄弟节点为黑，远侄节点为红。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;兄弟节点为黑，且侄节点全黑&lt;/strong&gt;：兄弟节点变红，将问题上移至父节点，递归处理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;兄弟节点为红&lt;/strong&gt;：旋转父节点，兄弟节点变黑，父节点变红，转换成兄弟节点为黑的情况。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;例1：&lt;/code&gt;删除节点 70。兄弟节点 100 是黑色，近侄节点 90 是红色，远侄节点 null 是黑色，为情况 2。删除节点 70 后，使用 null 节点代替，作为当前节点。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-41-41_822nDf7s6i.png&#34;
+  width=&#34;412&#34;
+  height=&#34;232&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;  &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;177&#34;
+    data-flex-basis=&#34;426px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-42-03_Ut1nIZhITM.png&#34;
+  width=&#34;412&#34;
+  height=&#34;232&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;  &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;177&#34;
+    data-flex-basis=&#34;426px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;兄弟节点 100 右旋，近侄节点 90 变黑，兄弟节点 100 变红。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-42-33_RAaz-XgwOH.png&#34;
+  width=&#34;412&#34;
+  height=&#34;232&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;  &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;177&#34;
+    data-flex-basis=&#34;426px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-42-54_EFU7raX0a7.png&#34;
+  width=&#34;412&#34;
+  height=&#34;232&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;177&#34;
+    data-flex-basis=&#34;426px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;此时并没有调整完成，以 null 节点为目标节点，转换成兄弟节点 90 为黑，远侄节点 100 为红的情况。左旋父节点 80，兄弟节点 90 颜色变为父节点 80 的颜色（此处为黑色），父节点 80 和远侄节点 100 变黑。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-47-25_R72TaJHCat.png&#34;
+  width=&#34;412&#34;
+  height=&#34;232&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;177&#34;
+    data-flex-basis=&#34;426px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-47-34_-n2GuW0NB7.png&#34;
+  width=&#34;412&#34;
+  height=&#34;232&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;177&#34;
+    data-flex-basis=&#34;426px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;例2：&lt;/code&gt;删除节点 120。兄弟节点是红色，为情况 4。删除节点 120 后，使用 null 节点代替，作为当前节点。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-14-08_b6qMH6BP-F.png&#34;
+  width=&#34;412&#34;
+  height=&#34;232&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;  &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;177&#34;
+    data-flex-basis=&#34;426px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-14-57_EJTNuXKBCI.png&#34;
+  width=&#34;412&#34;
+  height=&#34;232&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;  &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;177&#34;
+    data-flex-basis=&#34;426px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;右旋父节点 100，兄弟节点 80 变黑，父节点 100 变红。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-36-23_4nTHWTBetU.png&#34;
+  width=&#34;412&#34;
+  height=&#34;232&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;177&#34;
+    data-flex-basis=&#34;426px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-20-09_hRrx4gupDs.png&#34;
+  width=&#34;412&#34;
+  height=&#34;232&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;  &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;177&#34;
+    data-flex-basis=&#34;426px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;此时并没有调整完成，以 null 节点为目标节点，转换成兄弟节点 90 为黑，侄节点全黑的情况。兄弟节点 90 变红，并递归检查。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-12_10-33-15_xwYcqnW7Ik.png&#34;
+  width=&#34;412&#34;
+  height=&#34;232&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;177&#34;
+    data-flex-basis=&#34;426px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;删除只包含一个子节点的黑色节点该节点只可能是红色节点&#34;&gt;删除只包含一个子节点的黑色节点，该节点只可能是红色节点
+&lt;/h3&gt;&lt;p&gt;只包含一个子节点时，这是唯一情况。目标节点为红色或者子节点为黑色，都会破坏红黑树的性质。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;🧋 目标节点替换为红色子节点，且子节点变为黑色。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-11_12-39-47_tGIi43hMja.png&#34;
+  width=&#34;235&#34;
+  height=&#34;206&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;114&#34;
+    data-flex-basis=&#34;273px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-11_12-39-59_dnh63OG8ei.png&#34;
+  width=&#34;235&#34;
+  height=&#34;206&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;114&#34;
+    data-flex-basis=&#34;273px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;删除包含两个子节点的节点不论红黑&#34;&gt;删除包含两个子节点的节点（不论红黑）
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;🧋 使用「左子树的最右节点&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;」代替该节点，颜色保持一致，仅替换内容。然后删除最右节点（跳转其他情况）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-11_17-05-40_A1yrPdYsZC.png&#34;
+  width=&#34;487&#34;
+  height=&#34;304&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;原始树 原始树 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;160&#34;
+    data-flex-basis=&#34;384px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-11_17-06-03_u7J4LaHmEi.png&#34;
+  width=&#34;487&#34;
+  height=&#34;304&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;使用左子树的最右节点替换当前节点 使用左子树的最右节点替换当前节点 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;160&#34;
+    data-flex-basis=&#34;384px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-11_17-05-15_l7RxXM2Rc_.gif&#34;
+  width=&#34;487&#34;
+  height=&#34;304&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;调整树的结构 调整树的结构 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;160&#34;
+    data-flex-basis=&#34;384px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/%E7%BA%A2%E9%BB%91%E6%A0%91/assets/PixPin_2025-05-11_17-05-34_snwoW7gw9z.png&#34;
+  width=&#34;487&#34;
+  height=&#34;304&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34;调整后的树 调整后的树 &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;160&#34;
+    data-flex-basis=&#34;384px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/166319823&#34;  title=&#34;红黑树的原理 (插入&amp;#43; 删除) 案例分析&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;红黑树的原理 (插入+ 删除) 案例分析&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cs.usfca.edu/~galles/visualization/RedBlack.html&#34;  title=&#34;红黑树可视化网站&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;红黑树可视化网站&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;红色节点不会连续出现&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;可能违反违反性质 4&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;可能违反性质 4，一定违反性质 5&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;左旋「父节点」之后，已经转化成了 LL 型的情况。&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;右旋「父节点」之后，已经转化成了 RR 型的情况。&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
+&lt;p&gt;也可以右子树的最左节点&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
         <title>Microsoft Rewards 自动获取助手</title>
         <link>https://zeroszhang.github.io/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/</link>
         <pubDate>Thu, 06 Feb 2025 15:44:39 +0800</pubDate>
@@ -305,21 +1077,26 @@
   
 /&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;文本编辑器-sublime-text&#34;&gt;文本编辑器 Sublime Text
-&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.sublimetext.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://www.sublimetext.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;轻量化的文本编辑器，颜值很高。需要一点设置才能支持中文。&lt;/p&gt;
+&lt;h2 id=&#34;文本编辑器-notpad--&#34;&gt;文本编辑器 Notpad&amp;ndash;
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gitee.com/cxasm/notepad--&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://gitee.com/cxasm/notepad--&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;选择这个文本编辑器有几点原因：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;操作逻辑和VS2022相同&lt;/li&gt;
+&lt;li&gt;不用折腾&lt;/li&gt;
+&lt;li&gt;支持多标签&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;img
-  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/ZSublime-1748076949464-24.png&#34;
-  width=&#34;1319&#34;
-  height=&#34;802&#34;
+  src=&#34;https://zeroszhang.github.io/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/assets/image-20250524190247538.png&#34;
+  width=&#34;1313&#34;
+  height=&#34;872&#34;
   
   loading=&#34;lazy&#34;
   
   
     class=&#34;gallery-image&#34;
-    data-flex-grow=&#34;164&#34;
-    data-flex-basis=&#34;394px&#34;
+    data-flex-grow=&#34;150&#34;
+    data-flex-basis=&#34;361px&#34;
   
 /&gt;
 &lt;/p&gt;
@@ -447,7 +1224,7 @@
 &lt;p&gt;项目代码上传到此处：&lt;a class=&#34;link&#34; href=&#34;https://gitee.com/Zeros_Zhang/ZerosTodo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;ZerosTodo&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;更新记录&#34;&gt;更新记录
-&lt;/h2&gt;&lt;p&gt;2025年3月18日 更新：新增文字朗读的功能，优化 UI 界面。&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;2025年3月18日 更新：新增文字朗读的功能，优化 UI 界面。这个功能可以上传TxT文件，并调用Windows的语音包朗读内容。&lt;/p&gt;
 &lt;p&gt;&lt;img
   src=&#34;https://zeroszhang.github.io/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/assets/PixPin_2025-04-18_17-40-58-1748076960651-45.png&#34;
   width=&#34;786&#34;
