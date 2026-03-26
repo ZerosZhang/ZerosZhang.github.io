@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="对Visual Studio插件Codist的功能介绍，这是我一直使用VS的重要原因。">
+<title>Codist插件功能</title>
+
+<link rel='canonical' href='https://zeroszhang.github.io/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Codist插件功能">
+<meta property='og:description' content="对Visual Studio插件Codist的功能介绍，这是我一直使用VS的重要原因。">
+<meta property='og:url' content='https://zeroszhang.github.io/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/'>
+<meta property='og:site_name' content='Zeros遇见的作品集合'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-26T10:05:10&#43;08:00'/><meta property='article:modified_time' content='2026-03-26T10:05:10&#43;08:00'/><meta property='og:image' content='https://zeroszhang.github.io/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/Title.jpg' />
+<meta name="twitter:title" content="Codist插件功能">
+<meta name="twitter:description" content="对Visual Studio插件Codist的功能介绍，这是我一直使用VS的重要原因。"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://zeroszhang.github.io/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/Title.jpg' />
+    <link rel="shortcut icon" href="/%e5%a4%b4%e5%83%8f.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu2450056213648967934.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">📸</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Zeros遇见的作品集合</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#对c语法提供高亮显示">对C#语法提供高亮显示</a></li>
+    <li><a href="#对注释的高亮显示">对注释的高亮显示</a></li>
+    <li><a href="#对xaml语言的高亮">对xaml语言的高亮</a></li>
+    <li><a href="#快速信息增强">快速信息增强</a></li>
+    <li><a href="#c强化代码提示">C#强化代码提示</a></li>
+    <li><a href="#导航栏增强">导航栏增强</a></li>
+    <li><a href="#智能工具条">智能工具条</a>
+      <ol>
+        <li><a href="#转到定义">转到定义</a></li>
+        <li><a href="#分析">分析</a></li>
+        <li><a href="#标记">标记</a></li>
+      </ol>
+    </li>
+    <li><a href="#滚动条标记">滚动条标记</a></li>
+    <li><a href="#自动更改版本号">自动更改版本号</a></li>
+    <li><a href="#显示增强">显示增强</a></li>
+    <li><a href="#自动配对标点符号">自动配对标点符号</a></li>
+    <li><a href="#额外功能">额外功能</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/">
+                <img src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/Title.jpg"
+                        
+                        width="4896" 
+                        height="3264" 
+                        loading="lazy"
+                        alt="Featured image of post Codist插件功能" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%BD%AF%E4%BB%B6/" >
+                软件
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/">Codist插件功能</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            对Visual Studio插件Codist的功能介绍，这是我一直使用VS的重要原因。
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2026年3月26日</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>🧋官方地址：<a class="link" href="https://github.com/wmjordan/Codist"  title="https://github.com/wmjordan/Codist"
+     target="_blank" rel="noopener"
+    >https://github.com/wmjordan/Codist</a></p>
+</blockquote>
+<h2 id="对c语法提供高亮显示">对C#语法提供高亮显示
+</h2><p>对于该功能，我最喜欢的是在「工具-配置Codist高级语法样式」提供的界面，简化了对高亮方案的调整。</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_21-46-14_XpYHSP8PM2.png"
+  width="546"
+  height="593"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="92"
+    data-flex-basis="220px"
+  
+/>
+</p>
+<h2 id="对注释的高亮显示">对注释的高亮显示
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">// +++ Head 01 
+</span></span><span class="line"><span class="cl">// ++ Head 01 
+</span></span><span class="line"><span class="cl">// + Head 01
+</span></span><span class="line"><span class="cl">// - head 02
+</span></span><span class="line"><span class="cl">// -- head 02
+</span></span><span class="line"><span class="cl">// --- head 02
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// # Notice
+</span></span><span class="line"><span class="cl">// ! Important
+</span></span><span class="line"><span class="cl">// ? Question
+</span></span><span class="line"><span class="cl">// x Remove
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// todo 测试
+</span></span><span class="line"><span class="cl">// undone 测试
+</span></span><span class="line"><span class="cl">// note 测试
+</span></span><span class="line"><span class="cl">// hack 测试
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/Clip_2024-11-06_21-16-06_nBJQGC3968.png"
+  width="257"
+  height="449"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="57"
+    data-flex-basis="137px"
+  
+/>
+</p>
+<h2 id="对xaml语言的高亮">对xaml语言的高亮
+</h2><p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/image_aoXqmXqyMm.png"
+  width="1564"
+  height="659"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="237"
+    data-flex-basis="569px"
+  
+/>
+</p>
+<h2 id="快速信息增强">快速信息增强
+</h2><p>「快速信息」指的是鼠标悬停在C#代码时显示的工具提示。</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_21-56-00_2Qc-8T9jLh.png"
+  width="746"
+  height="593"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="125"
+    data-flex-basis="301px"
+  
+/>
+</p>
+<p>此处对该界面的配置功能进行解释：</p>
+<ul>
+<li>「选择信息」：勾选后显示所选区域的字符数和行数（如果跨行）。</li>
+</ul>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/image_Td6TLKlacN.png"
+  width="904"
+  height="98"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="922"
+    data-flex-basis="2213px"
+  
+/>
+</p>
+<ul>
+<li>「颜色信息」：勾选后可以预览颜色值</li>
+</ul>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/image_0_xxeNI4ML.png"
+  width="937"
+  height="249"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="376"
+    data-flex-basis="903px"
+  
+/>
+</p>
+<h2 id="c强化代码提示">C#强化代码提示
+</h2><p>该功能是对快速信息增强功能的详细设置，在显示C#的快速信息时，提供更多的信息。</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-03-49_zdvXGNOmBC.png"
+  width="422"
+  height="245"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="172"
+    data-flex-basis="413px"
+  
+/>
+</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-06-06_Pv71mPmiSR.png"
+  width="447"
+  height="347"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="128"
+    data-flex-basis="309px"
+  
+/>
+</p>
+<p>可以在选项界面对需要显示的内容进行配置。</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-00-47_58N01ZSZdE.png"
+  width="746"
+  height="593"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="125"
+    data-flex-basis="301px"
+  
+/>
+</p>
+<h2 id="导航栏增强">导航栏增强
+</h2><p>导航栏位于代码编辑器窗口顶部，它会覆盖原有的导航栏。导航栏同时适用于C# 代码文档和Markdown文档。</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/image_xyDZH7yAGc.png.mark.png"
+  width="910"
+  height="180"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="505"
+    data-flex-basis="1213px"
+  
+/>
+</p>
+<blockquote>
+<p>如果搜索框中的第一个字符是大写字母，则搜索区分大小写 ；否则，搜索不区分大小写。</p>
+</blockquote>
+<p>导航栏可以在选项页面进行配置：</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-15-17_C3V0qliYUU.png"
+  width="746"
+  height="593"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="125"
+    data-flex-basis="301px"
+  
+/>
+</p>
+<ul>
+<li>「语法细节」：勾选后还会额外显示函数调用的层级，如<code>FindAll</code>在<code>ConvertAll</code>中被调用</li>
+</ul>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/image_vFlctWA72r.png"
+  width="715"
+  height="213"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="335"
+    data-flex-basis="805px"
+  
+/>
+</p>
+<ul>
+<li>「符号代码提示」：勾选后鼠标悬停在导航栏的节点上时，会显示额外信息</li>
+</ul>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/image_T1bFNG5fVT.png"
+  width="715"
+  height="213"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="335"
+    data-flex-basis="805px"
+  
+/>
+</p>
+<ul>
+<li>「突出显示语法范围」：勾选后鼠标悬停在导航栏的节点上时，编辑器会高亮显示该节点的范围</li>
+</ul>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/image_AbylKQPI1W.png"
+  width="715"
+  height="213"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="335"
+    data-flex-basis="805px"
+  
+/>
+</p>
+<ul>
+<li>「区域」：勾选后导航栏将显示<code>#region</code>名称。如果在region名称中添加了非字母的字符，比如<code>#region [====== private methods ======]</code>可以勾选「不显示#region名称的非字母字符」这样就只会显示字母部分<code>private methods</code></li>
+</ul>
+<h2 id="智能工具条">智能工具条
+</h2><p>智能工具条是一个跟随鼠标的上下文感知工具栏。当你选择文本或者双击shift键时会出现。</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-24-11_wjtqSm0NRI.png"
+  width="384"
+  height="127"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="302"
+    data-flex-basis="725px"
+  
+/>
+</p>
+<p>智能工具条通常有两行。第一行包含是通用的文本编辑命令，第二行会根据内容的类型变化。</p>
+<p>智能工具条上的每个按钮通常都有多种功能。「左键单击」「右键单击」「Ctrl+单击」和「Shift+单击」会触发不同的命令，参考按钮的提示。</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-28-35_GEGQqfKoAR.png"
+  width="515"
+  height="150"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="343"
+    data-flex-basis="824px"
+  
+/>
+</p>
+<p>该功能可以在选项界面进行配置。</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-29-25_wjA9WKuTw9.png"
+  width="746"
+  height="593"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="125"
+    data-flex-basis="301px"
+  
+/>
+</p>
+<h3 id="转到定义">转到定义
+</h3><p>和F12功能相同，我习惯使用F12，所以用不太上。</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-35-37_cIdlrpn6Bw.png"
+  width="581"
+  height="192"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="302"
+    data-flex-basis="726px"
+  
+/>
+</p>
+<h3 id="分析">分析
+</h3><p>使用「分析-列出成员」可以快速查看颜色类中的定义，比如<code>SystemColors</code>、<code>Colors</code>、<code>Brushes</code>。</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-32-11_ZaEW0wD8X_.png"
+  width="566"
+  height="733"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="77"
+    data-flex-basis="185px"
+  
+/>
+</p>
+<h3 id="标记">标记
+</h3><p>对代码中的变量进行标记。不能标记整行，智能标记某个词。可以在对C#语法提供高亮显示中进行配置。</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-37-33_1_FktUFEu8Uf.png"
+  width="447"
+  height="319"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="140"
+    data-flex-basis="336px"
+  
+/>
+</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/image_vSrkA-ceXb.png"
+  width="700"
+  height="434"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="161"
+    data-flex-basis="387px"
+  
+/>
+</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/image_qXpwv2quBd.png"
+  width="497"
+  height="407"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="122"
+    data-flex-basis="293px"
+  
+/>
+</p>
+<h2 id="滚动条标记">滚动条标记
+</h2><p>滚动条标记会在垂直滚动条上为一些语法元素绘制额外的形状，如下图中的右侧所示。可以在选项页面更改配置。</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/image_yhlzcKdcSE.png"
+  width="1171"
+  height="882"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="132"
+    data-flex-basis="318px"
+  
+/>
+</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-42-23_aNwvd3gSav.png"
+  width="746"
+  height="593"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="125"
+    data-flex-basis="301px"
+  
+/>
+</p>
+<h2 id="自动更改版本号">自动更改版本号
+</h2><p>Codist可以在生成项目之前自动更改输出程序集的版本号，选中项目-右键-自动生成版本号设置。</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-43-56_J5to9jo8n9.png"
+  width="586"
+  height="243"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="241"
+    data-flex-basis="578px"
+  
+/>
+</p>
+<h2 id="显示增强">显示增强
+</h2><p>可以对Visual Studio的界面显示进行优化处理。</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-45-46_sNL81XzLKw.png"
+  width="746"
+  height="593"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="125"
+    data-flex-basis="301px"
+  
+/>
+</p>
+<h2 id="自动配对标点符号">自动配对标点符号
+</h2><p>Codist可以在输入时，自动为选定内容配对标点符号。</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-50-24_UImrdXJ8wk.png"
+  width="746"
+  height="593"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="125"
+    data-flex-basis="301px"
+  
+/>
+</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-50-35_eW0ajKBVbZ.png"
+  width="746"
+  height="593"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="125"
+    data-flex-basis="301px"
+  
+/>
+</p>
+<p>这个功能指的是，选中文本后，输入<code>&quot;</code>可以使用<code>&quot;</code>包围文本，转化成字符串。</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-52-57_jrjH52NDDn.gif"
+  width="576"
+  height="110"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="523"
+    data-flex-basis="1256px"
+  
+/>
+</p>
+<p>如果关闭这个功能，输入字符会替换所选的内容，而不是使用符号包围内容。</p>
+<h2 id="额外功能">额外功能
+</h2><p>在「生成」菜单中添加了额外的菜单命令：</p>
+<p><img
+  src="/p/codist%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD/image/PixPin_2026-03-22_22-55-10_uQoUduKd3G.png"
+  width="429"
+  height="401"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="106"
+    data-flex-basis="256px"
+  
+/>
+</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/zerossvn%E9%A1%B9%E7%9B%AE%E5%8A%A9%E6%89%8B/">
+        
+        
+            <div class="article-image">
+                <img src="/p/zerossvn%E9%A1%B9%E7%9B%AE%E5%8A%A9%E6%89%8B/title.5861945fbc27d06b05587d7833cace6f.jpg" 
+                        width="2465" 
+                        height="1669" 
+                        loading="lazy"
+                        alt="Featured image of post ZerosSVN项目助手"
+                        
+                        data-hash="md5-WGGUX7wn0GsFWH14M8rObw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ZerosSVN项目助手</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/">
+        
+        
+            <div class="article-image">
+                <img src="/p/microsoft-rewards-%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%8A%A9%E6%89%8B/Title.2cab42b6087383245623940b5182fa61.jpg" 
+                        width="4961" 
+                        height="2754" 
+                        loading="lazy"
+                        alt="Featured image of post Microsoft Rewards 自动获取助手"
+                        
+                        data-hash="md5-LKtCtghzgyRWI5QLUYL6YQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Microsoft Rewards 自动获取助手</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/Title.89b034d6079105049854308af561c78d.jpg" 
+                        width="5246" 
+                        height="3497" 
+                        loading="lazy"
+                        alt="Featured image of post 软件推荐"
+                        
+                        data-hash="md5-ibA01geRBQSYVDCK9WHHjQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">软件推荐</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/">
+        
+        
+            <div class="article-image">
+                <img src="/p/zerostodo-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E6%89%8B/Title.fc8b11fc60ef9781175204fe035aeadd.jpg" 
+                        width="2500" 
+                        height="1667" 
+                        loading="lazy"
+                        alt="Featured image of post ZerosTodo 个人助手"
+                        
+                        data-hash="md5-/IsR/GDvl4EXUgT&#43;A1rq3Q==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ZerosTodo 个人助手</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2026 Zeros遇见
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
