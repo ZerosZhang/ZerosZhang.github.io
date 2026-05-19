@@ -15,7 +15,7 @@
         <guid>https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/</guid>
         <description>&lt;img src="https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/Title.jpg" alt="Featured image of post AI编程下的产物2026年5月" /&gt;&lt;p&gt;这篇文章记录是，是最近我使用 AI 编程实现的几个软件，用于解决我平时遇到的问题。&lt;/p&gt;
 &lt;p&gt;或许你也有过，做一件事情的时候脑子里会思考，有些地方不对，太繁琐了。但是又因为学习成本太高或者精力不足，使得自己很难改变什么。&lt;/p&gt;
-&lt;p&gt;在 AI 时代下，我开始意识到 AI 的价值正是帮助实现心理的想法。&lt;/p&gt;
+&lt;p&gt;在 AI 时代下，我开始意识到 AI 的价值正是帮助实现心里的想法。&lt;/p&gt;
 &lt;h2 id=&#34;博客发布&#34;&gt;博客发布
 &lt;/h2&gt;&lt;p&gt;近期由于本地 AI Agent 的爆火，我将我的笔记系统从 wolai 导出到了 Obsidian 中了。粗略的算了一下，自从我 2018 年开始养成记录的习惯后，前后写了 4000 多篇笔记了。&lt;/p&gt;
 &lt;p&gt;我的博客是去年才搭建的，但是更新频率并不多。其中一条原因是我将博客视作一个发布界面，并非每条笔记我都要发布出来。另一个很现实的原因是，我使用 hugo 编译静态网站，但是太难用了。&lt;/p&gt;
