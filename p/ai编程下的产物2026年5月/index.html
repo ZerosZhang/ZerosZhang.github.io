@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这篇文章记录是，是最近我使用 AI 编程实现的几个软件，用于解决我平时遇到的问题。">
+<title>AI编程下的产物2026年5月</title>
+
+<link rel='canonical' href='https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="AI编程下的产物2026年5月">
+<meta property='og:description' content="这篇文章记录是，是最近我使用 AI 编程实现的几个软件，用于解决我平时遇到的问题。">
+<meta property='og:url' content='https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/'>
+<meta property='og:site_name' content='Zeros遇见的作品集合'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-05-19T15:26:23&#43;08:00'/><meta property='article:modified_time' content='2026-05-19T15:26:23&#43;08:00'/><meta property='og:image' content='https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/Title.jpg' />
+<meta name="twitter:title" content="AI编程下的产物2026年5月">
+<meta name="twitter:description" content="这篇文章记录是，是最近我使用 AI 编程实现的几个软件，用于解决我平时遇到的问题。"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/Title.jpg' />
+    <link rel="shortcut icon" href="/%e5%a4%b4%e5%83%8f.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu2450056213648967934.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">📸</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Zeros遇见的作品集合</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#博客发布">博客发布</a></li>
+    <li><a href="#每日阅读">每日阅读</a></li>
+    <li><a href="#文档翻译">文档翻译</a></li>
+    <li><a href="#obsidian-插件">Obsidian 插件</a></li>
+    <li><a href="#工作上的小软件">工作上的小软件</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/">
+                <img src="/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/Title.jpg"
+                        
+                        width="4133" 
+                        height="2745" 
+                        loading="lazy"
+                        alt="Featured image of post AI编程下的产物2026年5月" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/">AI编程下的产物2026年5月</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            这篇文章记录是，是最近我使用 AI 编程实现的几个软件，用于解决我平时遇到的问题。
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2026年5月19日</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>这篇文章记录是，是最近我使用 AI 编程实现的几个软件，用于解决我平时遇到的问题。</p>
+<p>或许你也有过，做一件事情的时候脑子里会思考，有些地方不对，太繁琐了。但是又因为学习成本太高或者精力不足，使得自己很难改变什么。</p>
+<p>在 AI 时代下，我开始意识到 AI 的价值正是帮助实现心理的想法。</p>
+<h2 id="博客发布">博客发布
+</h2><p>近期由于本地 AI Agent 的爆火，我将我的笔记系统从 wolai 导出到了 Obsidian 中了。粗略的算了一下，自从我 2018 年开始养成记录的习惯后，前后写了 4000 多篇笔记了。</p>
+<p>我的博客是去年才搭建的，但是更新频率并不多。其中一条原因是我将博客视作一个发布界面，并非每条笔记我都要发布出来。另一个很现实的原因是，我使用 hugo 编译静态网站，但是太难用了。</p>
+<p>基于这个原因，我使用 KimiCode 做了一个辅助博客发布的软件。</p>
+<p><img
+  src="/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image.png"
+  width="529"
+  height="350"
+  
+  loading="lazy"
+  alt=" "
+  
+    class="gallery-image"
+    data-flex-grow="151"
+    data-flex-basis="362px"
+  
+/>
+</p>
+<p>这个软件有三个功能：</p>
+<ol>
+<li>新建文章</li>
+<li>本地预览文章</li>
+<li>构建并发布博客</li>
+</ol>
+<p>希望我能使用这个工具，帮助我增加更新博客的频率。</p>
+<h2 id="每日阅读">每日阅读
+</h2><p>过去我一直使用 Folo 这个软件，订阅我常看的网站、博客，并且我会在笔记系统中记录我认为有价值的文章，并反复阅读。这就导致了一个问题：有一些过去我没有记录的内容，之后就如泥牛入海，再也找不到了。</p>
+<p>受到最近爆火的卡帕西的知识库的启发，以及最近 Folo 发布了自己 cli，我做了一个脚本，用于将我在 Folo 下的未读文章以 Markdown 的格式保存到本地。</p>
+<p><img
+  src="/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-1.png"
+  width="1920"
+  height="1032"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="186"
+    data-flex-basis="446px"
+  
+/>
+</p>
+<p>简单来说，首先使用 Folo 的 cli 获取未读文章的原始网络地址，然后根据原始网络地址对应的网站保存为本地的 html，最后根据 html 的来源使用不同的策略解析成对应的 markdown 文件。这些步骤我都使用 KimiCode 实现了一个 Python 脚本来运行。</p>
+<p>我会使用 KimiCode 去总结当天的 markdown 文件，告诉这些文章大概讲了什么内容，遇到我感兴趣的内容，再去读原文。最重要的是，做完这些后，我会按天将整个文件夹放在 Obsidian 中进行存档。这样在我后面想起来一篇文章但是找不到时，我就可以让 AI 去这个文件夹下寻找。</p>
+<p><img
+  src="/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-2.png"
+  width="1920"
+  height="1032"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="186"
+    data-flex-basis="446px"
+  
+/>
+</p>
+<h2 id="文档翻译">文档翻译
+</h2><p>Halcon 我在工作中经常会使用到的软件，功能十分强大，唯一的缺点是，文档和手册都是英文的，看起来太痛苦了。</p>
+<p>之前学习的时候，搭配翻译软件也能看个七七八八，但是过了一段时间之后，记忆会逐渐淡忘。为此我在 wolai 中曾经做过一个汉化的库。</p>
+<p><img
+  src="/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-3.png"
+  width="1920"
+  height="1032"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="186"
+    data-flex-basis="446px"
+  
+/>
+</p>
+<p>很遗憾的是，后来我意识到这件事太困难，并且效率太低了。</p>
+<p>现在 AI 的大环境下，我使用 ClaudeCode + DeepSeek 实现了 Halcon 本地算子的翻译，并将其放在了 Obsidian 中。</p>
+<p><img
+  src="/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-4.png"
+  width="1920"
+  height="1032"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="186"
+    data-flex-basis="446px"
+  
+/>
+</p>
+<p>这样做有两点好处：</p>
+<ol>
+<li>所有的内容都是基于本地的 html 文档翻译过来的，真实性有了保证</li>
+<li>转换成 markdown 之后，对于文档里我认为不足的地方可以直接修改</li>
+</ol>
+<p>除此以外，为了让我的同事们都可以用上中文的 Halcon 手册，我又回过头来将其编译成了 html。因为我的同事们并不使用 Obsidian，因此直接将 markdown 发给他们，还得下载 Obsidian 并且要保持和我的配置类似。为了简单一点，直接编译成 html，使用浏览器打开更简单一点。</p>
+<p><img
+  src="/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-5.png"
+  width="1920"
+  height="1032"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="186"
+    data-flex-basis="446px"
+  
+/>
+</p>
+<h2 id="obsidian-插件">Obsidian 插件
+</h2><p>正如我上面所说，我将笔记系统从 wolai 迁移到了 Obsidian 中。</p>
+<p>我好多年前就知道了 Obsidian 这个软件，但是因为其个性化能力太强，需要频繁的折腾和学习，我担心会影响我记笔记的积极性，最终还是选择了开箱即用的 wolai。</p>
+<p>但是在 AI 时代下，wolai 出现了致命缺陷——数据存在服务器上，我没法喂给 AI 使用。在经过了几天的纠结之后，我还是选择了放弃 wolai，使用 Obsidian。</p>
+<p>Obsidian 最强大的地方在于他的插件社区，虽然这也是我当初放弃的原因，因为插件太多了，每一个插件都要去学习，尤其是 Templater、DataView、Button 这几个插件，不但配置复杂，还要去学习 JS 语法。</p>
+<p>但是现在有了 AI，完全不需要去学了。我直接将这些插件的官方文档喂给 AI 做成了 Skill，然后使用这个 Skill 去实现我想要的功能，简单易用，并且自由度很高。</p>
+<p><img
+  src="/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-6.png"
+  width="1920"
+  height="1032"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="186"
+    data-flex-basis="446px"
+  
+/>
+
+<img
+  src="/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-7.png"
+  width="1920"
+  height="1032"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="186"
+    data-flex-basis="446px"
+  
+/>
+</p>
+<h2 id="工作上的小软件">工作上的小软件
+</h2><p>AI 在我工作上的帮助就更多了，也正是由于很多，所以这几只能挑几个进行说明。</p>
+<p>我使用 AI 优化了 ZerosSVN 软件，现在这个软件使用更简单了，一键即可实现同步、提交、冲突解决等所有步骤。</p>
+<p><img
+  src="/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-8.png"
+  width="1186"
+  height="793"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="149"
+    data-flex-basis="358px"
+  
+/>
+
+我用 AI 做了一个线扫描的仿真软件，加载对应的产品模型，就可以获得线扫描数据。这可以帮助我在测试软件时，提供一些数据。</p>
+<p><img
+  src="/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-9.png"
+  width="1402"
+  height="932"
+  
+  loading="lazy"
+  
+  
+    class="gallery-image"
+    data-flex-grow="150"
+    data-flex-basis="361px"
+  
+/>
+</p>
+<h2 id="总结">总结
+</h2><p>这几个软件没有一个是需要大量的学习才能做出来的，全都是我遇到了实际问题，然后去思考该如何解决问题，最后使用 AI 大约几个小时就能做出来。</p>
+<p>我一直认为自己不是一个顶尖的程序员，但我始终认为自己是一个很好的产品经理。</p>
+<p>AI 使得我的 90% 技能，价值变为 0，但使得剩下的 10% 技能，价值增长了 1000 倍。每个人在 AI 面前，都需要重新调整自己的技能。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2026 Zeros遇见
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -7,7 +7,199 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Zeros遇见</copyright>
-        <lastBuildDate>Mon, 30 Mar 2026 16:17:46 +0800</lastBuildDate><atom:link href="https://zeroszhang.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 19 May 2026 15:26:23 +0800</lastBuildDate><atom:link href="https://zeroszhang.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>AI编程下的产物2026年5月</title>
+        <link>https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/</link>
+        <pubDate>Tue, 19 May 2026 15:26:23 +0800</pubDate>
+        
+        <guid>https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/</guid>
+        <description>&lt;img src="https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/Title.jpg" alt="Featured image of post AI编程下的产物2026年5月" /&gt;&lt;p&gt;这篇文章记录是，是最近我使用 AI 编程实现的几个软件，用于解决我平时遇到的问题。&lt;/p&gt;
+&lt;p&gt;或许你也有过，做一件事情的时候脑子里会思考，有些地方不对，太繁琐了。但是又因为学习成本太高或者精力不足，使得自己很难改变什么。&lt;/p&gt;
+&lt;p&gt;在 AI 时代下，我开始意识到 AI 的价值正是帮助实现心理的想法。&lt;/p&gt;
+&lt;h2 id=&#34;博客发布&#34;&gt;博客发布
+&lt;/h2&gt;&lt;p&gt;近期由于本地 AI Agent 的爆火，我将我的笔记系统从 wolai 导出到了 Obsidian 中了。粗略的算了一下，自从我 2018 年开始养成记录的习惯后，前后写了 4000 多篇笔记了。&lt;/p&gt;
+&lt;p&gt;我的博客是去年才搭建的，但是更新频率并不多。其中一条原因是我将博客视作一个发布界面，并非每条笔记我都要发布出来。另一个很现实的原因是，我使用 hugo 编译静态网站，但是太难用了。&lt;/p&gt;
+&lt;p&gt;基于这个原因，我使用 KimiCode 做了一个辅助博客发布的软件。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image.png&#34;
+  width=&#34;529&#34;
+  height=&#34;350&#34;
+  
+  loading=&#34;lazy&#34;
+  alt=&#34; &#34;
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;151&#34;
+    data-flex-basis=&#34;362px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;这个软件有三个功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;新建文章&lt;/li&gt;
+&lt;li&gt;本地预览文章&lt;/li&gt;
+&lt;li&gt;构建并发布博客&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;希望我能使用这个工具，帮助我增加更新博客的频率。&lt;/p&gt;
+&lt;h2 id=&#34;每日阅读&#34;&gt;每日阅读
+&lt;/h2&gt;&lt;p&gt;过去我一直使用 Folo 这个软件，订阅我常看的网站、博客，并且我会在笔记系统中记录我认为有价值的文章，并反复阅读。这就导致了一个问题：有一些过去我没有记录的内容，之后就如泥牛入海，再也找不到了。&lt;/p&gt;
+&lt;p&gt;受到最近爆火的卡帕西的知识库的启发，以及最近 Folo 发布了自己 cli，我做了一个脚本，用于将我在 Folo 下的未读文章以 Markdown 的格式保存到本地。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-1.png&#34;
+  width=&#34;1920&#34;
+  height=&#34;1032&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;186&#34;
+    data-flex-basis=&#34;446px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;简单来说，首先使用 Folo 的 cli 获取未读文章的原始网络地址，然后根据原始网络地址对应的网站保存为本地的 html，最后根据 html 的来源使用不同的策略解析成对应的 markdown 文件。这些步骤我都使用 KimiCode 实现了一个 Python 脚本来运行。&lt;/p&gt;
+&lt;p&gt;我会使用 KimiCode 去总结当天的 markdown 文件，告诉这些文章大概讲了什么内容，遇到我感兴趣的内容，再去读原文。最重要的是，做完这些后，我会按天将整个文件夹放在 Obsidian 中进行存档。这样在我后面想起来一篇文章但是找不到时，我就可以让 AI 去这个文件夹下寻找。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-2.png&#34;
+  width=&#34;1920&#34;
+  height=&#34;1032&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;186&#34;
+    data-flex-basis=&#34;446px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;文档翻译&#34;&gt;文档翻译
+&lt;/h2&gt;&lt;p&gt;Halcon 我在工作中经常会使用到的软件，功能十分强大，唯一的缺点是，文档和手册都是英文的，看起来太痛苦了。&lt;/p&gt;
+&lt;p&gt;之前学习的时候，搭配翻译软件也能看个七七八八，但是过了一段时间之后，记忆会逐渐淡忘。为此我在 wolai 中曾经做过一个汉化的库。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-3.png&#34;
+  width=&#34;1920&#34;
+  height=&#34;1032&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;186&#34;
+    data-flex-basis=&#34;446px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;很遗憾的是，后来我意识到这件事太困难，并且效率太低了。&lt;/p&gt;
+&lt;p&gt;现在 AI 的大环境下，我使用 ClaudeCode + DeepSeek 实现了 Halcon 本地算子的翻译，并将其放在了 Obsidian 中。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-4.png&#34;
+  width=&#34;1920&#34;
+  height=&#34;1032&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;186&#34;
+    data-flex-basis=&#34;446px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;p&gt;这样做有两点好处：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;所有的内容都是基于本地的 html 文档翻译过来的，真实性有了保证&lt;/li&gt;
+&lt;li&gt;转换成 markdown 之后，对于文档里我认为不足的地方可以直接修改&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;除此以外，为了让我的同事们都可以用上中文的 Halcon 手册，我又回过头来将其编译成了 html。因为我的同事们并不使用 Obsidian，因此直接将 markdown 发给他们，还得下载 Obsidian 并且要保持和我的配置类似。为了简单一点，直接编译成 html，使用浏览器打开更简单一点。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-5.png&#34;
+  width=&#34;1920&#34;
+  height=&#34;1032&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;186&#34;
+    data-flex-basis=&#34;446px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;obsidian-插件&#34;&gt;Obsidian 插件
+&lt;/h2&gt;&lt;p&gt;正如我上面所说，我将笔记系统从 wolai 迁移到了 Obsidian 中。&lt;/p&gt;
+&lt;p&gt;我好多年前就知道了 Obsidian 这个软件，但是因为其个性化能力太强，需要频繁的折腾和学习，我担心会影响我记笔记的积极性，最终还是选择了开箱即用的 wolai。&lt;/p&gt;
+&lt;p&gt;但是在 AI 时代下，wolai 出现了致命缺陷——数据存在服务器上，我没法喂给 AI 使用。在经过了几天的纠结之后，我还是选择了放弃 wolai，使用 Obsidian。&lt;/p&gt;
+&lt;p&gt;Obsidian 最强大的地方在于他的插件社区，虽然这也是我当初放弃的原因，因为插件太多了，每一个插件都要去学习，尤其是 Templater、DataView、Button 这几个插件，不但配置复杂，还要去学习 JS 语法。&lt;/p&gt;
+&lt;p&gt;但是现在有了 AI，完全不需要去学了。我直接将这些插件的官方文档喂给 AI 做成了 Skill，然后使用这个 Skill 去实现我想要的功能，简单易用，并且自由度很高。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-6.png&#34;
+  width=&#34;1920&#34;
+  height=&#34;1032&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;186&#34;
+    data-flex-basis=&#34;446px&#34;
+  
+/&gt;
+
+&lt;img
+  src=&#34;https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-7.png&#34;
+  width=&#34;1920&#34;
+  height=&#34;1032&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;186&#34;
+    data-flex-basis=&#34;446px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;工作上的小软件&#34;&gt;工作上的小软件
+&lt;/h2&gt;&lt;p&gt;AI 在我工作上的帮助就更多了，也正是由于很多，所以这几只能挑几个进行说明。&lt;/p&gt;
+&lt;p&gt;我使用 AI 优化了 ZerosSVN 软件，现在这个软件使用更简单了，一键即可实现同步、提交、冲突解决等所有步骤。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-8.png&#34;
+  width=&#34;1186&#34;
+  height=&#34;793&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;149&#34;
+    data-flex-basis=&#34;358px&#34;
+  
+/&gt;
+
+我用 AI 做了一个线扫描的仿真软件，加载对应的产品模型，就可以获得线扫描数据。这可以帮助我在测试软件时，提供一些数据。&lt;/p&gt;
+&lt;p&gt;&lt;img
+  src=&#34;https://zeroszhang.github.io/p/ai%E7%BC%96%E7%A8%8B%E4%B8%8B%E7%9A%84%E4%BA%A7%E7%89%A92026%E5%B9%B45%E6%9C%88/assets/image-9.png&#34;
+  width=&#34;1402&#34;
+  height=&#34;932&#34;
+  
+  loading=&#34;lazy&#34;
+  
+  
+    class=&#34;gallery-image&#34;
+    data-flex-grow=&#34;150&#34;
+    data-flex-basis=&#34;361px&#34;
+  
+/&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结
+&lt;/h2&gt;&lt;p&gt;这几个软件没有一个是需要大量的学习才能做出来的，全都是我遇到了实际问题，然后去思考该如何解决问题，最后使用 AI 大约几个小时就能做出来。&lt;/p&gt;
+&lt;p&gt;我一直认为自己不是一个顶尖的程序员，但我始终认为自己是一个很好的产品经理。&lt;/p&gt;
+&lt;p&gt;AI 使得我的 90% 技能，价值变为 0，但使得剩下的 10% 技能，价值增长了 1000 倍。每个人在 AI 面前，都需要重新调整自己的技能。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>建立笔记系统</title>
         <link>https://zeroszhang.github.io/p/%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F/</link>
         <pubDate>Mon, 30 Mar 2026 16:17:46 +0800</pubDate>
