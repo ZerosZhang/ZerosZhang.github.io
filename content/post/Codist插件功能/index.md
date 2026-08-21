@@ -4,13 +4,13 @@ description: 对Visual Studio插件Codist的功能介绍，这是我一直使用
 date: 2026-03-26T10:05:10+08:00
 image: assets/cover.jpg
 categories:
-    - 项目
+    - 笔记
 tags:
     - 软件
 ---
 
-
-> 🧋官方地址：[https://github.com/wmjordan/Codist](https://github.com/wmjordan/Codist "https://github.com/wmjordan/Codist")
+> [!important]
+> 🧋官方地址：[https://github.com/wmjordan/Codist](https://github.com/wmjordan/Codist)
 
 ## 对C#语法提供高亮显示
 

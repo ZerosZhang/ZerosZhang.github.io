@@ -1,5 +1,5 @@
 ---
-title: 'Halcon例程笔记'
+title: 'Halcon手册'
 description: 阅读了 Halcon 官方手册，做了一些笔记
 date: 2025-02-20T15:55:19+08:00
 image: assets/cover.jpg
@@ -28,3 +28,5 @@ tags:
 ![](assets/PixPin_2025-02-20_15-54-07-1748076912939-3.png)
 
 部分例程学习后整理上传到此处：[Halcon 例程](https://gitee.com/Zeros_Zhang/HalconExample)
+
+2026年05月21日更新：我拿AI给整个Halcon的本地算子文档翻译了一遍，现在我的笔记中又增加了完整的、可编辑的算子手册。参考 [AI编程下的产物2026年5月](../AI编程下的产物2026年5月)。

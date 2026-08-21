@@ -4,8 +4,9 @@ description: 本文介绍半导体工艺中的传统封装和先进封装
 date: 2025-05-24T19:50:14+08:00
 image: assets/cover.jpg
 categories:
-    - 半导体工艺
+    - 笔记
 tags:
+    - 半导体工艺
 ---
 
 # 先进封装

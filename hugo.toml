@@ -161,12 +161,11 @@ theme = 'hugo-theme-stack-4.0.3'
             { type = "search" },                  # 搜索框
             { type = "archives", params = { limit = 5 } },       # 归档，最多显示 5 条
             { type = "categories", params = { limit = 10 } },    # 分类，最多显示 10 个
-            { type = "tag-cloud", params = { limit = 10 } },     # 标签云，最多显示 10 个
         ]
         page     = [                               # 文章/列表页侧边栏显示的小部件列表
+            { type = "search" },                  # 搜索框
             { type = "toc" },                      # 目录（有标题文章显示）
-            { type = "categories", params = { limit = 10 } },    # 分类（保证右侧栏始终有内容）
-            { type = "tag-cloud", params = { limit = 10 } },     # 标签云，最多显示 10 个
+            { type = "tag-cloud", params = { limit = 20 } },     # 标签云，最多显示 10 个
         ]
 
     [params.colorScheme]                          # 颜色主题（亮/暗模式）配置

@@ -1,11 +1,10 @@
 ---
-title: 'WPF控件库 BaseWPFControl'
+title: 'BaseWPFControl'
 description: 从底层开始实现的WPF自定义控件库，包含基础控件和自定义控件
 date: 2025-01-17T11:25:07+08:00
 image: assets/cover.jpg
 categories:
     - 项目
-
 tags:
     - 前端
     - WPF

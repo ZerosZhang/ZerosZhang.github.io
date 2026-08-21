@@ -4,8 +4,9 @@ description: 本文介绍半导体工艺中的芯片键合——Die Bonding（Di
 date: 2025-05-24T19:39:45+08:00
 image: assets/cover.jpg
 categories:
-    - 半导体工艺
+    - 笔记
 tags:
+    - 半导体工艺
 ---
 
 # 芯片键合（Die Bond）
