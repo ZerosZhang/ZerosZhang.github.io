@@ -1,0 +1,17 @@
+# 构建输出
+/public/
+
+# Hugo 缓存与临时文件
+/resources/
+.hugo_build.lock
+
+# 本地二进制（Hugo 程序，体积大，按需单独下载）
+/hugo.exe
+
+# 编辑器
+.vscode/
+.idea/
+
+# 操作系统文件
+.DS_Store
+Thumbs.db

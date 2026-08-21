@@ -1,0 +1,187 @@
+baseURL = 'https://zeroszhang.github.io/'
+locale = 'zh-cn'
+defaultContentLanguage = 'zh-cn'
+hasCJKLanguage = true
+title = 'Zeros遇见的作品集合'
+copyright = 'Zeros遇见'
+
+# 主题配置，放置在 themes/ 中
+theme = 'hugo-theme-stack-4.0.3'
+
+# ========== 站点级配置 ==========
+
+[pagination]
+    pagerSize = 50                                # 每页显示的文章数量
+
+[permalinks]                                      # 链接永久地址（URL）格式
+    post = "/p/:slug/"                            # 文章 URL 格式，如 /p/文章别名/
+    page = "/:slug/"                              # 独立页面 URL 格式，如 /about/
+
+# ========== 标记语言渲染配置（Markdown 解析） ==========
+
+[markup.goldmark]
+    [markup.goldmark.extensions]
+        [markup.goldmark.extensions.passthrough]  # 原始内容直通（用于数学公式等）
+            enable = true                         # 启用 LaTeX 公式支持
+
+            [markup.goldmark.extensions.passthrough.delimiters]    # 公式分隔符定义
+                block  = [["\\[", "\\]"], ["$$", "$$"]]     # 块级公式：\[...\] 或 $$...$$
+                inline = [["\\(", "\\)"]]                    # 行内公式：\(...\)
+
+    [markup.goldmark.renderer]
+        unsafe = true                             # 允许渲染原始 HTML（否则会被转义或过滤）
+
+# 目录（TOC）设置：用于自动生成文章目录
+[markup.tableOfContents]
+    startLevel = 2                                # 目录从第 2 级标题（##）开始
+    endLevel   = 3                                # 目录包含到第 3 级标题（###）
+    ordered    = true                             # 目录使用有序编号（1. 2. 3.）
+
+# 代码高亮设置（Chroma 引擎）
+[markup.highlight]
+    noClasses          = false                    # 使用 CSS class 而非内联样式（配合主题样式）
+    codeFences         = true                     # 启用 ``` 代码块围栏语法
+    guessSyntax        = true                     # 未标注语言的代码块自动猜测语法
+    lineNoStart        = 1                        # 行号从 1 开始
+    lineNos            = false                    # 默认显示行号
+    lineNumbersInTable = true                     # 行号放在独立的表格单元格中（便于复制代码）
+    tabWidth           = 4                        # Tab 键等效的空格数
+
+# ========== 相关文章推荐配置 ==========
+
+[related]
+    includeNewer = true                           # 是否包含发布时间比当前文章更新的文章
+    threshold    = 60                             # 匹配阈值（0-100），分数需达到此值才算相关
+    toLower      = false                          # 匹配前是否将文本转为小写（区分大小写）
+
+    indices      = [                              # 相关度评分权重：参与匹配的内容类型
+        { name = "tags", weight = 100 },          #   标签匹配，权重 100
+        { name = "categories", weight = 200 },    #   分类匹配，权重 200（比标签更重要）
+    ]
+
+# ========== 主菜单（显示在侧边栏） ==========
+
+[[menu.main]]
+    identifier = "home"
+    name       = "主页"                            # 显示名称
+    url        = "/"                              # 指向站点首页
+    weight     = -100
+
+    [menu.main.params]
+        icon = "home"                             # 显示的图标，位于 asset/icons
+
+[[menu.main]]
+    identifier = "essays"
+    name       = "随笔"                            # 随笔分类页
+    url        = "/categories/随笔/"
+    weight     = -90
+
+    [menu.main.params]
+        icon = "tag"
+
+[[menu.main]]
+    identifier = "projects"
+    name       = "项目"                            # 项目分类页
+    url        = "/categories/项目/"
+    weight     = -80
+
+    [menu.main.params]
+        icon = "link"
+
+# ========== 社交链接菜单（显示在侧边栏） ==========
+
+[[menu.social]]
+    identifier = "github"
+    name       = "GitHub"                         # 显示名称
+    url        = "https://github.com/ZerosZhang"  # 点击跳转的链接
+
+    [menu.social.params]
+        newTab = "true"
+        icon = "brand-github"                     # 显示的图标，位于 asset/icons
+
+[[menu.social]]
+    identifier = "email"
+    name       = "Email"
+    url        = "mailto:zeros_zhang@163.com"
+
+    [menu.social.params]
+        newTab = "true"
+        icon = "mail"
+
+[[menu.social]]
+    identifier = "rss"
+    name       = "RSS"
+    url        = "/index.xml"
+
+    [menu.social.params]
+        icon = "rss"
+
+# ========== 主题参数配置（Stack 主题） ==========
+
+[params]
+    mainSections   = ["post"]                     # 首页文章列表从哪些 section（内容类型）取文章
+    rssFullContent = true                         # RSS 订阅是否输出文章全文（true=全文，false=仅摘要）
+    favicon        = "/avatar.jpg"                # 网站图标路径（相对 static/）
+
+    [params.footer]                               # 页脚设置
+        since      = 2021                         # 建站起始年份，页脚显示为 "© 2021 - 当前年"
+        customText = "欢迎通过邮件与我联系：zeros_zhang@163.com"    # 页脚自定义文字（支持 HTML），留空则不显示
+
+    [params.dateFormat]                           # 文章日期显示格式
+        published   = "2006年1月2日"              # 发布时间格式（Hugo 时间格式占位符）
+        lastUpdated = "2006年1月2日 15:04"        # 最后更新时间的格式
+
+    [params.sidebar]                              # 侧边栏配置
+        compact = false                           # 是否紧凑模式（减少侧边栏留白）
+        emoji    = "🛸"                           # 侧边栏显示的 emoji 图标
+        avatar  = "/avatar.jpg"                   # 头像图片路径（相对 static/），留空则不显示
+
+    [params.article]                              # 文章页通用配置
+        headingAnchor = true                      # 是否在标题旁显示锚点链接图标
+        math          = true                      # 是否全局启用数学公式（KaTeX）；文章可单独用 front matter 覆盖
+        toc           = true                      # 是否显示目录（配合右侧 widgets 中的 toc 组件）
+        readingTime   = false                     # 是否显示预计阅读时间
+
+        [params.article.list]                     # 文章列表页（首页、分类、标签）配置
+            showTags = true                       # 是否在列表卡片中显示文章标签
+
+        [params.article.license]                  # 文章许可协议
+            enabled = false                       # 是否在文章底部显示许可信息
+            default = "Licensed under CC BY-NC-SA 4.0"   # 默认许可文本
+
+        [params.article.alertIcon]                # 提示块（admonition）图标配置
+            note      = "📝"                      # 不同提示类型使用的 emoji 图标
+            tip       = "💡"
+            important = "📌"
+            warning   = "⚠️"
+            caution   = "🚨"
+
+    [params.widgets]                              # 侧边栏小部件配置
+        homepage = [                              # 首页侧边栏显示的小部件列表
+            { type = "search" },                  # 搜索框
+            { type = "archives", params = { limit = 5 } },       # 归档，最多显示 5 条
+            { type = "categories", params = { limit = 10 } },    # 分类，最多显示 10 个
+            { type = "tag-cloud", params = { limit = 10 } },     # 标签云，最多显示 10 个
+        ]
+        page     = [                               # 文章/列表页侧边栏显示的小部件列表
+            { type = "toc" },                      # 目录（有标题文章显示）
+            { type = "categories", params = { limit = 10 } },    # 分类（保证右侧栏始终有内容）
+            { type = "tag-cloud", params = { limit = 10 } },     # 标签云，最多显示 10 个
+        ]
+
+    [params.colorScheme]                          # 颜色主题（亮/暗模式）配置
+        toggle  = true                            # 是否在侧边栏显示主题切换按钮
+        default = "dark"                          # 默认主题：auto / light / dark
+
+    [params.imageProcessing]                      # 图片处理配置
+        autoOrient = false                        # 是否根据 EXIF 信息自动旋转图片
+
+        [params.imageProcessing.external]         # 远程图片获取配置
+            timeout = "5s"                        # 获取远程图片的超时时间
+
+        [params.imageProcessing.content]          # 文章内容图片处理
+            widths  = [800, 1600, 2400]           # 生成的响应式图片宽度（像素）
+            enabled = true                        # 是否启用响应式图片（生成多尺寸 + srcset）
+
+        [params.imageProcessing.thumbnail]        # 缩略图处理
+            enabled = true                        # 是否启用缩略图生成
