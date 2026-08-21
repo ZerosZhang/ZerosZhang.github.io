@@ -2,36 +2,35 @@
 
 基于 [Hugo](https://gohugo.io/) + [Stack 主题](https://github.com/CaiJimmy/hugo-theme-stack) 构建的静态个人博客。
 
+**博客地址：https://zeroszhang.github.io/**
+
 ## 技术栈
 
 - Hugo（extended 版，本地 `hugo.exe`，v0.165.0）
 - Hugo Theme Stack v4.0.3（`themes/` 内嵌）
-- SCSS / TypeScript（由 Hugo Pipes 编译，无需 Node.js）
 
 ## 目录结构
 
 ```
 ├── hugo.toml          # 站点全部配置（含主题参数）
+├── hugo.exe           # 下载的 hugo 程序（自行下载）
 ├── content/
 │   ├── post/          # 文章（Page Bundle，每篇一个文件夹）
 │   └── page/          # 独立页面（about、archives、search、projects 等）
-├── themes/
-│   └── hugo-theme-stack-4.0.3/   # Stack 主题（内嵌，可自定义）
-├── static/            # 静态资源（avatar 等）
-└── public/            # 构建输出（部署用，已 gitignore）
+├── themes/            # 主题文件夹（内嵌，可自定义）
 ```
 
 ## 常用命令
 
 ```bash
-# 本地预览（含草稿）
-./hugo.exe server -D
-
-# 构建站点（输出到 public/）
-./hugo.exe
-
 # 新建文章
-./hugo.exe new post/主题名称/index.md
+./hugo new post/主题名称/index.md
+
+# 本地预览
+./hugo server -D
+
+# 构建站点（输出到 public/，已使用 github action 自动完成）
+./hugo
 ```
 
 ## 侧边栏菜单
@@ -52,4 +51,6 @@
 
 ## 部署
 
-`public/` 目录是一个独立的 Git 仓库，remote 指向 GitHub Pages 仓库，构建后推送即可部署。
+推送到 `main` 分支后，[GitHub Actions](.github/workflows/deploy.yml) 自动构建并部署到 `gh-pages` 分支。
+
+由 GitHub Pages 发布到 https://zeroszhang.github.io/
