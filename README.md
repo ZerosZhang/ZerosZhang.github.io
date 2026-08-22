@@ -62,30 +62,8 @@
 - **压缩脚本**：`.github/scripts/compress_images.py`（依赖 Pillow，`pip install Pillow`）
 - **git hook**：`.github/hooks/pre-commit`，每次 `git commit` 时自动压缩本次暂存的图片（封面 ≤300KB/宽 1200px，截图 ≤1MB/宽 1600px，GIF 跳过）
 
-### 新电脑 / clone 后需配置一次 hook
-
-hook 文件随仓库提交，但 git 的 hook 路径配置写在 `.git/config`（不上传），所以换电脑后执行一次：
+新电脑 clone 后需配置一次 hook
 
 ```bash
 git config core.hooksPath .github/hooks
-```
-
-> 说明：`.git/config` 不会随仓库同步，所以每台新电脑都要跑上面这条命令。
-
-### 手动压缩
-
-```bash
-# 压缩 content/ 下所有超标图片
-python .github/scripts/compress_images.py
-
-# 只预览会修改哪些，不写盘
-python .github/scripts/compress_images.py --dry-run
-```
-
-### 跳过 hook
-
-偶尔不想自动压缩时：
-
-```bash
-git commit --no-verify -m "提交信息"
 ```
