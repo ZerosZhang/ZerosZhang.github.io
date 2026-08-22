@@ -1,6 +1,6 @@
 #!/bin/sh
 # pre-commit hook: 提交前自动压缩本次暂存的图片
-# 安装：git config core.hooksPath .githooks
+# 安装：git config core.hooksPath .github/hooks
 
 echo "[pre-commit] 压缩暂存图片..."
 
@@ -17,7 +17,7 @@ fi
 # 注意：用 while ... <<EOF 在主 shell 中循环，避免管道子进程副作用
 while IFS= read -r f; do
     [ -z "$f" ] && continue
-    python scripts/compress_images.py --paths "$f"
+    python .github/scripts/compress_images.py --paths "$f"
     RC=$?
     if [ $RC -ne 0 ]; then
         echo "[pre-commit] 压缩脚本执行失败，提交中止"

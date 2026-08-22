@@ -12,12 +12,12 @@
   - 幂等：已达标（≤目标大小）的图片跳过不动，可反复运行
 
 用法：
-  python scripts/compress_images.py            # 实际压缩
-  python scripts/compress_images.py --dry-run  # 只预览会改哪些，不写盘
+  python .github/scripts/compress_images.py            # 实际压缩
+  python .github/scripts/compress_images.py --dry-run  # 只预览会改哪些，不写盘
 
 自定义阈值（可选）：
-  python scripts/compress_images.py --cover-max-w 1200 --cover-target 300
-  python scripts/compress_images.py --other-max-w 1600 --other-target 1000
+  python .github/scripts/compress_images.py --cover-max-w 1200 --cover-target 300
+  python .github/scripts/compress_images.py --other-max-w 1600 --other-target 1000
 
 依赖：pip install Pillow
 """
@@ -28,7 +28,7 @@ import os
 
 from PIL import Image
 
-BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "content")
+BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "content")
 
 DEFAULTS = {
     "cover_max_w": 1200,
