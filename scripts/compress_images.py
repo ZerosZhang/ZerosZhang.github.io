@@ -72,49 +72,64 @@ def encode(img, fmt, **kw):
     return b.getvalue()
 
 
+def iter_target_files(args):
+    if getattr(args, "paths", None):
+        for p in args.paths:
+            abspath = os.path.abspath(p)
+            if not os.path.isfile(abspath):
+                print(f"WARN 不存在: {p}")
+                continue
+            yield abspath
+        return
+    for dirpath, dirnames, filenames in os.walk(BASE_DIR):
+        for fn in filenames:
+            yield os.path.join(dirpath, fn)
+
+
 def process(args):
     total_before = total_after = 0
     changed = skipped = 0
-    for dirpath, dirnames, filenames in os.walk(BASE_DIR):
-        for fn in filenames:
-            ext = os.path.splitext(fn)[1].lower()
-            if ext not in (".jpg", ".jpeg", ".png"):
-                continue
+    for path in iter_target_files(args):
+        ext = os.path.splitext(path)[1].lower()
+        if ext not in (".jpg", ".jpeg", ".png"):
+            continue
 
-            path = os.path.join(dirpath, fn)
+        try:
             size = os.path.getsize(path)
-            is_cover = fn.lower() == "cover.jpg"
-            max_w = args.cover_max_w if is_cover else args.other_max_w
-            target = args.cover_target_kb * 1024 if is_cover else args.other_target_kb * 1024
+        except OSError:
+            continue
+        is_cover = os.path.basename(path).lower() == "cover.jpg"
+        max_w = args.cover_max_w if is_cover else args.other_max_w
+        target = args.cover_target_kb * 1024 if is_cover else args.other_target_kb * 1024
 
-            if size <= target:
-                skipped += 1
+        if size <= target:
+            skipped += 1
+            continue
+
+        total_before += size
+        try:
+            img = Image.open(path)
+            img.load()
+            if getattr(img, "is_animated", False):
+                print(f"SKIP  (动图)  {path} ({human(size)})")
                 continue
+            buf = compress_to_target(size, img, max_w, target, ext == ".png")
+        except Exception as e:
+            print(f"ERROR {path}: {e}")
+            continue
 
-            total_before += size
-            try:
-                img = Image.open(path)
-                img.load()
-                if getattr(img, "is_animated", False):
-                    print(f"SKIP  (动图)  {path} ({human(size)})")
-                    continue
-                buf = compress_to_target(size, img, max_w, target, ext == ".png")
-            except Exception as e:
-                print(f"ERROR {path}: {e}")
-                continue
+        if buf is None:
+            print(f"KEEP  (压不动)  {path} ({human(size)})")
+            continue
 
-            if buf is None:
-                print(f"KEEP  (压不动)  {path} ({human(size)})")
-                continue
-
-            if args.dry_run:
-                print(f"DRY   {path}: {human(size)} -> ~{human(len(buf))}")
-            else:
-                with open(path, "wb") as f:
-                    f.write(buf)
-                print(f"OK    {path}: {human(size)} -> {human(len(buf))}")
-            total_after += len(buf)
-            changed += 1
+        if args.dry_run:
+            print(f"DRY   {path}: {human(size)} -> ~{human(len(buf))}")
+        else:
+            with open(path, "wb") as f:
+                f.write(buf)
+            print(f"OK    {path}: {human(size)} -> {human(len(buf))}")
+        total_after += len(buf)
+        changed += 1
 
     print("\n=== 统计 ===")
     print(f"已处理 {changed} 张（已达标跳过 {skipped} 张）")
@@ -131,6 +146,8 @@ def main():
     ap.add_argument("--cover-target", dest="cover_target_kb", type=int, default=DEFAULTS["cover_target_kb"], metavar="KB")
     ap.add_argument("--other-max-w", type=int, default=DEFAULTS["other_max_w"])
     ap.add_argument("--other-target", dest="other_target_kb", type=int, default=DEFAULTS["other_target_kb"], metavar="KB")
+    ap.add_argument("--paths", nargs="+", metavar="FILE",
+                    help="只处理指定文件（供 git hook 使用）；缺省扫描整个 content/")
     args = ap.parse_args()
 
     if not os.path.isdir(BASE_DIR):
