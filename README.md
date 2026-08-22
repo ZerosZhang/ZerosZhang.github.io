@@ -54,3 +54,38 @@
 推送到 `main` 分支后，[GitHub Actions](.github/workflows/deploy.yml) 自动构建并部署到 `gh-pages` 分支。
 
 由 GitHub Pages 发布到 https://zeroszhang.github.io/
+
+## 图片压缩
+
+写文章时图片可能过大（截图、封面动辄几 MB），仓库体积会膨胀。项目内置了自动压缩工具：
+
+- **压缩脚本**：`.github/scripts/compress_images.py`（依赖 Pillow，`pip install Pillow`）
+- **git hook**：`.github/hooks/pre-commit`，每次 `git commit` 时自动压缩本次暂存的图片（封面 ≤300KB/宽 1200px，截图 ≤1MB/宽 1600px，GIF 跳过）
+
+### 新电脑 / clone 后需配置一次 hook
+
+hook 文件随仓库提交，但 git 的 hook 路径配置写在 `.git/config`（不上传），所以换电脑后执行一次：
+
+```bash
+git config core.hooksPath .github/hooks
+```
+
+> 说明：`.git/config` 不会随仓库同步，所以每台新电脑都要跑上面这条命令。
+
+### 手动压缩
+
+```bash
+# 压缩 content/ 下所有超标图片
+python .github/scripts/compress_images.py
+
+# 只预览会修改哪些，不写盘
+python .github/scripts/compress_images.py --dry-run
+```
+
+### 跳过 hook
+
+偶尔不想自动压缩时：
+
+```bash
+git commit --no-verify -m "提交信息"
+```
